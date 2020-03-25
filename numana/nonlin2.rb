@@ -427,7 +427,7 @@ polynomial <M>f(x),</M> because <M>f'(x)</M> is
 again a polynomial. So  we can compute it by Horner's method:
 <MULTILINE>
 c_{n-1} &  = &  na_n\\
-c_i &  = &  (i+1)a_{i+1) + c_{i+1}x \quad \mbox{ for } i=n-2,...,0.
+c_i &  = &  (i+1)a_{i+1} + c_{i+1}x \quad \mbox{ for } i=n-2,...,0.
 </MULTILINE>
 At the end of the iteration <M>c_0</M> stores the required value of
 <M>f'(x).</M>
