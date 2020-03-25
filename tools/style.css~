@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+body {
+	padding:10;
+	margin:10;
+	/*background: url(special-background.jpg) fixed;*/
+	font-family: SHREE_BAN_OTF_0592;
+}
+
+.token {
+	border:1px solid #000;
+        padding:2px;
+}
+
+.j {
+    color: red;
+    font-family: helvetica;
+    font-size: large;
+}

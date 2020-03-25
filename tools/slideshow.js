@@ -1,0 +1,41 @@
+function SlideShow(tg,mx) {
+    var current = 1;
+    var maxSld = mx;
+    var tag = tg;
+    this.pic = null;
+    this.msg = null;
+
+/*
+    this.preload = function() {
+        img
+        for(i=1;i<=mx;i++) {
+            var img=new Image();
+            img.src=pic[i];
+        }
+    }
+*/
+    this.showIt = function() {
+        var temp = document.getElementById(tag+"pics");
+        temp.innerHTML = "<center><img src=image/"+this.pic[current]+" /></center>";
+        temp = document.getElementById(tag+"msgs");
+        temp.innerHTML = this.msg[current];
+        temp = document.getElementById(tag+"which");
+        temp.innerHTML = "<b>"+current+"/"+maxSld+"</b>";
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,tag+"msgs"]);
+
+    }
+    
+    this.gonext = function() {
+        if(current >= maxSld) return;
+        current++;
+        this.showIt();
+        return false; //Prevents browser default action
+    }
+
+    this.goprev = function() {
+        if(current <= 1) return;
+        current--;
+        this.showIt();
+        return false; //Prevents browser default action
+    }
+}
