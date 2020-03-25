@@ -753,14 +753,14 @@ Sturm's sequence that is visible from a plot:
 <HIDE lab="how"><MSG>[Creating the plot in J]</MSG><HIDDEN>
 
 <J>
-f0=: p0 & p.
-f1=: p1 & p.
-f2=: p2 & p.
-f3=: p3 & p.
-f4=: p4 & p.
-f5=: p5 & p.
 x =: _0.7+200%~i.100
-plot (]; f0,f1,f2,f3,f4,:f5) x
+y0=: p0 p. x
+y1=: p1 p. x
+y2=: p2 p. x
+y3=: p3 p. x
+y4=: p4 p. x
+y5=: p5 p. x
+plot x; y0,y1,y2,y3,y4,:y5
 </J>
 </HIDDEN></HIDE>
 
