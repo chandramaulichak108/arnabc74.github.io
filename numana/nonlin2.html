@@ -67,7 +67,7 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
       }
     }
   });
-</script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
 <link href="../tools/rgl.css" rel="stylesheet"></link>
 <script src="../tools/rglClass.src.js"></script>
 <script src="../tools/CanvasMatrix.src.js"></script>
@@ -142,7 +142,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-SUN MAR 22 IST 2020</i></td>
+TUE MAR 24 IST 2020</i></td>
 </tr>
 </table>
 
@@ -924,7 +924,7 @@ polynomials. However, it is easy to implement it.
 <span class="j">
 <pre>
 f=: dyad : 'y- (((#y)-#x)#0),x * (({:y) % {:x)'
-s=: monad : '(&gt;: (0=y) i: 0) {. y'
+s=: monad : '(1 + (0=y) i: 0) {. y'
 r=:s@f ^: (#@[ &lt;: #@])
 
 rm=:r ^:_
@@ -1009,8 +1009,8 @@ There is just a single sign change. So $\sigma(0) = 1.$
 
 <fieldset>
 <legend><b><i>Sturm's theorem</i></b></legend>
-Let $a&lt;b\in{\mathbb R}$ be two numbers that are not zeros
-of $p(x).$ Then $\sigma(a)-\sigma(b)$ is the number of
+Let $a&lt;b\in{\mathbb R}$ be two numbers that are not zeros of any of the
+$p_i$'s. Then $\sigma(a)-\sigma(b)$ is the number of
 real roots of $p(x)$ in the interval $(a,b).$
 </fieldset>
 
