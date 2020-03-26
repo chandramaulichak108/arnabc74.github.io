@@ -398,7 +398,7 @@ We use the iteration
 \bx_{n+1} = M^{-1} N \bx_n + M^{-1}\bb.
 </D>
 <EXM>
-In Gauss-Jacobi <M>M</M> consists of the diagonal elements
+In Gauss-Jacobi  <M>M</M> consists of the diagonal elements
 of <M>A.</M> 
 </EXM>
 
