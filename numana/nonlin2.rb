@@ -804,7 +804,7 @@ function taking only integer values.
 the zeroes of <M>p_0</M>.
 <P/>
 <B>Proof:</B> Let <M>c</M> be a number that is <I>not</I> a zero
-of <M>p_0.</M> It may be a zero for some or none of the
+of <M>p_0</M>. It may be a zero for some or none of the
 other <M>p_k</M>'s. If it is not a zero of any of
 the <M>p_k</M>'s then the sign sequence does not change, and
 so <M>\sigma</M> has no jump. If <M>c</M> is a zero of
