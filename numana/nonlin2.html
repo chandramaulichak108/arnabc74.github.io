@@ -960,7 +960,13 @@ this from the dividend <code>y</code>.
 division and produces an answer without trailing zeroes.</li>
 
 <li>
-<code>rm</code> keeps on performing <code>s@f</code> until the answer
+<code>r</code> is same as <code>s @ f</code>
+(<i>i.e.</i>, <code>f</code> followed by <code>s</code>) except that it
+first checks that the divisor has degree less than or equal to
+that of the dividend.</li>
+
+<li>
+<code>rm</code> keeps on performing <code>r</code> until the answer
 stabilises (<i>i.e.</i>, the remained is 0).</li>
 
 </ul>

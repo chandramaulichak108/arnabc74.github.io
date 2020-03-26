@@ -665,7 +665,11 @@ this from the dividend <CODE>y</CODE>.
 <LI><CODE>s</CODE> sucks up any trailing
 0's. Thus <CODE>s@f</CODE> performs a single step of long
 division and produces an answer without trailing zeroes.</LI>
-<LI><CODE>rm</CODE> keeps on performing <CODE>s@f</CODE> until the answer
+<LI><CODE>r</CODE> is same as <CODE>s @ f</CODE>
+(i.e., <CODE>f</CODE> followed by <CODE>s</CODE>) except that it
+first checks that the divisor has degree less than or equal to
+that of the dividend.</LI>
+<LI><CODE>rm</CODE> keeps on performing <CODE>r</CODE> until the answer
 stabilises (i.e., the remained is 0).</LI>
 </JHLP>
 <J>
