@@ -6,7 +6,7 @@
 \newcommand{\by}{{\bf y}}
 \newcommand{\bz}{{\bf 0}}</M>
 <TITLE>Nonlinear equations</TITLE>
-<UPDT>THU MAR 26 IST 2020</UPDT>
+ <UPDT>THU MAR 26 IST 2020</UPDT>
 
 
 <HEAD1>Fixed-point iteration</HEAD1>
