@@ -819,7 +819,7 @@ change, irrespective of the value of <M>*</M>. [QED}
 zero of <M>p_0</M>, the <M>\sigma </M> function must jump down by
 an amount 1. 
 <P/>
-<B>Proof:</B> Let <M>c</M> be a zero of <M>p_0.</M> So it changes
+<B>Proof:</B> Let <M>c</M> be a zero of <M>p_0.</M> So <M>p_0</M> changes
 sign there (since it is squarefree). There are two possible
 cases: 
 <CIMG web="cases.png">The two cases</CIMG>
