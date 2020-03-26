@@ -832,6 +832,16 @@ the sign change. Hence the result. [QED]
 
 Sturm's theorem is now an immediate consequence.
 
+<HEAD3>What if our polynomial is not squarefree?</HEAD3>
+<EXR>
+So far we have assuemd that the polynomial is squarefree, i.e, it
+has no repeated factor. But since we are dealing with only real
+zeroes here, is it enough to assume that no real zero is
+repeated?
+</EXR>
+
+
+
 <HEAD2>How Matlab does it</HEAD2>
 Matlab has a function called <CODE>roots</CODE> that finds all the roots of
 a polynomial. For instance, to find the roots of the polynomial <M>1+2x+3x^2</M> you
