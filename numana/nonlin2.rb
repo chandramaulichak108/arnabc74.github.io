@@ -845,7 +845,10 @@ is not squarefree,  Sturm's technique will still give us all
 the <I>distinct</I> real roots (but not shed any light on their
 multiplicities). Try to prove this!
 <P/>
-
+Finally, there is an algorithm
+called <LINK to="https://en.wikipedia.org/wiki/Square-free_polynomial">Yun's
+algorithm</LINK> that computes all squarefree factors of a given
+polynomial. 
 
 <HEAD2>How Matlab does it</HEAD2>
 Matlab has a function called <CODE>roots</CODE> that finds all the roots of
