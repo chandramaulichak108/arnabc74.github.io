@@ -670,7 +670,7 @@ division and produces an answer without trailing zeroes.</LI>
 first checks that the divisor has degree less than or equal to
 that of the dividend.</LI>
 <LI><CODE>rm</CODE> keeps on performing <CODE>r</CODE> until the answer
-stabilises (i.e., the remained is 0).</LI>
+stabilises (i.e., the remainder is 0).</LI>
 </JHLP>
 <J>
 p0=: 8  22 21 24 13 2
