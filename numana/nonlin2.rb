@@ -848,7 +848,7 @@ multiplicities). Try to prove this!
 Finally, there is an algorithm
 called <LINK to="https://en.wikipedia.org/wiki/Square-free_polynomial">Yun's
 algorithm</LINK> that computes all squarefree factors of a given
-polynomial. This algorithm is not part of our syllabus, though. 
+polynomial. This algorithm is not part of our syllabus, though.
 
 <HEAD2>How Matlab does it</HEAD2>
 Matlab has a function called <CODE>roots</CODE> that finds all the roots of
