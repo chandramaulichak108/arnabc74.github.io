@@ -6,7 +6,7 @@
 \newcommand{\by}{{\bf y}}
 \newcommand{\bz}{{\bf 0}}</M>
 <TITLE>Nonlinear equations</TITLE>
-<UPDT>WED MAR 25 IST 2020</UPDT>
+<UPDT>THU MAR 26 IST 2020</UPDT>
 
 
 <HEAD1>Fixed-point iteration</HEAD1>
@@ -676,7 +676,9 @@ p0=: 8  22 21 24 13 2
 ]p4=: - p3 rm p2
 ]p5=: - p4 rm p3
 </J>
-
+<JHLP lab="pdiff">
+<LI><CODE>p..</CODE> here performs polynomial differentiation.</LI>
+</JHLP>
 
 Next, we take some value of <M>x,</M> which is not a zero
 of any of the <M>p_i</M>'s. We evaluate all the
