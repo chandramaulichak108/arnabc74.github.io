@@ -840,6 +840,11 @@ zeroes here, is it enough to assume that no real zero is
 repeated?
 </EXR>
 
+It should not be difficult to check that even if our polynomial
+is not squarefree,  Sturm's technique will still give us all
+the <I>distinct</I> real roots (but not shed any light on their
+multiplicities). Try to prove this!
+<P/>
 
 
 <HEAD2>How Matlab does it</HEAD2>
