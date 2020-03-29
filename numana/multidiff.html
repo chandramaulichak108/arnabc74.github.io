@@ -80,24 +80,86 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <li>
 <a href="#Multivariate differentiation">Multivariate differentiation</a>
 </li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#The definition">The definition</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#Computing">Computing</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#Differentiaing a quadratic form">Differentiaing a quadratic form</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#Application">Application</a>
+</li>
 </ul>
 <hr/>
 
 $\newcommand{\v}{\vec}$
 <h1><a
 name="Multivariate differentiation">Multivariate differentiation</a></h1>
+
+<h2><a
+name="The definition">The definition</a></h2>
 Suppose that you have a function $f:{\mathbb R}^n\rightarrow{\mathbb R}.$ Then we
 say that it is differentiable at some $\v a\in{\mathbb R}^n$ if 
 locally at $\v a$ the function may be "well approximated" by a
 linear function passing through $(\v a, f(\v a)).$ Such a
 function has the form 
 $$
-g(\v x) = f(\v a) + \v D' (\v x -\v a).
+g(\v x) = f(\v a) + D (\v x -\v a),
 $$
+where $D$ is a $1\times n$ matrix (<i>i.e.</i>, a row vector).
 This
 linear function is what we call the tangent if $n=1$ and the
-tangent plane if $n=2.$ When this happens, $\v D$ is
-called the derivative of $f$ at $\v a.$
+tangent plane if $n=2.$ When this happens, $D$ is
+called the derivative of $f$ at $\v a.$ It is denoted
+by $\nabla f$ and called "grad $f$". Check that
+for $n=1$ this is same as our familiar concept of differentiation.
+
+<h2><a
+name="Computing">Computing</a></h2>
+If $f:{\mathbb R}^n\rightarrow{\mathbb R}$ is differentiable at some $\v
+a\in{\mathbb R}^n$, then we may compute the derivative easily as
+follows.
+$$
+\nabla f(\v a)= (f_1(\v a),...,f_n(\v a)),
+$$
+where $f_i$ is the $i$-th partial derivative
+of $f.$
+
+<p>
+<b>EXAMPLE:</b>&nbsp;
+If $f(x_1,x_2,x_3) = 4x_1x_2 - x_3^2,$ then direct
+computation shows
+$$
+\nabla f = (4x_2, 4x_1, -2x_3).
+$$
+
+<img src="../image/box.png"></p>
+
+
+<h2><a
+name="Differentiaing a quadratic form">Differentiaing a quadratic form</a></h2>
+We know that derivative of $mx^2$ is $2mx.$ There is an
+elegant generalisation of this for higher dimension. If 
+$f:{\mathbb R}^n\rightarrow{\mathbb R}$ is of the form 
+$$
+f(\v x) = \v x' M \v x
+$$
+for some <i>symmetric</i> matrix $M,$ then 
+$$
+\nabla f = 2\v x' M.
+$$
+This is the formula we have used in the soap film example. 
+
+<h2><a
+name="Application">Application</a></h2>
+
+Just like the familiar 1-dim derivative, the higher dimensional
+derivatve also vanishes if $f$ attains a local max/min. We
+also have an analogous second order derivative check, but we
+shall not go into that here. 
 
 <hr/>
 <table width="100%" border="0">
