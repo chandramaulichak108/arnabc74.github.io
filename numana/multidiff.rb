@@ -16,7 +16,16 @@ This
 linear function is what we call the tangent if <M>n=1</M> and the
 tangent plane if <M>n=2.</M> When this happens, <M>D</M> is
 called the derivative of <M>f</M> at <M>\v a.</M> It is denoted
-by <M>\nabla f</M> and called "grad <M>f</M>". Check that
+by <M>\nabla f</M> and called "grad <M>f</M>". 
+<P/>
+If you are curious about what is meant by "well approximated",
+then here it is:
+<D>
+[[f(\v x)-g(\v x)][\|\v x - \v a\|]]\to 0\mbox{ as } \v x\to\v a.
+</D>
+The <M>\|\cdots\|</M> is the length in <M>\rr^n.</M>
+<P/>
+Check that
 for <M>n=1</M> this is same as our familiar concept of differentiation.
 
 <HEAD2>Computing</HEAD2>
