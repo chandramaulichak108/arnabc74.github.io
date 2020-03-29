@@ -11,7 +11,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>THU MAR 26 IST 2020</UPDT>
+<UPDT>SUN MAR 29 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -129,6 +129,10 @@ or
 <D>
 M_{11}\bc_1 = - M_{12} \bc_2.
 </D>
+<Q>
+<ALERT/>Here is a <LINK to="multidiff.html">quick primer</LINK>
+of multivariate differentiation, in case you need one.
+</Q>
 It is a simple linear algebra exercise to show that this is
 always consistent. In fact, <M>M_{11}</M> will also be
 nonsingular (not easy to prove). So the problem always has unique solution. 
