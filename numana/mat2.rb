@@ -11,7 +11,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>SUN MAR 29 IST 2020</UPDT>
+<UPDT>MON MAR 30 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -70,7 +70,7 @@ Also, notice that <M>\alpha_{ij}, \beta_{ij},
 of <M>T_i</M>. Thus, most of these numbers are actually zero.
 
 <P/>
-Then we cap approximate <M>u(x,y)</M> by
+Then we can approximate <M>u(x,y)</M> by
 <D>
 u(x,y) = \sum_j c_j \phi_j(x,y).
 </D>
