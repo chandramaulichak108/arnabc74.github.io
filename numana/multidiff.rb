@@ -24,6 +24,8 @@ then here it is:
 [[f(\v x)-g(\v x)][\|\v x - \v a\|]]\to 0\mbox{ as } \v x\to\v a.
 </D>
 The <M>\|\cdots\|</M> is the length in <M>\rr^n.</M>
+Note that here <M>g(\cdot)</M> depends on <M>\v a</M> (though I have not
+written it more appropriately as <M>g_a(\cdot)</M>.)
 <P/>
 Check that
 for <M>n=1</M> this is same as our familiar concept of differentiation.

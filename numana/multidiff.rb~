@@ -1,5 +1,5 @@
 <NOTE>
-@{
+@{<UPDT>SUN MAR 29 IST 2020</UPDT>
 <M>\newcommand{\v}{\vec}</M>
 <HEAD1>Multivariate differentiation</HEAD1>
 <HEAD2>The definition</HEAD2>
@@ -24,6 +24,8 @@ then here it is:
 [[f(\v x)-g(\v x)][\|\v x - \v a\|]]\to 0\mbox{ as } \v x\to\v a.
 </D>
 The <M>\|\cdots\|</M> is the length in <M>\rr^n.</M>
+Here <M>g(\cdot)</M> depends on <M>\v a</M> (though I have not
+written it more appropriately as <M>g_a(\cdot)</M>.)
 <P/>
 Check that
 for <M>n=1</M> this is same as our familiar concept of differentiation.
