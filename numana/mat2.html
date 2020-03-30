@@ -736,7 +736,7 @@ $$
 $$
 
 So enough to show that all eigen values of $C =
-  (L+D)^{-1}L'$ 
+  -(L+D)^{-1}L'$ 
 has moduli $&lt;  1.$
 
 Now eigen values of $C$ are the same as the eigen values of 
@@ -747,10 +747,12 @@ C_1
 &amp;  = &amp;  
 D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
 &amp;  = &amp; 
-(I + L_1)^{-1} L_1', 
+-(I + L_1)^{-1} L_1', 
 \end{eqnarray*}$$
 where $L_1=D^{1/2}LD^{-1/2}.$
 
+
+<p></p>
 
 Now let $\lambda$ be any eigen
 value of $C_1.$ Take any eigen vector $\bx$ with 
@@ -773,8 +775,12 @@ $$
 
 Hence 
 $$
-|\lambda| = \frac{|z|}{|1+z|}
+|\lambda| = \frac{|z|}{|1+z|} = \frac{ |z-0| }{ |z-(-1)| }.
 $$
+We are to show that $|\lambda|&lt;1,$ <i>i.e.</i>, $z$ is closer
+to $0$ than to $-1$ in the complex plane.
+<p></p>
+
 Now notice that 
 $$
 I + L_1+L_1' = D^{-1/2} A D^{1/2}

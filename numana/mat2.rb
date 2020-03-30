@@ -530,7 +530,7 @@ or
 </D>
 
 So enough to show that all eigen values of <M>C =
-  (L+D)^{-1}L'</M> 
+  -(L+D)^{-1}L'</M> 
 has moduli <M><  1.</M>
 
 Now eigen values of <M>C</M> are the same as the eigen values of 
@@ -541,10 +541,12 @@ C_1
 &  = &  
 D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
 &  = & 
-(I + L_1)^{-1} L_1', 
+-(I + L_1)^{-1} L_1', 
 </MULTILINE>
 where <M>L_1=D^{1/2}LD^{-1/2}.</M>
 
+
+<P/>
 
 Now let <M>\lambda</M> be any eigen
 value of <M>C_1.</M> Take any eigen vector <M>\bx</M> with 
@@ -567,8 +569,12 @@ So we have
 
 Hence 
 <D>
-|\lambda| = \frac{|z|}{|1+z|}
+|\lambda| = \frac{|z|}{|1+z|} = [[ |z-0| ][ |z-(-1)| ]].
 </D>
+We are to show that <M>|\lambda|<1,</M> i.e., <M>z</M> is closer
+to <M>0</M> than to <M>-1</M> in the complex plane.
+<P/>
+
 Now notice that 
 <D>
 I + L_1+L_1' = D^{-1/2} A D^{1/2}
