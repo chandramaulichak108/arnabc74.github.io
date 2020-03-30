@@ -1,5 +1,5 @@
 <NOTE>
-@{<UPDT>SUN MAR 29 IST 2020</UPDT>
+@{<UPDT>MON MAR 30 IST 2020</UPDT>
 <M>\newcommand{\v}{\vec}</M>
 <HEAD1>Multivariate differentiation</HEAD1>
 <HEAD2>The definition</HEAD2>
@@ -68,5 +68,7 @@ Just like the familiar 1-dim derivative, the higher dimensional
 derivatve also vanishes if <M>f</M> attains a local max/min. We
 also have an analogous second order derivative check, but we
 shall not go into that here. 
-@}
+<P/>
+
+<DISQUSE id="multidiff" url="https://www.isical.ac.in/~arnabc/numana/multidiff.html"/>@}
 </NOTE>

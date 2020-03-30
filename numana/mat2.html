@@ -107,6 +107,15 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <li>&nbsp;&nbsp;&nbsp;
 <a href="#Convergence issues">Convergence issues</a>
 </li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#Strict diagonal dominance">Strict diagonal dominance</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#Positive definiteness">Positive definiteness</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#Successive over relaxation">Successive over relaxation</a>
+</li>
 <li>
 <a href="#$LU$ decompositions">$LU$ decompositions</a>
 </li>
@@ -145,6 +154,7 @@ $\newcommand{\bx}{{\bf x}}
 \newcommand{\bz}{{\bf 0}}
 \newcommand{\bxi}{{\bf \xi}}
 \newcommand{\bc}{{\bf c}}
+\newcommand{\zbar}{\overline{z}}
 $
 
 <title>Matrix algorithms</title> 
@@ -532,34 +542,12 @@ i      x_i        y_i       z_i
 
 <h2><a
 name="Convergence issues">Convergence issues</a></h2>
+The following discussion involves some advanced techniques, and
+I have skipped the proofs of the some of the results. For a
+comprehensive discussion see the book <i>Matrix Computations</i>
+by Golub and Van Loan.
 
-<fieldset>
-<legend><b>Definition: </b></legend>A matrix $A_{n\times n}$ is said to have <i>strict diagonal dominance
-property</i> if for all $i=1,...,n,$
-$$
-|a_{ii}| &gt; \sum_{j\neq i} |a_{ij}|.
-$$</fieldset>
-
-It is easy to see that a matrix with strict diagonal dominance
-must be nonsingular.
-
-<p>
-<b>EXAMPLE:</b>&nbsp;
-The following matrix has strict diagonal dominance property:
-$$
-\left[\begin{array}{ccccccccccc}10&amp; 1&amp; -5\\-1&amp; 3&amp; 1\\1&amp; 3&amp; 20
-\end{array}\right].
-$$
-However the matrix below does not have the property.
-$$
-\left[\begin{array}{ccccccccccc}1&amp; 2&amp; -3\\2&amp; 14&amp; 3\\3&amp; 4&amp; 10
-\end{array}\right],
-$$
-since in the first row
-$$
-1 \not &gt; 2+|-3|. 
-$$
-<img src="../image/box.png"></p>
+<p></p>
 
 Both these methods are special cases of splitting methods, where
 a nonsingular system 
@@ -587,7 +575,7 @@ of $A.$
 
 <p>
 <b>EXERCISE:</b>&nbsp;
-What is $M$ in the Gauss-Jacobi method?
+What is $M$ in the Gauss-Seidel method?
 <img src="../image/box.png"></p>
 
 Let the actual solution be $\bxi = A^{-1}\bb.$ Then 
@@ -609,30 +597,76 @@ $$\begin{eqnarray*}
 &amp; =&amp;  M^{-1} N \be_n.
 \end{eqnarray*}$$
 
-So a sufficient condition for $\be_n\rightarrow \bz$ is that 
-the spectral radius of $M^{-1}N$ is $&lt;  1.$
+We need some condition of $M ^{-1} N$ for the
+sequence $(\be_n)$ to converge to $\bz.$ 
+A necessary and sufficient condition is based on the following
+definition.
+<fieldset>
+<legend><b>Definition: Spectral radius</b></legend>
+If $A$ is a real square matrix with
+eigenvalues $\lambda_1,...,\lambda_n$ (possibly complex),
+then the <b>spectral radius</b> of $A$ is the maximum of $|\lambda_1|,...,|\lambda_n|.$ 
+</fieldset>
+
+
+<fieldset>
+<legend><b><i>Theorem</i></b></legend>A necessary and sufficient condition for $\be_n\rightarrow \bz$ is that 
+the spectral radius of $M^{-1}N$ is $&lt;  1.$</fieldset>
+
+This is not very easy to prove. In fact, even checking that the
+spectral radius is $&lt; 1$ is not easy. We shall discuss two
+sufficient condtions for this: strict diagonal dominance in case
+of Gauss-Jacobi, and
+positive definiteness in case of Gauss-Seidel.
+
+
+<h3><a
+name="Strict diagonal dominance">Strict diagonal dominance</a></h3>
+
+
+<fieldset>
+<legend><b>Definition: Strict diagonal dominance</b></legend>A matrix $A_{n\times
+n}$ is said to have the <b>strict diagonal dominance</b>
+property if for all $i=1,...,n,$
+$$
+|a_{ii}| &gt; \sum_{j\neq i} |a_{ij}|.
+$$</fieldset>
+
+
 
 <p>
-<b>EXERCISE:</b>&nbsp;
- Show that this condition is also necessary 
-for the iteration to converge for all $\bb.$
+<b>EXAMPLE:</b>&nbsp;
+The following matrix has strict diagonal dominance property:
+$$
+\left[\begin{array}{ccccccccccc}10&amp; 1&amp; -5\\-1&amp; 3&amp; 1\\1&amp; 3&amp; 20
+\end{array}\right].
+$$
+However the matrix below does not have the property.
+$$
+\left[\begin{array}{ccccccccccc}1&amp; 2&amp; -3\\2&amp; 14&amp; 3\\3&amp; 4&amp; 10
+\end{array}\right],
+$$
+since in the first row
+$$
+1 \not &gt; 2+|-3|. 
+$$
 <img src="../image/box.png"></p>
-
 
 
 
 <fieldset>
 <legend><b><i>Theorem</i></b></legend>
 Let $A$ be a matrix with strict diagonal dominance. Then
-the Gauss-Seidel method must converge.
+the Gauss-Jacobi method must converge.
 </fieldset>
 
 <p>
 <b><i>Proof:</i></b>
-Here the $(i,j)$-th element of $C=M^{-1}N$ is 
+Enough to show that the spectral radius of $C=M^{-1}N$ is $&lt;1.$
+Here the $(i,j)$-th element of $C$ is
 $$
 c_{ij} = \left\{\begin{array}{ll}
-    \frac{a_{ij}}{a_{ii}} &\text{if }$i\neq j$\\
+    \frac{a_{ij}}{a_{ii}} &\text{if }i\neq j\\
 0 &\text{otherwise.}
 \end{array}\right.
 $$
@@ -668,26 +702,18 @@ $$
 |\lambda| \leq \sum_j|c_{kj}| &lt;  1. 
 $$ 
 </blockquote>
-
+So spectral radius of $C$ must be $&lt;1,$ as well.
 <b><i>[QED]</i></b>
 </p>
 
 
 
-<fieldset>
-<legend><b><i>Theorem</i></b></legend>
-Let $A$ be a nonsingular matrix with strict diagonal dominance. Then
-the Gauss-Jacobi and Gauss-Seidel methods must converge. The convergence rate is at least
-geometric of order 
-$$
-\max_i\sum_{j\neq i} \left|\frac{a_{ij}}{a_{ii}}\right|.
-$$ 
-</fieldset>
-
+<h3><a
+name="Positive definiteness">Positive definiteness</a></h3>
 
 <fieldset>
 <legend><b><i>Theorem</i></b></legend>
-The Gauss-Jacobi method converges if the coefficient matrix is
+The Gauss-Seidel method converges if the coefficient matrix is
 positive definite.
 </fieldset>
 
@@ -699,7 +725,7 @@ A = L + D + L',
 $$
 where $L$ is the strict lower triangular half, $D$ is
 the diagonal part (and so $L'$ is the strict upper
-triangular half). Then the Gauss-Jacobi iteration
+triangular half). Then the Gauss-Seidel iteration
 for $A\bx=\bb$ is
 $$
 (L+D) \bx_{n+1} = -L'\bx_n + \bb,
@@ -738,11 +764,11 @@ and so
 $$
 -\bx^*L_1'\bx = \lambda\bx^*(I+L_1)\bx = \lambda(1+\bx^*L_1\bx).
 $$
-\newcommand{\bz}{\overline{z}}
-Let $z=\bx^*L_1\bx.$ Then $\bx^*L_1'\bx=\bz.$
+
+Let $z=\bx^*L_1\bx.$ Then $\bx^*L_1'\bx=\zbar.$
 So we have 
 $$
--\bz = \lambda(1+z).
+-\zbar = \lambda(1+z).
 $$
 
 Hence 
@@ -755,13 +781,16 @@ I + L_1+L_1' = D^{-1/2} A D^{1/2}
 $$
 is a p.d. matrix. So 
 $$
-\bx^*(I + L_1+L_1')\bx = 1+z+\bz &gt; 0.
+\bx^*(I + L_1+L_1')\bx = 1+z+\zbar &gt; 0.
 $$
 So $Re(z) &gt; -\frac12,$ or $z$ is closer to 0 than
 to $-1,$ completing the proof. 
 <b><i>[QED]</i></b>
 </p>
 
+
+<h2><a
+name="Successive over relaxation">Successive over relaxation</a></h2>
 The Gauss-Seidel and Gauss-Jacobi methods are special cases of a
 class of methods called <b>successive over relaxation (SOR)</b>
 method. Here we choose some $w&gt;0$ and then write the

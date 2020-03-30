@@ -8,6 +8,7 @@
 \newcommand{\bz}{{\bf 0}}
 \newcommand{\bxi}{{\bf \xi}}
 \newcommand{\bc}{{\bf c}}
+\newcommand{\zbar}{\overline{z}}
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
@@ -360,29 +361,12 @@ i      x_i        y_i       z_i
 </EXM>
 
 <HEAD2>Convergence issues</HEAD2>
-<DEFN>A matrix <M>A_{n\times n}</M> is said to have <I>strict diagonal dominance
-property</I> if for all <M>i=1,...,n,</M>
-<D>
-|a_{ii}| > \sum_{j\neq i} |a_{ij}|.
-</D></DEFN>
+The following discussion involves some advanced techniques, and
+I have skipped the proofs of the some of the results. For a
+comprehensive discussion see the book <I>Matrix Computations</I>
+by Golub and Van Loan.
 
-It is easy to see that a matrix with strict diagonal dominance
-must be nonsingular.
-
-<EXM>
-The following matrix has strict diagonal dominance property:
-<D>
-<MAT>10& 1& -5\\-1& 3& 1\\1& 3& 20</MAT>.
-</D>
-However the matrix below does not have the property.
-<D>
-<MAT>1& 2& -3\\2& 14& 3\\3& 4& 10</MAT>,
-</D>
-since in the first row
-<D>
-1 \not > 2+|-3|. 
-</D>
-</EXM>
+<P/>
 
 Both these methods are special cases of splitting methods, where
 a nonsingular system 
@@ -407,7 +391,7 @@ of <M>A.</M>
 </EXM>
 
 <EXR ref="" paper="">
-What is <M>M</M> in the Gauss-Jacobi method?
+What is <M>M</M> in the Gauss-Seidel method?
 </EXR>
 
 Let the actual solution be <M>\bxi = A^{-1}\bb.</M> Then 
@@ -429,25 +413,62 @@ So
 & =&  M^{-1} N \be_n.
 </MULTILINE>
 
-So a sufficient condition for <M>\be_n\to \bz</M> is that 
-the spectral radius of <M>M^{-1}N</M> is <M><  1.</M>
+We need some condition of <M>M ^{-1} N</M> for the
+sequence <M>(\be_n)</M> to converge to <M>\bz.</M> 
+A necessary and sufficient condition is based on the following
+definition.
+<DEFN name="Spectral radius">
+If <M>A</M> is a real square matrix with
+eigenvalues <M>\lambda_1,...,\lambda_n</M> (possibly complex),
+then the <B>spectral radius</B> of <M>A</M> is the maximum of <M>|\lambda_1|,...,|\lambda_n|.</M> 
+</DEFN>
 
-<EXR ref="" paper="">
- Show that this condition is also necessary 
-for the iteration to converge for all <M>\bb.</M>
-</EXR>
+<THM>A necessary and sufficient condition for <M>\be_n\to \bz</M> is that 
+the spectral radius of <M>M^{-1}N</M> is <M><  1.</M></THM>
 
+This is not very easy to prove. In fact, even checking that the
+spectral radius is <M>< 1</M> is not easy. We shall discuss two
+sufficient condtions for this: strict diagonal dominance in case
+of Gauss-Jacobi, and
+positive definiteness in case of Gauss-Seidel.
+
+
+<HEAD3>Strict diagonal dominance</HEAD3>
+
+<DEFN name="Strict diagonal dominance">A matrix <M>A_{n\times
+n}</M> is said to have the <B>strict diagonal dominance</B>
+property if for all <M>i=1,...,n,</M>
+<D>
+|a_{ii}| > \sum_{j\neq i} |a_{ij}|.
+</D></DEFN>
+
+
+<EXM>
+The following matrix has strict diagonal dominance property:
+<D>
+<MAT>10& 1& -5\\-1& 3& 1\\1& 3& 20</MAT>.
+</D>
+However the matrix below does not have the property.
+<D>
+<MAT>1& 2& -3\\2& 14& 3\\3& 4& 10</MAT>,
+</D>
+since in the first row
+<D>
+1 \not > 2+|-3|. 
+</D>
+</EXM>
 
 
 <THM>
 Let <M>A</M> be a matrix with strict diagonal dominance. Then
-the Gauss-Seidel method must converge.
+the Gauss-Jacobi method must converge.
 </THM>
 <PF>
-Here the <M>(i,j)</M>-th element of <M>C=M^{-1}N</M> is 
+Enough to show that the spectral radius of <M>C=M^{-1}N</M> is <M><1.</M>
+Here the <M>(i,j)</M>-th element of <M>C</M> is
 <D>
 c_{ij} = <CASES>
-    \frac{a_{ij}}{a_{ii}} <IF><M>i\neq j</M></IF>
+    \frac{a_{ij}}{a_{ii}} <IF>i\neq j</IF>
 0 <ELSE/>
 </CASES>
 </D>
@@ -482,20 +503,13 @@ or
 |\lambda| \leq \sum_j|c_{kj}| <  1. 
 </D> 
 </BECAUSE>
+So spectral radius of <M>C</M> must be <M><1,</M> as well.
 </PF>
 
 
+<HEAD3>Positive definiteness</HEAD3>
 <THM>
-Let <M>A</M> be a nonsingular matrix with strict diagonal dominance. Then
-the Gauss-Jacobi and Gauss-Seidel methods must converge. The convergence rate is at least
-geometric of order 
-<D>
-\max_i\sum_{j\neq i} \left|\frac{a_{ij}}{a_{ii}}\right|.
-</D> 
-</THM>
-
-<THM>
-The Gauss-Jacobi method converges if the coefficient matrix is
+The Gauss-Seidel method converges if the coefficient matrix is
 positive definite.
 </THM>
 <PF>
@@ -505,7 +519,7 @@ A = L + D + L',
 </D>
 where <M>L</M> is the strict lower triangular half, <M>D</M> is
 the diagonal part (and so <M>L'</M> is the strict upper
-triangular half). Then the Gauss-Jacobi iteration
+triangular half). Then the Gauss-Seidel iteration
 for <M>A\bx=\bb</M> is
 <D>
 (L+D) \bx_{n+1} = -L'\bx_n + \bb,
@@ -544,11 +558,11 @@ and so
 <D>
 -\bx^*L_1'\bx = \lambda\bx^*(I+L_1)\bx = \lambda(1+\bx^*L_1\bx).
 </D>
-\newcommand{\bz}{\overline{z}}
-Let <M>z=\bx^*L_1\bx.</M> Then <M>\bx^*L_1'\bx=\bz.</M>
+
+Let <M>z=\bx^*L_1\bx.</M> Then <M>\bx^*L_1'\bx=\zbar.</M>
 So we have 
 <D>
--\bz = \lambda(1+z).
+-\zbar = \lambda(1+z).
 </D>
 
 Hence 
@@ -561,12 +575,13 @@ I + L_1+L_1' = D^{-1/2} A D^{1/2}
 </D>
 is a p.d. matrix. So 
 <D>
-\bx^*(I + L_1+L_1')\bx = 1+z+\bz > 0.
+\bx^*(I + L_1+L_1')\bx = 1+z+\zbar > 0.
 </D>
 So <M>Re(z) > -\frac12,</M> or <M>z</M> is closer to 0 than
 to <M>-1,</M> completing the proof. 
 </PF>
 
+<HEAD2>Successive over relaxation</HEAD2>
 The Gauss-Seidel and Gauss-Jacobi methods are special cases of a
 class of methods called <B>successive over relaxation (SOR)</B>
 method. Here we choose some <M>w>0</M> and then write the

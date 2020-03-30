@@ -1,0 +1,46 @@
+<NOTE>
+@{
+<M>\newcommand{\v}{\vec}</M>
+<HEAD1>Spectral radius</HEAD1>
+Consider the function <M>f:\rr\to\rr</M> given by <M>f(x) =
+ax,</M> where <M>a\in\rr.</M> If we think of <M>x\in\rr</M> as an
+arrow (from 0 to <M>x</M> along the numberline), then this
+function stretches (or shrinks and/or reflects) the arrow. What is
+the effect of this function on the <I>length</I> of the arrow?
+The answer is simple, it gets multiplied by <M>|a|</M>, i.e.,
+<D>
+|ax| = |a|\cdot|x|.
+</D>
+We often need an analogous result for higher dimensions, i.e.,
+when <M>f:\rr^n\to\rr^n</M> is of the form <M>f(\v x) = A\v x.</M>
+Here <M>A</M> is an <M>n\times n</M> matrix. Unfortunately, there
+is no direct analog if <M>n\geq 2,</M> because even if <M>\v
+x</M> and <M>\v y</M> have the same length, i.e., <M>\|v x\| =
+\|v y\|,</M> there is no guaranty that <M>\|A\v x\|</M> will equal <M>\|A\v y\|.</M>
+<P/>
+However, there is a partial analog: we can have an
+inequality. For any given <M>A</M> there is a nonnegative
+number <M>\rho</M> such that for all <M>\v x\in\rr^n</M> we have 
+<D>
+\|A\v x\|\leq \rho \|\v x\|.
+</D>
+The smallest such <M>\rho</M> is called the <B>spectral
+radius</B> of <M>A.</M> It plays the role of the "absolute value"
+of a matrix. 
+<P/>
+It is quite easy to see why such a number exists. For this we
+shall employ a little fact from analysis: 
+<Q>Any  continuous
+function defined over a closed and bounded set in <M>\rr^n</M> must attain its maximum
+somewhere.</Q>
+Consider the set of all unit vectors in <M>\rr^n.</M> This is the
+unit circle in <M>\rr^n.</M> It is closed and bounded. Consider
+the function <M>F(\v x) = \|A\v x\|</M> on this set. It is
+continuous (since <M>\v x\mapsto A\v x</M> is continuous, and so
+is the <M>\|\cdots\|</M> function). So it attains maximum. Take
+this maximum as <M>\rho.</M> Do you see why this <M>\rho</M> will
+serve our purpose? 
+<DISQUSE id="specrad"
+url="https://www.isical.ac.in/~arnabc/numana/specrad.html"/>
+@}
+</NOTE>

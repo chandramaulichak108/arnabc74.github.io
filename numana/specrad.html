@@ -78,108 +78,52 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <h3>Table of contents</h3>
 <ul>
 <li>
-<a href="#Multivariate differentiation">Multivariate differentiation</a>
-</li>
-<li>&nbsp;&nbsp;&nbsp;
-<a href="#The definition">The definition</a>
-</li>
-<li>&nbsp;&nbsp;&nbsp;
-<a href="#Computing">Computing</a>
-</li>
-<li>&nbsp;&nbsp;&nbsp;
-<a href="#Differentiaing a quadratic form">Differentiaing a quadratic form</a>
-</li>
-<li>&nbsp;&nbsp;&nbsp;
-<a href="#Application">Application</a>
+<a href="#Spectral radius">Spectral radius</a>
 </li>
 </ul>
 <hr/>
-<table width="100%">
-<tr>
-<td align="right"><i>Last
-updated on:
-MON MAR 30 IST 2020</i></td>
-</tr>
-</table>
+
 $\newcommand{\v}{\vec}$
 <h1><a
-name="Multivariate differentiation">Multivariate differentiation</a></h1>
-
-<h2><a
-name="The definition">The definition</a></h2>
-Suppose that you have a function $f:{\mathbb R}^n\rightarrow{\mathbb R}.$ Then we
-say that it is differentiable at some $\v a\in{\mathbb R}^n$ if 
-locally at $\v a$ the function may be "well approximated" by a
-linear function passing through $(\v a, f(\v a)).$ Such a
-function has the form 
+name="Spectral radius">Spectral radius</a></h1>
+Consider the function $f:{\mathbb R}\rightarrow{\mathbb R}$ given by $f(x) =
+ax,$ where $a\in{\mathbb R}.$ If we think of $x\in{\mathbb R}$ as an
+arrow (from 0 to $x$ along the numberline), then this
+function stretches (or shrinks and/or reflects) the arrow. What is
+the effect of this function on the <i>length</i> of the arrow?
+The answer is simple, it gets multiplied by $|a|$, <i>i.e.</i>,
 $$
-g(\v x) = f(\v a) + D (\v x -\v a),
+|ax| = |a|\cdot|x|.
 $$
-where $D$ is a $1\times n$ matrix (<i>i.e.</i>, a row vector).
-This
-linear function is what we call the tangent if $n=1$ and the
-tangent plane if $n=2.$ When this happens, $D$ is
-called the derivative of $f$ at $\v a.$ It is denoted
-by $\nabla f$ and called "grad $f$". 
+We often need an analogous result for higher dimensions, <i>i.e.</i>,
+when $f:{\mathbb R}^n\rightarrow{\mathbb R}^n$ is of the form $f(\v x) = A\v x.$
+Here $A$ is an $n\times n$ matrix. Unfortunately, there
+is no direct analog if $n\geq 2,$ because even if $\v
+x$ and $\v y$ have the same length, <i>i.e.</i>, $\|v x\| =
+\|v y\|,$ there is no guaranty that $\|A\v x\|$ will equal $\|A\v y\|.$
 <p></p>
-If you are curious about what is meant by "well approximated",
-then here it is:
+However, there is a partial analog: we can have an
+inequality. For any given $A$ there is a nonnegative
+number $\rho$ such that for all $\v x\in{\mathbb R}^n$ we have 
 $$
-\frac{f(\v x)-g(\v x)}{\|\v x - \v a\|}\rightarrow 0\mbox{ as } \v x\rightarrow\v a.
+\|A\v x\|\leq \rho \|\v x\|.
 $$
-The $\|\cdots\|$ is the length in ${\mathbb R}^n.$
-Note that here $g(\cdot)$ depends on $\v a$ (though I have not
-written it more appropriately as $g_a(\cdot)$.)
+The smallest such $\rho$ is called the <b>spectral
+radius</b> of $A.$ It plays the role of the "absolute value"
+of a matrix. 
 <p></p>
-Check that
-for $n=1$ this is same as our familiar concept of differentiation.
-
-<h2><a
-name="Computing">Computing</a></h2>
-If $f:{\mathbb R}^n\rightarrow{\mathbb R}$ is differentiable at some $\v
-a\in{\mathbb R}^n$, then we may compute the derivative easily as
-follows.
-$$
-\nabla f(\v a)= (f_1(\v a),...,f_n(\v a)),
-$$
-where $f_i$ is the $i$-th partial derivative
-of $f.$
-
-<p>
-<b>EXAMPLE:</b>&nbsp;
-If $f(x_1,x_2,x_3) = 4x_1x_2 - x_3^2,$ then direct
-computation shows
-$$
-\nabla f = (4x_2, 4x_1, -2x_3).
-$$
-
-<img src="../image/box.png"></p>
-
-
-<h2><a
-name="Differentiaing a quadratic form">Differentiaing a quadratic form</a></h2>
-We know that derivative of $mx^2$ is $2mx.$ There is an
-elegant generalisation of this for higher dimension. If 
-$f:{\mathbb R}^n\rightarrow{\mathbb R}$ is of the form 
-$$
-f(\v x) = \v x' M \v x
-$$
-for some <i>symmetric</i> matrix $M,$ then 
-$$
-\nabla f = 2\v x' M.
-$$
-This is the formula we have used in the soap film example. 
-
-<h2><a
-name="Application">Application</a></h2>
-
-Just like the familiar 1-dim derivative, the higher dimensional
-derivatve also vanishes if $f$ attains a local max/min. We
-also have an analogous second order derivative check, but we
-shall not go into that here. 
-<p></p>
-
-
+It is quite easy to see why such a number exists. For this we
+shall employ a little fact from analysis: 
+<blockquote>Any  continuous
+function defined over a closed and bounded set in ${\mathbb R}^n$ must attain its maximum
+somewhere.</blockquote>
+Consider the set of all unit vectors in ${\mathbb R}^n.$ This is the
+unit circle in ${\mathbb R}^n.$ It is closed and bounded. Consider
+the function $F(\v x) = \|A\v x\|$ on this set. It is
+continuous (since $\v x\mapsto A\v x$ is continuous, and so
+is the $\|\cdots\|$ function). So it attains maximum. Take
+this maximum as $\rho.$ Do you see why this $\rho$ will
+serve our purpose? 
 <h3>Comments</h3>
 To post an anonymous comment, click on the "Name" field. This
 will bring up an option saying "I'd rather post as a guest."
@@ -191,8 +135,8 @@ begin disqus code --> <div id="disqus_thread"></div>
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
 var disqus_config = function () {
-this.page.url = "https://www.isical.ac.in/~arnabc/numana/multidiff.html"; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = "multidiff"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.url = "https://www.isical.ac.in/~arnabc/numana/specrad.html"; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "specrad"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
@@ -204,6 +148,7 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 </noscript><!-- end disqus code --> 
+
 <hr/>
 <table width="100%" border="0">
 <tr>
