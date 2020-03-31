@@ -163,7 +163,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-MON MAR 30 IST 2020</i></td>
+TUE MAR 31 IST 2020</i></td>
 </tr>
 </table>
 
@@ -582,20 +582,15 @@ Let the actual solution be $\bxi = A^{-1}\bb.$ Then
 $$
 \bxi = M^{-1} N \bxi + M^{-1}\bb.
 $$
-Then the
-error committed in step $n$ is
+Subtracting this from the last equation we get 
 $$
-\be_n = \bx_n-\bxi.
+\bx_{n+1}-\bxi = M ^{-1} N (\bx_n-\bxi),
 $$
+or 
+$$\be_{n+1}  =  M^{-1} N \be_n,$$
+where $\be_n = \bx_n-\bxi$ is the error committed in step $n$.
 
-So 
-$$\begin{eqnarray*}
-\be_{n+1} 
-&amp; =&amp;  \bx_{n+1}-\bxi\\
-&amp; =&amp;  M^{-1} N \bx_n + M^{-1}\bb-M^{-1} N \bxi - M^{-1}\bb\\
-&amp; =&amp;  M^{-1} N (\bx_n -\bxi)\\
-&amp; =&amp;  M^{-1} N \be_n.
-\end{eqnarray*}$$
+<p></p>
 
 We need some condition of $M ^{-1} N$ for the
 sequence $(\be_n)$ to converge to $\bz.$ 
@@ -666,7 +661,7 @@ Enough to show that the spectral radius of $C=M^{-1}N$ is $&lt;1.$
 Here the $(i,j)$-th element of $C$ is
 $$
 c_{ij} = \left\{\begin{array}{ll}
-    \frac{a_{ij}}{a_{ii}} &\text{if }i\neq j\\
+    -\frac{a_{ij}}{a_{ii}} &\text{if }i\neq j\\
 0 &\text{otherwise.}
 \end{array}\right.
 $$
@@ -725,27 +720,24 @@ A = L + D + L',
 $$
 where $L$ is the strict lower triangular half, $D$ is
 the diagonal part (and so $L'$ is the strict upper
-triangular half). Then the Gauss-Seidel iteration
-for $A\bx=\bb$ is
+triangular half). Then the Gauss-Seidel method uses the splitting
+$A = M - N$, where
 $$
-(L+D) \bx_{n+1} = -L'\bx_n + \bb,
-$$ 
-or
+M = L+D\mbox{ and } N = -L'.
 $$
-\bx_{n+1} = -(L+D)^{-1}L'\bx_n + (L+D)^{-1}\bb.
-$$
-
-So enough to show that all eigen values of $C =
-  -(L+D)^{-1}L'$ 
+So enough to show that $C = M ^{-1} N =   -(L+D)^{-1}L'$ has
+spectral radius $&lt;1,$ i.e, all eigen values of $C$
 has moduli $&lt;  1.$
+
+<p></p>
 
 Now eigen values of $C$ are the same as the eigen values of 
 $$\begin{eqnarray*}
 C_1 
-&amp; =&amp;  D^{-1/2}CD^{1/2} \\
-&amp; =&amp;  D^{-1/2}(L+D)^{-1}L'D^{-1/2}\\
+&amp; =&amp;  -D^{-1/2}CD^{1/2} \\
+&amp; =&amp;  -D^{-1/2}(L+D)^{-1}L'D^{-1/2}\\
 &amp;  = &amp;  
-D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
+-D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
 &amp;  = &amp; 
 -(I + L_1)^{-1} L_1', 
 \end{eqnarray*}$$
@@ -758,7 +750,8 @@ Now let $\lambda$ be any eigen
 value of $C_1.$ Take any eigen vector $\bx$ with 
 $\bx^*\bx=1.$
 
-Then 
+Then $C_1\bx = \lambda \bx,$ <i>i.e.</i>, $-(I + L_1)^{-1}
+L_1'\bx = \lambda \bx,$ or
 $$
 -L_1'\bx = \lambda(I+L_1)\bx,
 $$

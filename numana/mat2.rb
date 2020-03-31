@@ -12,7 +12,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>MON MAR 30 IST 2020</UPDT>
+<UPDT>TUE MAR 31 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -398,20 +398,15 @@ Let the actual solution be <M>\bxi = A^{-1}\bb.</M> Then
 <D>
 \bxi = M^{-1} N \bxi + M^{-1}\bb.
 </D>
-Then the
-error committed in step <M>n</M> is
+Subtracting this from the last equation we get 
 <D>
-\be_n = \bx_n-\bxi.
+\bx_{n+1}-\bxi = M ^{-1} N (\bx_n-\bxi),
 </D>
+or 
+<D>\be_{n+1}  =  M^{-1} N \be_n,</D>
+where <M>\be_n = \bx_n-\bxi</M> is the error committed in step <M>n</M>.
 
-So 
-<MULTILINE>
-\be_{n+1} 
-& =&  \bx_{n+1}-\bxi\\
-& =&  M^{-1} N \bx_n + M^{-1}\bb-M^{-1} N \bxi - M^{-1}\bb\\
-& =&  M^{-1} N (\bx_n -\bxi)\\
-& =&  M^{-1} N \be_n.
-</MULTILINE>
+<P/>
 
 We need some condition of <M>M ^{-1} N</M> for the
 sequence <M>(\be_n)</M> to converge to <M>\bz.</M> 
@@ -468,7 +463,7 @@ Enough to show that the spectral radius of <M>C=M^{-1}N</M> is <M><1.</M>
 Here the <M>(i,j)</M>-th element of <M>C</M> is
 <D>
 c_{ij} = <CASES>
-    \frac{a_{ij}}{a_{ii}} <IF>i\neq j</IF>
+    -\frac{a_{ij}}{a_{ii}} <IF>i\neq j</IF>
 0 <ELSE/>
 </CASES>
 </D>
@@ -519,27 +514,24 @@ A = L + D + L',
 </D>
 where <M>L</M> is the strict lower triangular half, <M>D</M> is
 the diagonal part (and so <M>L'</M> is the strict upper
-triangular half). Then the Gauss-Seidel iteration
-for <M>A\bx=\bb</M> is
+triangular half). Then the Gauss-Seidel method uses the splitting
+<M>A = M - N</M>, where
 <D>
-(L+D) \bx_{n+1} = -L'\bx_n + \bb,
-</D> 
-or
-<D>
-\bx_{n+1} = -(L+D)^{-1}L'\bx_n + (L+D)^{-1}\bb.
+M = L+D\mbox{ and } N = -L'.
 </D>
-
-So enough to show that all eigen values of <M>C =
-  -(L+D)^{-1}L'</M> 
+So enough to show that <M>C = M ^{-1} N =   -(L+D)^{-1}L'</M> has
+spectral radius <M><1,</M> i.e, all eigen values of <M>C</M>
 has moduli <M><  1.</M>
+
+<P/>
 
 Now eigen values of <M>C</M> are the same as the eigen values of 
 <MULTILINE>
 C_1 
-& =&  D^{-1/2}CD^{1/2} \\
-& =&  D^{-1/2}(L+D)^{-1}L'D^{-1/2}\\
+& =&  -D^{-1/2}CD^{1/2} \\
+& =&  -D^{-1/2}(L+D)^{-1}L'D^{-1/2}\\
 &  = &  
-D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
+-D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
 &  = & 
 -(I + L_1)^{-1} L_1', 
 </MULTILINE>
@@ -552,7 +544,8 @@ Now let <M>\lambda</M> be any eigen
 value of <M>C_1.</M> Take any eigen vector <M>\bx</M> with 
 <M>\bx^*\bx=1.</M>
 
-Then 
+Then <M>C_1\bx = \lambda \bx,</M> i.e., <M>-(I + L_1)^{-1}
+L_1'\bx = \lambda \bx,</M> or
 <D>
 -L_1'\bx = \lambda(I+L_1)\bx,
 </D>
