@@ -6,7 +6,7 @@
 \newcommand{\yy}{{\bf y}}
 \newcommand{\z}{{\bf 0}}</M>
 <TITLE>Nonlinear equations</TITLE>
-<UPDT>THU FEB 27 IST 2020</UPDT>
+<UPDT>WED APR 01 IST 2020</UPDT>
 <HEAD1>Nonlinear equations</HEAD1>
 It often happens that we have to solve a nonlinear  equation,
 <D>
@@ -339,7 +339,7 @@ lines(xx,dgamma(xx,2,3))
 </COMMENT>
 <PROJ id="fit">
 The file <FILE>data.txt</FILE>  has <M>n=996</M> random numbers that are generated from the density 
-<D>f(x; p, a) = [[ p^a][\Gamma(p)]] e^{-a x},\quad x>0</D>
+<D>f(x; p, a) = [[ a^p][\Gamma(p)]] x^{p-1}e^{-a x},\quad x>0</D>
 for unknown constants <M>p, a > 0.</M>  The principle of maximum likelihood estimation suggests estimating 
 <M>p,a </M> by maximising
 <D>L(p,a) = \prod_{i=1}^n f(x_i; p,a),</D>

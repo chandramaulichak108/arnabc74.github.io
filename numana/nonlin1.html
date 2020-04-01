@@ -67,7 +67,7 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
       }
     }
   });
-</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
 <link href="../tools/rgl.css" rel="stylesheet"></link>
 <script src="../tools/rglClass.src.js"></script>
 <script src="../tools/CanvasMatrix.src.js"></script>
@@ -103,7 +103,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-THU FEB 27 IST 2020</i></td>
+WED APR 01 IST 2020</i></td>
 </tr>
 </table>
 
@@ -508,7 +508,7 @@ The value of $p\in(0,1)$  for which this is the maximum is called the <b>maximum
 </b></a>&nbsp;
 The file <a
 href="data.txt">data.txt</a>  has $n=996$ random numbers that are generated from the density 
-$$f(x; p, a) = \frac{ p^a}{\Gamma(p)} e^{-a x},\quad x&gt;0$$
+$$f(x; p, a) = \frac{ a^p}{\Gamma(p)} x^{p-1}e^{-a x},\quad x&gt;0$$
 for unknown constants $p, a &gt; 0.$  The principle of maximum likelihood estimation suggests estimating 
 $p,a $ by maximising
 $$L(p,a) = \prod_{i=1}^n f(x_i; p,a),$$
