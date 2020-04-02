@@ -12,7 +12,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>TUE MAR 31 IST 2020</UPDT>
+<UPDT>THU APR 02 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -686,12 +686,17 @@ l_{ij} &  = a_{ij} - \sum_{k=1}^{j-1}l_{ik} u_{kj}& ~~~(i\geq j)\\
 u_{ij}&  = \frac{1}{l_{ii}}\left(a_{ij} - \sum_{k=1}^{i-1}l_{ik}
 u_{kj}\right)& ~~~(i<  j). 
 </MULTILINE>
-The following diagram might help here:
+The following diagram might help to understand the computation of
+the <M>l_{ij}</M>'s:
 <CIMG web="lucomp.png"/>
 In order to compute the yellow part of <M>L,</M> subtract a
 linear combination from the yellow part of <M>A.</M> The linear
 combination is made of the corresponding parts of <M>L</M>
 computed earlier, and the coefficients come from <M>U.</M>
+
+<P/>
+A similar diagram for the <M>u_{ij}</M>'s is:
+<CIMG web="lucomp2.png"/>
 <J>
 r=:(<:@[){]
 c=:(<:@[){"1 ]

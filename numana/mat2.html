@@ -163,7 +163,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-TUE MAR 31 IST 2020</i></td>
+THU APR 02 IST 2020</i></td>
 </tr>
 </table>
 
@@ -912,7 +912,8 @@ l_{ij} &amp;  = a_{ij} - \sum_{k=1}^{j-1}l_{ik} u_{kj}&amp; ~~~(i\geq j)\\
 u_{ij}&amp;  = \frac{1}{l_{ii}}\left(a_{ij} - \sum_{k=1}^{i-1}l_{ik}
 u_{kj}\right)&amp; ~~~(i&lt;  j). 
 \end{eqnarray*}$$
-The following diagram might help here:
+The following diagram might help to understand the computation of
+the $l_{ij}$'s:
 <center>
 <table width="100%">
 <tr>
@@ -927,6 +928,20 @@ In order to compute the yellow part of $L,$ subtract a
 linear combination from the yellow part of $A.$ The linear
 combination is made of the corresponding parts of $L$
 computed earlier, and the coefficients come from $U.$
+
+<p></p>
+A similar diagram for the $u_{ij}$'s is:
+<center>
+<table width="100%">
+<tr>
+<th><img width="" src="image/lucomp2.png"></th>
+</tr>
+<tr>
+<th></th>
+</tr>
+</table>
+</center>
+
 <span class="j">
 <pre>
 r=:(&lt;:@[){]
