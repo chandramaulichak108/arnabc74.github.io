@@ -833,7 +833,7 @@ G(2,4,\theta) = <MAT>
 0 & \sin \theta & 0 & \cos \theta
 </MAT>,
 </D>
-where <M>\tan(2 \theta ) = [[2a_{ij}][a_{jj}-a_{^{-1}}]].</M>
+where <M>\tan(2 \theta ) = [[2a_{ij}][a_{jj}-a_{ii}]].</M>
 <P/>
 Then it may be easily checked
 that <M>G(i,j,\theta)AG(i,j,\theta)'</M> has the <M>(i,j)</M>-th
@@ -914,6 +914,72 @@ is <M>n\times n,</M> then <M>2N=n^2-n</M>).</EXR>
 
 <EXR>Use the above exercises to argue that the Jacobi iterations
 converge to a diagonal matrix.</EXR>
+
+<HEAD3>Gerschghorin's theorem</HEAD3>
+There is a final catch in the algorithm presented so far. We know
+that the eigenvalues of a diagonal matrix are the diagonal
+entries. But is it true that the eigenvalues of
+an <I>approximately</I> diagonal matrix are <I>approximately</I>
+the diagonal entries. After all, the entries of a matrix
+determine the coefficients of the characteristic polynomial,
+while the eigenvalues are the zeros of that polynomial. It is
+well known fact that the zeroes of a polynomial
+are <I>discontinuous</I> functions of the coefficients of the
+polynomial. Even the quadratic root formula 
+<D>
+[[-b\pm\sqrt{b^2-4ac}][2a]]
+</D>
+has <M>a</M> in the denominator, and so depends on <M>a</M>
+discontinuously. So there is reason to be worried about accuracy
+of  Jacobi's algorithm. 
+<P/>
+Fortunately, a theorem called  Gerschghorin's theorem comes to
+our rescue. Basically it says that the eigenvalues of an
+approximately diagonal matrix are indeed approximately equal to
+the diagonal entries. The precise statement is as follows.
+
+<THM name="Gerschghorin's theorem">
+Let <M>A_{n\times n}</M> be any (possibly complex) square matrix. Then all
+its eigenvalues must lie inside the union of the open
+disks <M>D_1,...,D_n,</M> where 
+<D>
+D_k = {*{ z\in\cc~:~ |z-a_{k k}| < \sum_{j\neq k} |a_{jk}| }*}.
+</D>
+</THM>
+<PF>
+Let <M>\lambda</M> be any eigenvalue of <M>A.</M> Pick any
+corresponding eigenvector <M>\bv</M>. Let <M>v_k</M> be a
+component with maximum modulus. Clearly, <M>v_k\neq 0,</M> since
+otherwise <M>\bv=\bz</M> (impossible, by definition of
+eigenvectors). 
+<P/>
+Consider the <M>k</M>-th component of the equality 
+<D>
+A\bv = \lambda \bv
+</D>
+to get 
+<D>
+\sum_j a_{kj} v_j = \lambda v_k,
+</D>
+or 
+<D>
+\sum_{j\neq k} a_{kj} v_j = (\lambda-a_{k k}) v_k.
+</D>
+So, by the triangle inequality,
+<D>
+|\lambda-a_{k k}|\cdot |v_k|\leq \sum_{j\neq k} |a_{kj}|\cdot |v_j|.
+</D>
+
+Dividing by <M>|v_k|,</M> we get <M>\lambda\in D_k,</M>
+completing the proof.
+</PF>
+The <M>D_k</M>'s are centred around the diagonal entries. Also, 
+for an approximately diagonal matrix, the radius of <M>D_k</M>'s
+are small. For Jacobi's algorithm we also know that the
+eigenvalues are real numbers. So we may replace the <M>D_k</M>'s
+with open intervals.  
+
+
 <DISQUSE id="mat2" url="https://www.isical.ac.in/~arnabc/numana/mat2.html"/>
 @}
 </NOTE>

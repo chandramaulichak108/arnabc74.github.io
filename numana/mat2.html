@@ -143,6 +143,9 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="#Proof">Proof</a>
 </li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#Gerschghorin's theorem">Gerschghorin's theorem</a>
+</li>
 </ul>
 <hr/>
 
@@ -1128,7 +1131,7 @@ G(2,4,\theta) = \left[\begin{array}{ccccccccccc}
 
 \end{array}\right],
 $$
-where $\tan(2 \theta ) = \frac{2a_{ij}}{a_{jj}-a_{^{-1}}}.$
+where $\tan(2 \theta ) = \frac{2a_{ij}}{a_{jj}-a_{ii}}.$
 <p></p>
 Then it may be easily checked
 that $G(i,j,\theta)AG(i,j,\theta)'$ has the $(i,j)$-th
@@ -1225,6 +1228,77 @@ is $n\times n,$ then $2N=n^2-n$).<img src="../image/box.png"></p>
 <p>
 <b>EXERCISE:</b>&nbsp;Use the above exercises to argue that the Jacobi iterations
 converge to a diagonal matrix.<img src="../image/box.png"></p>
+
+
+<h3><a
+name="Gerschghorin's theorem">Gerschghorin's theorem</a></h3>
+There is a final catch in the algorithm presented so far. We know
+that the eigenvalues of a diagonal matrix are the diagonal
+entries. But is it true that the eigenvalues of
+an <i>approximately</i> diagonal matrix are <i>approximately</i>
+the diagonal entries. After all, the entries of a matrix
+determine the coefficients of the characteristic polynomial,
+while the eigenvalues are the zeros of that polynomial. It is
+well known fact that the zeroes of a polynomial
+are <i>discontinuous</i> functions of the coefficients of the
+polynomial. Even the quadratic root formula 
+$$
+\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+$$
+has $a$ in the denominator, and so depends on $a$
+discontinuously. So there is reason to be worried about accuracy
+of  Jacobi's algorithm. 
+<p></p>
+Fortunately, a theorem called  Gerschghorin's theorem comes to
+our rescue. Basically it says that the eigenvalues of an
+approximately diagonal matrix are indeed approximately equal to
+the diagonal entries. The precise statement is as follows.
+
+<fieldset>
+<legend><b><i>Gerschghorin's theorem</i></b></legend>
+Let $A_{n\times n}$ be any (possibly complex) square matrix. Then all
+its eigenvalues must lie inside the union of the open
+disks $D_1,...,D_n,$ where 
+$$
+D_k = \left\{ z\in{\mathbb C}~:~ |z-a_{k k}| &lt; \sum_{j\neq k} |a_{jk}| \right\}.
+$$
+</fieldset>
+
+<p>
+<b><i>Proof:</i></b>
+Let $\lambda$ be any eigenvalue of $A.$ Pick any
+corresponding eigenvector $\bv$. Let $v_k$ be a
+component with maximum modulus. Clearly, $v_k\neq 0,$ since
+otherwise $\bv=\bz$ (impossible, by definition of
+eigenvectors). 
+<p></p>
+Consider the $k$-th component of the equality 
+$$
+A\bv = \lambda \bv
+$$
+to get 
+$$
+\sum_j a_{kj} v_j = \lambda v_k,
+$$
+or 
+$$
+\sum_{j\neq k} a_{kj} v_j = (\lambda-a_{k k}) v_k.
+$$
+So, by the triangle inequality,
+$$
+|\lambda-a_{k k}|\cdot |v_k|\leq \sum_{j\neq k} |a_{kj}|\cdot |v_j|.
+$$
+
+Dividing by $|v_k|,$ we get $\lambda\in D_k,$
+completing the proof.
+<b><i>[QED]</i></b>
+</p>
+The $D_k$'s are centred around the diagonal entries. Also, 
+for an approximately diagonal matrix, the radius of $D_k$'s
+are small. For Jacobi's algorithm we also know that the
+eigenvalues are real numbers. So we may replace the $D_k$'s
+with open intervals.  
+
 
 <h3>Comments</h3>
 To post an anonymous comment, click on the "Name" field. This
