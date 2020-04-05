@@ -44,13 +44,11 @@ Mar:
 30 mat2: eigen                                               
 
 Apr:
-02 diff2
-06 diff2     
-09 numint2   
-13 numint2   
-16 tour      
-20 interpol2 
-23 interpol2 
-27 error     
-30 error     
+06-- iter + LU 
+13-- eigen
+20-- diff2                
+27-- numint2    
 
+May:
+04-- interpol2
+11-- error      

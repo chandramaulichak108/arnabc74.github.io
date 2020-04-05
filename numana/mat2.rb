@@ -12,7 +12,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>THU APR 02 IST 2020</UPDT>
+<UPDT>SUN APR 05 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -903,9 +903,14 @@ orthogonal matrix.</EXR>
 <EXR>Let <M>f(A)</M> denote the sum of squares of all the
 off-diagonal entries in a symmetric matrix <M>A.</M> Show that
 if <M>\theta</M> is chosen so that the <M>(i,j)</M>-th entry
-of <M>B=G(\theta) A G(\theta)'</M> is zero, then <M>f(B) =
-(*(1-[[1N]])*) f(A)</M>, where <M>N</M> is the number of
-off-diagonal entries in <M>A.</M></EXR>
+of <M>B=G(i,j,\theta) A G(i,j,\theta)'</M> is zero, then <M>f(B)
+= f(A) - 2a_{ij}^2.</M></EXR>
+
+<EXR>Let the <M>(i,j)</M>-th entry of <M>A</M> be the largest
+absolute off-diagonal entry of <M>A.</M>  Let <M>B=G(i,j,\theta)
+A G(i,j,\theta)'</M> have the <M>(i,j)</M>-th entry <M>0.</M> Show that <M>f(B)\leq(*(1-[[1N]])*) f(A)</M>, where <M>2N</M> is the number of
+off-diagonal entries in <M>A</M> (i.e., if <M>A</M>
+is <M>n\times n,</M> then <M>2N=n^2-n</M>).</EXR>
 
 <EXR>Use the above exercises to argue that the Jacobi iterations
 converge to a diagonal matrix.</EXR>

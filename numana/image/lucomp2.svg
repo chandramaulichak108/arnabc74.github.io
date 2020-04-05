@@ -489,7 +489,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -924,8 +924,8 @@
        id="rect4050-3"
        width="20.48464"
        height="20.009537"
-       x="807.49152"
-       y="263.44077" />
+       x="766.48633"
+       y="262.73331" />
     <path
        inkscape:connector-curvature="0"
        id="path9258-6"
