@@ -1141,17 +1141,20 @@ If we keep on applying this transformation repeatedly, the
 resulting matrix converges to a diagonal matrix.
 <font color="red">
 <pre>
-f = function(A) {
+jacobi = function(A) {
   n = nrow(A)
-  mmx = A[1,1]
-  for(i in 1:n) {
-    for(j in 1:n) {
-      if(i==j) next
-      if(mmx &lt; A[i,j]) {
-        mi = i; mj = j; mmx = A[i,j];
+  mmx = abs(A[2,1])
+  mi = 2; mj = 1;
+  for(i in 2:n) {
+    for(j in 1:(i-1)) {
+      if(mmx &lt; abs(A[i,j])) {
+        mi = i; mj = j; mmx = abs(A[i,j]);
       }
     }
   }
+
+  cat(mmx,'\n')
+
   theta = atan2(2*A[mi,mj], A[mj,mj]-A[mi,mi])/2
   sn = sin(theta); cs = cos(theta)
   gv = diag(n); gv[c(mi,mj),c(mi,mj)] = c(cs,sn,-sn,cs)
@@ -1159,12 +1162,9 @@ f = function(A) {
 }
 
 A = matrix(sample(100,25),5,5)
-A = A%*% t(A)
+A = A+ t(A)
 val = numeric(100)
-for(i in 1:100) {
-  A = f(A)
-  val[i] = sum(A*A) - sum(diag(A)^2)
-}
+for(i in 1:100) A = jacobi(A)
 </pre>
 </font>
 
