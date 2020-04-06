@@ -528,7 +528,7 @@ has moduli <M><  1.</M>
 Now eigen values of <M>C</M> are the same as the eigen values of 
 <MULTILINE>
 C_1 
-& =&  -D^{1/2}CD^{-1/2} \\
+& =&  D^{1/2}CD^{-1/2} \\
 & =&  -D^{1/2}(L+D)^{-1}L'D^{-1/2}\\
 &  = &  
 -D^{1/2}(L+D)^{-1}D^{1/2}D^{-1/2}L'D^{-1/2}\\
