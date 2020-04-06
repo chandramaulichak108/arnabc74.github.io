@@ -12,7 +12,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>SUN APR 05 IST 2020</UPDT>
+<UPDT>MON APR 06 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -528,15 +528,16 @@ has moduli <M><  1.</M>
 Now eigen values of <M>C</M> are the same as the eigen values of 
 <MULTILINE>
 C_1 
-& =&  -D^{-1/2}CD^{1/2} \\
-& =&  -D^{-1/2}(L+D)^{-1}L'D^{-1/2}\\
+& =&  -D^{1/2}CD^{-1/2} \\
+& =&  -D^{1/2}(L+D)^{-1}L'D^{-1/2}\\
 &  = &  
--D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
+-D^{1/2}(L+D)^{-1}D^{1/2}D^{-1/2}L'D^{-1/2}\\
 &  = & 
 -(I + L_1)^{-1} L_1', 
 </MULTILINE>
-where <M>L_1=D^{1/2}LD^{-1/2}.</M>
-
+where <M>L_1=D^{-1/2}LD^{-1/2}.</M>
+Notice that though <M>C_1</M> is similar to <M>C,</M>
+but <M>L_1</M> may not be similar to <M>L.</M>
 
 <P/>
 
@@ -570,9 +571,11 @@ to <M>0</M> than to <M>-1</M> in the complex plane.
 
 Now notice that 
 <D>
-I + L_1+L_1' = D^{-1/2} A D^{1/2}
+I + L_1+L_1' = D^{-1/2} A D^{-1/2}
 </D>
-is a p.d. matrix. So 
+is a p.d. matrix. <BECAUSE><M>D^{-1/2}</M> is a nonsingular
+symmetric matrix, and for any nonsingular matrix <M>P</M> the
+matrix <M>P'AP</M> must be p.d.</BECAUSE>  So 
 <D>
 \bx^*(I + L_1+L_1')\bx = 1+z+\zbar > 0.
 </D>

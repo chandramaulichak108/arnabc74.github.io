@@ -1,5 +1,5 @@
 jacobi = function(A) {
-
+    ## Find max abs off diag entry
     n = nrow(A)
 
     mx = abs(A[2,1])
@@ -12,10 +12,14 @@ jacobi = function(A) {
         }
     }
     cat(mx,"\n")
-    theta = atan2(2*A[mi,mj], A[mj,mj]-A[mi,mi])/2
 
+    ## Compute theta
+    theta = atan2(2*A[mi,mj] , A[mj,mj]-A[mi,mi])/2
+
+    ## Create rotation matrix
     sn = sin(theta); cs = cos(theta)
     G = diag(n); G[c(mi,mj),c(mi,mj)] = c(cs,sn,-sn,cs)
-    
+
+    ## Do the transformation
     G %*% A %*% t(G)
 }

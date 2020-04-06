@@ -166,7 +166,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-SUN APR 05 IST 2020</i></td>
+MON APR 06 IST 2020</i></td>
 </tr>
 </table>
 
@@ -737,15 +737,16 @@ has moduli $&lt;  1.$
 Now eigen values of $C$ are the same as the eigen values of 
 $$\begin{eqnarray*}
 C_1 
-&amp; =&amp;  -D^{-1/2}CD^{1/2} \\
-&amp; =&amp;  -D^{-1/2}(L+D)^{-1}L'D^{-1/2}\\
+&amp; =&amp;  -D^{1/2}CD^{-1/2} \\
+&amp; =&amp;  -D^{1/2}(L+D)^{-1}L'D^{-1/2}\\
 &amp;  = &amp;  
--D^{-1/2}(L+D)^{-1}D^{-1/2}D^{1/2}L'D^{-1/2}\\
+-D^{1/2}(L+D)^{-1}D^{1/2}D^{-1/2}L'D^{-1/2}\\
 &amp;  = &amp; 
 -(I + L_1)^{-1} L_1', 
 \end{eqnarray*}$$
-where $L_1=D^{1/2}LD^{-1/2}.$
-
+where $L_1=D^{-1/2}LD^{-1/2}.$
+Notice that though $C_1$ is similar to $C,$
+but $L_1$ may not be similar to $L.$
 
 <p></p>
 
@@ -779,9 +780,12 @@ to $0$ than to $-1$ in the complex plane.
 
 Now notice that 
 $$
-I + L_1+L_1' = D^{-1/2} A D^{1/2}
+I + L_1+L_1' = D^{-1/2} A D^{-1/2}
 $$
-is a p.d. matrix. So 
+is a p.d. matrix. <blockquote>
+<b>Because:</b>$D^{-1/2}$ is a nonsingular
+symmetric matrix, and for any nonsingular matrix $P$ the
+matrix $P'AP$ must be p.d.</blockquote>  So 
 $$
 \bx^*(I + L_1+L_1')\bx = 1+z+\zbar &gt; 0.
 $$
