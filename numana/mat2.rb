@@ -12,7 +12,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>MON APR 06 IST 2020</UPDT>
+<UPDT>TUE APR 07 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -923,7 +923,7 @@ There is a final catch in the algorithm presented so far. We know
 that the eigenvalues of a diagonal matrix are the diagonal
 entries. But is it true that the eigenvalues of
 an <I>approximately</I> diagonal matrix are <I>approximately</I>
-the diagonal entries. After all, the entries of a matrix
+the diagonal entries? After all, the entries of a matrix
 determine the coefficients of the characteristic polynomial,
 while the eigenvalues are the zeros of that polynomial. It is
 well known fact that the zeroes of a polynomial
@@ -946,7 +946,7 @@ Let <M>A_{n\times n}</M> be any (possibly complex) square matrix. Then all
 its eigenvalues must lie inside the union of the open
 disks <M>D_1,...,D_n,</M> where 
 <D>
-D_k = {*{ z\in\cc~:~ |z-a_{k k}| < \sum_{j\neq k} |a_{jk}| }*}.
+D_k = {*{ z\in\cc~:~ |z-a_{k k}| < \sum_{j\neq k} |a_{kj}| }*}.
 </D>
 </THM>
 <PF>

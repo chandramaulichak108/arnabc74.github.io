@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+<link rel="stylesheet" type="text/css" href="../tools/ctut.css"/>
+<link type="text/css" rel="stylesheet" href="../tools/style.css"/>
+<style type="text/css">@font-face {font-family: SHREE_BAN_OTF_0592;src: local("../tools/SHREE_BAN_OTF_0592"),url(../tools/SHREE0592.woff) format("opentype");</style>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script src="../tools/jquery-1.10.2.min.js"></script>
+
+<script>
+aha = function(code) {
+  window.open("https://rdrr.io/snippets/embed/?code="+code)
+}
+
+togglePhoto = function(photoId) {
+   var me = document.getElementById("pic_"+photoId)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+hideShow = function(lb) {
+   var me = document.getElementById(lb)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+grabData = function(data){
+  return "https://farm"+data.photo.farm+".staticflickr.com/"+data.photo.server+"/"+data.photo.id+"_"+
+            data.photo.secret+".jpg"
+}
+
+fromFlickr = function(photoId) {
+
+$.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=23a138c73bdbe1e68601aa7866924e62&user_id=109924623@N07&photo_id="+photoId+"&lang=en-us&format=json&jsoncallback=?",
+  function(data) {
+    imgURL = grabData(data)
+    var l = document.getElementById("lnk_"+photoId)
+    l.href = "https://www.flickr.com/photos/109924623@N07/"+photoId
+    var i = document.getElementById("pic_"+photoId)
+    i.src=imgURL
+    i.onload = function() {
+      document.getElementById("status_"+photoId).innerHTML="[Image loaded. Click to show/hide.]"
+    }
+  })
+}
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","color.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    TeX: {
+      Macros: {
+        h: ["{\\hat #1}",1],
+        b: ["{\\overline #1}", 1],
+        row: "{\\mathcal R}",
+        col: "{\\mathcal C}",
+        nul: "{\\mathcal N}"
+      }
+    }
+  });
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+<link href="../tools/rgl.css" rel="stylesheet"></link>
+<script src="../tools/rglClass.src.js"></script>
+<script src="../tools/CanvasMatrix.src.js"></script>
+<script src="../tools/rglWebGL.js"></script>
+</head>
+<body>
+<a href="http://www.isical.ac.in/~arnabc/">[Home]</a>
+<h3>Table of contents</h3>
+<ul>
+<li>
+<a href="#Multivariate chain rule">Multivariate chain rule</a>
+</li>
+</ul>
+<hr/>
+<table width="100%">
+<tr>
+<td align="right"><i>Last
+updated on:
+WED APR 08 IST 2020</i></td>
+</tr>
+</table>
+
+<h1><a
+name="Multivariate chain rule">Multivariate chain rule</a></h1>
+Recall the univariate chain rule: If $f:{\mathbb R}\rightarrow{\mathbb R}$
+and $g:{\mathbb R}\rightarrow{\mathbb R}$ are two differentiable functions,
+then $\frac{d}{dx}f(g(x)) = f'(g(x)) g'(x).$
+<p></p>
+If $f:{\mathbb R}^2\rightarrow{\mathbb R}$ and $g,h:{\mathbb R}\rightarrow{\mathbb R}$, then we have
+$$
+\frac{d}{dx} f(g(x), h(x)) = f_1(g(x), h(x)) g'(x) + f_2(g(x), h(x)) h'(x).
+$$
+We shall not prove it here. But let's see a demonstration.
+<p></p>
+Suppose that $f(x,y) = (x+y)^2,$ $g(x) = e^x$
+and $h(x) = \sin x.$ Then we see that
+$$
+f(g(x), h(x)) = (e^x + \sin x)^2.
+$$
+Differentiating this using the univariate chain rule we get 
+$$
+\frac{d}{dx} f(g(x), h(x)) = 2(e^x + \sin x) (e^x + \cos x).
+$$
+To use the multivariate chain rule, note that $f_1(x,y) =
+f_2(x,y) = 2(x+y),$ and $g'(x) = e^x$ and $h'(x) = \cos
+x.$ So we have
+$$
+\frac{d}{dx} f(g(x), h(x)) = 2(e^x + \sin x) e^x + 2(e^x + \sin x)  \cos x,
+$$
+which is the same as what we got earlier.
+
+<hr/>
+<table width="100%" border="0">
+<tr>
+<td align="left"/>
+<td align="right"/>
+</tr>
+</table>
+<hr/>
+</body>
+</html>

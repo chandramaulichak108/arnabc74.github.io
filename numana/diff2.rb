@@ -1,7 +1,7 @@
 <NOTE>
 @{
 <TITLE>Differential equations</TITLE>
-<UPDT>FRI JAN 17 IST 2020</UPDT>
+<UPDT>SUN APR 12 IST 2020</UPDT>
 <HEAD1>Differential equations (contd)</HEAD1>
 In the first part we have dealt with differential equations 
 of the form
@@ -60,26 +60,31 @@ k_2 &  = &  h\,f(*(x_i+\frac{h}{2},y_i+\frac{k_1}{2})*)\\
 y_{i+1} &  = &  y_i + k_2.
 </MULTILINE>
 This method has the same order of precision as 2-nd order Taylor method.
-To see this use the 2-variable Taylor expansion:
+To see this use the <LINK to="multidiff.html">2-variable Taylor expansion</LINK>:
 <D>
-f(x+\delta x, y+\delta y) = f(x,y)+\delta x f_x(x,y)+ \delta y f_y(x,y) +\mbox{ 2-nd order terms}.
+f(x+\delta x, y+\delta y) = f(x,y)+\delta x f_1(x,y)+ \delta y f_2(x,y) +\mbox{ 2-nd order terms}.
 </D> 
-where <M>f_x,f_y</M> are partial derivatives of w.r.t. <M>x</M> and
-<M>y,</M> respectively.
+where <M>f_1,f_2</M> are partial derivatives of <M>f</M>
+w.r.t. its first and
+second arguments, respectively.
 <P/>
-Applying this to <M>f(*(x_i+\frac{h}{2},y_i+\frac{k_1}{2})*)</M> we see that
+We shall apply this
+to <M>f(*(x_i+\frac{h}{2},y_i+\frac{k_1}{2})*).</M> To simplify
+notation, we shall write <M>f,</M> <M>f_1</M> etc to
+mean <M>f(x_i,y_i),</M> <M>f_1(x_i, y_i)</M> etc,
+respectively. Then we see that
 <MULTILINE>
-k_2 & =&  h\left[f(x_i,y_i) + \frac{h}{2} f_x(x_i,y_i) + \frac{k_1}{2} f_y(x_i,y_i) +
+k_2 & =&  h\left[f + \frac{h}{2} f_1 + \frac{k_1}{2} f_2 +
 h^2\mbox{-terms}\right]\\
-& =&  hf + \frac{h^2}{2} f_x + \frac{h\,k_1}{2}  f_y + h^3\mbox{-terms}\\
-& =&  hf + \frac{h^2}{2} f_x + \frac{h^2}{2} f f_y + h^3\mbox{-terms},
+& =&  hf + \frac{h^2}{2} f_1 + \frac{h\,k_1}{2}  f_2 + h^3\mbox{-terms}\\
+& =&  hf + \frac{h^2}{2} f_1 + \frac{h^2}{2} f f_2 + h^3\mbox{-terms},
 </MULTILINE>
 since <M>k_1 = hf.</M>
 <P/>
 So the second order Runge-Kutta method is
 <D>
 y_{i+1}  =
-y_i + hf + \frac{h^2}{2} f_x + \frac{h^2}{2} f f_y + h^3\mbox{-terms}
+y_i + hf + \frac{h^2}{2} f_1 + \frac{h^2}{2} f f_2 + h^3\mbox{-terms}
 </D>
 
 Let's compare this with the 2-nd order Taylor's method:
@@ -87,13 +92,13 @@ Let's compare this with the 2-nd order Taylor's method:
 y_{i+1} = y_i + y_i'h + \frac{y_i''}{2}h^2
 & =&   y_i + hf + \frac{y_i''}{2}h^2.
 </MULTILINE>
-Now 
+Now by the <LINK to="multidiff.html">multivariate chain rule</LINK>,
 <D>
-y_i'' = f_x + f_yy_i' = f_x+ff_y.
+y_i'' = f_1 + f_2y_i' = f_1+ff_2.
 </D>
 So the 2nd order Taylor's method becomes
 <D>
-y_{i+1} = y_i + hf + \frac{h^2}{2}(f_x+ff_y),
+y_{i+1} = y_i + hf + \frac{h^2}{2}(f_1+ff_2),
 </D>
 which coincides with the 2nd order Runge-Kutta method (ignoring <M>h^3</M>-terms).
 <P/>
@@ -103,7 +108,7 @@ the 4-th order version:
 k_1 &  = &  hf(x_i,y_i)\\
 k_2 &  = &  hf\left(x_i+\frac{h}{2},y_i+\frac{k_1}{2}\right)\\
 k_3 &  = &  hf\left(x_i+\frac{h}{2},y_i+\frac{k_2}{2}\right)\\
-k_2 &  = &  hf(x_i+h,y_i+k_3)\\
+k_4 &  = &  hf(x_i+h,y_i+k_3)\\
 y_{i+1} &  = &  y_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4).
 </MULTILINE>
 This has the same order of precision as the fourth order Taylor method.
@@ -126,25 +131,24 @@ rk^:(i.10) 4 5
 In the first part, we had already arrived at the following system for a simple pendulum:
 <MULTILINE>
 \theta ' &  = &  \omega ~~(\equiv f_1(t,\theta,\omega))\\
-\omega' &  = &  -\frac{L}{g} \theta  ~~(\equiv f_2(t,\theta,\omega)).
+\omega' &  = &  -\frac{g}{L} \theta  ~~(\equiv f_2(t,\theta,\omega)).
 </MULTILINE>
 The 4-th order Runge-Kutta method for this becomes
 <MULTILINE>
+t_{i+1} & = t_i + h\\
 \theta_{i+1} &  = \theta_i + \frac{1}{6}(k_1+2k_2+2k_3+k_4)\\
 \omega_{i+1} &  = \omega_i + \frac{1}{6}(j_1+2j_2+2j_3+j_4),
 </MULTILINE>
 where
 <MULTILINE>
-k_1 &  = &  hf_1(t,\theta_i,\omega_i) = h\omega_i\\
-j_1 &  = &  hf_2(t,\theta_i,\omega_i) = -\frac{Lh}{g} \theta_i\\
-k_2 &  = &  hf_1(t+\tfrac{h}{2},\theta_i+\tfrac{k_1}{2},\omega_i+\tfrac{j_1}{2}) = h[\omega_i+\tfrac{j_1}{2}]\\
-j_2 &  = &  hf_2(t+\tfrac{h}{2},\theta_i+\tfrac{k_1}{2},\omega_i+\tfrac{j_1}{2}) = -\tfrac{Lh}{g} [\theta_i+\tfrac{k_1}{2}]\\
-k_3 &  = &  hf_1(t+\tfrac{h}{2},\theta_i+\tfrac{k_2}{2},\omega_i+\tfrac{j_2}{2}) = h[\omega_i+\tfrac{j_2}{2}]\\
-j_3 &  = &  hf_2(t+\tfrac{h}{2},\theta_i+\tfrac{k_2}{2},\omega_i+\tfrac{j_2}{2}) = -\frac{Lh}{g} [\theta_i+\tfrac{k_2}{2}]\\
-k_4 &  = &  hf_1(t+h,\theta_i+k_3,\omega_i+j_3)=h[\omega_i+j_3]\\
-j_4 &  = & 
-hf_2(t+h,\theta_i+k_3,\omega_i+j_3)=-\frac{Lh}{g}
-[\theta_i+k_3].
+k_1 &  = &  hf_1(t_i,\theta_i,\omega_i) = h\omega_i\\
+j_1 &  = &  hf_2(t_i,\theta_i,\omega_i) = -\frac{gh}{L} \theta_i\\
+k_2 &  = &  hf_1(t_i+\tfrac{h}{2},\theta_i+\tfrac{k_1}{2},\omega_i+\tfrac{j_1}{2}) = h[\omega_i+\tfrac{j_1}{2}]\\
+j_2 &  = &  hf_2(t_i+\tfrac{h}{2},\theta_i+\tfrac{k_1}{2},\omega_i+\tfrac{j_1}{2}) = -\tfrac{gh}{L} [\theta_i+\tfrac{k_1}{2}]\\
+k_3 &  = &  hf_1(t_i+\tfrac{h}{2},\theta_i+\tfrac{k_2}{2},\omega_i+\tfrac{j_2}{2}) = h[\omega_i+\tfrac{j_2}{2}]\\
+j_3 &  = &  hf_2(t_i+\tfrac{h}{2},\theta_i+\tfrac{k_2}{2},\omega_i+\tfrac{j_2}{2}) = -\frac{gh}{L} [\theta_i+\tfrac{k_2}{2}]\\
+k_4 &  = &  hf_1(t_i+h,\theta_i+k_3,\omega_i+j_3)=h[\omega_i+j_3]\\
+j_4 &  = &  hf_2(t_i+h,\theta_i+k_3,\omega_i+j_3)=-\frac{gh}{L}[\theta_i+k_3].
 </MULTILINE>
 
 <EXR>

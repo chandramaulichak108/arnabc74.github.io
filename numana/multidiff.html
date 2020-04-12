@@ -84,13 +84,25 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <a href="#The definition">The definition</a>
 </li>
 <li>&nbsp;&nbsp;&nbsp;
-<a href="#Computing">Computing</a>
+<a href="#Computing the derivative matrix">Computing the derivative matrix</a>
 </li>
 <li>&nbsp;&nbsp;&nbsp;
+<a href="#Two special cases">Two special cases</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#Linear transformation">Linear transformation</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="#Differentiaing a quadratic form">Differentiaing a quadratic form</a>
 </li>
 <li>&nbsp;&nbsp;&nbsp;
 <a href="#Application">Application</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#Chain rule">Chain rule</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#1st order Taylor expansion">1st order Taylor expansion</a>
 </li>
 </ul>
 <hr/>
@@ -98,7 +110,7 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <tr>
 <td align="right"><i>Last
 updated on:
-MON MAR 30 IST 2020</i></td>
+SUN APR 12 IST 2020</i></td>
 </tr>
 </table>
 $\newcommand{\v}{\vec}$
@@ -107,43 +119,43 @@ name="Multivariate differentiation">Multivariate differentiation</a></h1>
 
 <h2><a
 name="The definition">The definition</a></h2>
-Suppose that you have a function $f:{\mathbb R}^n\rightarrow{\mathbb R}.$ Then we
+Suppose that you have a function $f:{\mathbb R}^n\rightarrow{\mathbb R}^m.$ Then we
 say that it is differentiable at some $\v a\in{\mathbb R}^n$ if 
-locally at $\v a$ the function may be "well approximated" by a
-linear function passing through $(\v a, f(\v a)).$ Such a
+locally at $\v a$ the function may be "well approximated" by an
+(affine) linear function passing through $(\v a, f(\v a)).$ Such a
 function has the form 
 $$
 g(\v x) = f(\v a) + D (\v x -\v a),
 $$
-where $D$ is a $1\times n$ matrix (<i>i.e.</i>, a row vector).
+where $D$ is a $m\times n$ matrix.
 This
-linear function is what we call the tangent if $n=1$ and the
-tangent plane if $n=2.$ When this happens, $D$ is
-called the derivative of $f$ at $\v a.$ It is denoted
+linear function is what we call the tangent if $m=n=1$ and the
+tangent plane if $m=1,~n=2.$
+<p></p>
+This $D$ is
+called the derivative of $f$ at $\v a.$ More commonly,
+it is also called the <b>Jacobian</b> of $f$ at $\v a.$
+If $m=1$ and $n&gt;1$ then it is often denoted
 by $\nabla f$ and called "grad $f$". 
 <p></p>
 If you are curious about what is meant by "well approximated",
 then here it is:
 $$
-\frac{f(\v x)-g(\v x)}{\|\v x - \v a\|}\rightarrow 0\mbox{ as } \v x\rightarrow\v a.
+\frac{f(\v x)-g(\v x)}{\|\v x - \v a\|}\rightarrow \v 0\mbox{ as } \v x\rightarrow\v a.
 $$
 The $\|\cdots\|$ is the length in ${\mathbb R}^n.$
-Note that here $g(\cdot)$ depends on $\v a$ (though I have not
-written it more appropriately as $g_a(\cdot)$.)
 <p></p>
 Check that
 for $n=1$ this is same as our familiar concept of differentiation.
 
 <h2><a
-name="Computing">Computing</a></h2>
-If $f:{\mathbb R}^n\rightarrow{\mathbb R}$ is differentiable at some $\v
-a\in{\mathbb R}^n$, then we may compute the derivative easily as
-follows.
+name="Computing the derivative matrix">Computing the derivative matrix</a></h2>
+The derivative of $f:{\mathbb R}^n\rightarrow{\mathbb R}^n$ at any given $\v
+a\in{\mathbb R}^n$ is an $m\times n$ matrix $D.$
+Its $(i,j)$-th entry is given by 
 $$
-\nabla f(\v a)= (f_1(\v a),...,f_n(\v a)),
+\frac{\partial f_i}{\partial x_j} (\v a).
 $$
-where $f_i$ is the $i$-th partial derivative
-of $f.$
 
 <p>
 <b>EXAMPLE:</b>&nbsp;
@@ -157,9 +169,17 @@ $$
 
 
 <h2><a
-name="Differentiaing a quadratic form">Differentiaing a quadratic form</a></h2>
-We know that derivative of $mx^2$ is $2mx.$ There is an
-elegant generalisation of this for higher dimension. If 
+name="Two special cases">Two special cases</a></h2>
+
+<h3><a
+name="Linear transformation">Linear transformation</a></h3>
+If $f:{\mathbb R}^n\rightarrow{\mathbb R}^m$ is of the form $f(\v x) = A\v x$
+for some constant matrix $A,$ then the derivative will
+be $A$ itself.
+
+<h3><a
+name="Differentiaing a quadratic form">Differentiaing a quadratic form</a></h3>
+If
 $f:{\mathbb R}^n\rightarrow{\mathbb R}$ is of the form 
 $$
 f(\v x) = \v x' M \v x
@@ -174,12 +194,35 @@ This is the formula we have used in the soap film example.
 name="Application">Application</a></h2>
 
 Just like the familiar 1-dim derivative, the higher dimensional
-derivatve also vanishes if $f$ attains a local max/min. We
+derivatve also vanishes if $f$ attains a local max/min (for $m=1$). We
 also have an analogous second order derivative check, but we
 shall not go into that here. 
-<p></p>
 
+<h2><a
+name="Chain rule">Chain rule</a></h2>
 
+Let $f:{\mathbb R}^m\rightarrow{\mathbb R}^n$ and $g:{\mathbb R}^n\rightarrow{\mathbb R}^p$ be both
+differentiable with derivatives $D_f$ and $D_g,$
+respectively. Let $h:{\mathbb R}^n\rightarrow{\mathbb R}^p$ is defined as $h =
+g\circ f,$ then $h$ must be differentiable with
+derivative at any $\va\in{\mathbb R}^n$ given by
+$$
+D_h = D_g( f(\v a)) D_f(\v a). 
+$$
+
+<h2><a
+name="1st order Taylor expansion">1st order Taylor expansion</a></h2>
+For a function $f:{\mathbb R}^m\rightarrow{\mathbb R}^n$ that is differentiable at
+some $\v a\in{\mathbb R}^n, $ we know that $f$ is well
+approximated by the affine linear function 
+$$
+g(\v x) = f(\v a) + D (\v x -\v a),
+$$
+where $D$ is the derivative of $f$ at $\v a.$ This
+is called the 1st order Taylor approximation of $f.$ Under
+suitable assumptions (related to existence and continuity of the second
+partial derivatives of $f$), the error involved in this
+approximation is of quadratic order.
 <h3>Comments</h3>
 To post an anonymous comment, click on the "Name" field. This
 will bring up an option saying "I'd rather post as a guest."
