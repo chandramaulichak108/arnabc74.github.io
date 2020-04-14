@@ -1,4 +1,4 @@
-<NOTE>
+ <NOTE>
 @{<UPDT>TUE APR 14 IST 2020</UPDT>
 <M>\newcommand{\v}{\vec}</M>
 <HEAD1>Multivariate differentiation</HEAD1>
@@ -11,7 +11,7 @@ function has the form
 <D>
 g(\v x) = f(\v a) + D (\v x -\v a),
 </D>
-where <M>D</M> is a <M>m\times n</M> matrix.
+where  <M>D</M> is a <M>m\times n</M> matrix.
 This
 linear function is what we call the tangent if <M>m=n=1</M> and the
 tangent plane if <M>m=1,~n=2.</M>
