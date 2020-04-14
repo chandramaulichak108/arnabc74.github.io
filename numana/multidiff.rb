@@ -1,5 +1,5 @@
 <NOTE>
-@{<UPDT>SUN APR 12 IST 2020</UPDT>
+@{<UPDT>TUE APR 14 IST 2020</UPDT>
 <M>\newcommand{\v}{\vec}</M>
 <HEAD1>Multivariate differentiation</HEAD1>
 <HEAD2>The definition</HEAD2>
@@ -97,5 +97,30 @@ is called the 1st order Taylor approximation of <M>f.</M> Under
 suitable assumptions (related to existence and continuity of the second
 partial derivatives of <M>f</M>), the error involved in this
 approximation is of quadratic order.
+
+<HEAD1>Trouble with tangent plane</HEAD1>
+If <M>f:\rr^2\to\rr</M> is differentiable at
+some <M>(x_0,y_0)</M> then the tangent plane is given by 
+<D>
+z = f(x_0,y_0) + f_1(x_0,y_0)(x-x_0) + f_2(x_0,y_0)(y-y_0),
+</D>
+where <M>f_i</M> is the partial derivative of <M>f</M>
+w.r.t. the <M>i</M>-th argument. 
+<P/>
+In particular, the partial derivatives must exist if <M>f</M> is differentiable.
+<P/>
+However, the converse is not true. It is possible that the
+partial derivatives exist at some <M>(x_0,y_0)</M> (and so the
+above plane is well defined), but still <M>f</M> is not
+differentiable there. Thus, even if the plane exists, it need not
+be the tangent plane. One such example is given by the function 
+<D>
+f(x,y) = <CASES>-y<IF>x\neq 0</IF>0<IF>x=0</IF></CASES>.
+</D>
+The graph is shown below:
+<CIMG web="badtan.png">Not differentiable at <M>(0,0)</M></CIMG>
+Here <M>f_1(0,0) = f_2(0,0) = 0,</M> and so the plane is just
+the <M>xy</M>-plane, but clearly it is not tangent to the
+surface.  
 <DISQUSE id="multidiff" url="https://www.isical.ac.in/~arnabc/numana/multidiff.html"/>@}
 </NOTE>

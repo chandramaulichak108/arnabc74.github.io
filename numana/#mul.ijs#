@@ -1,0 +1,6 @@
+xx=:50%~i:50
+f=: dyad : 'x,y,(x*x)+y*y'
+(xx (f s)/ xx) fwrite <'t.obj'
+t=: dyad : 'x,y,0.25+x'
+(xx (t s)/ xx) fwrite <'s.obj'
+

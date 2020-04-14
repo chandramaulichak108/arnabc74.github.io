@@ -104,13 +104,16 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <li>&nbsp;&nbsp;&nbsp;
 <a href="#1st order Taylor expansion">1st order Taylor expansion</a>
 </li>
+<li>
+<a href="#Trouble with tangent plane">Trouble with tangent plane</a>
+</li>
 </ul>
 <hr/>
 <table width="100%">
 <tr>
 <td align="right"><i>Last
 updated on:
-SUN APR 12 IST 2020</i></td>
+TUE APR 14 IST 2020</i></td>
 </tr>
 </table>
 $\newcommand{\v}{\vec}$
@@ -223,6 +226,41 @@ is called the 1st order Taylor approximation of $f.$ Under
 suitable assumptions (related to existence and continuity of the second
 partial derivatives of $f$), the error involved in this
 approximation is of quadratic order.
+
+<h1><a
+name="Trouble with tangent plane">Trouble with tangent plane</a></h1>
+If $f:{\mathbb R}^2\rightarrow{\mathbb R}$ is differentiable at
+some $(x_0,y_0)$ then the tangent plane is given by 
+$$
+z = f(x_0,y_0) + f_1(x_0,y_0)(x-x_0) + f_2(x_0,y_0)(y-y_0),
+$$
+where $f_i$ is the partial derivative of $f$
+w.r.t. the $i$-th argument. 
+<p></p>
+In particular, the partial derivatives must exist if $f$ is differentiable.
+<p></p>
+However, the converse is not true. It is possible that the
+partial derivatives exist at some $(x_0,y_0)$ (and so the
+above plane is well defined), but still $f$ is not
+differentiable there. Thus, even if the plane exists, it need not
+be the tangent plane. One such example is given by the function 
+$$
+f(x,y) = \left\{\begin{array}{ll}-y&\text{if }x\neq 0\\0&\text{if }x=0\\\end{array}\right..
+$$
+The graph is shown below:
+<center>
+<table width="100%">
+<tr>
+<th><img width="" src="image/badtan.png"></th>
+</tr>
+<tr>
+<th>Not differentiable at $(0,0)$</th>
+</tr>
+</table>
+</center>
+Here $f_1(0,0) = f_2(0,0) = 0,$ and so the plane is just
+the $xy$-plane, but clearly it is not tangent to the
+surface.  
 <h3>Comments</h3>
 To post an anonymous comment, click on the "Name" field. This
 will bring up an option saying "I'd rather post as a guest."
