@@ -2,7 +2,7 @@
 @{
 <M>\newcommand{\ip}[1]{\langle #1 \rangle}</M>
 <TITLE>Numerical Integration</TITLE>
-<UPDT>FRI JAN 17 IST 2020</UPDT>
+<UPDT>THU APR 16 IST 2020</UPDT>
 <HEAD1>Numerical Integration</HEAD1>
 
 
@@ -41,7 +41,7 @@ same as Simpson's rule.
 <HEAD3>Quick derivation</HEAD3>
 In practice there is a short cut method for finding the
 (simple) Newton-Cotes quadrature formula for any given <M>n,</M>
-that doe not require any interpolation.  It is based on the
+that does not require any interpolation.  It is based on the
 following two observations.
 <BOX name="Observation 1">
 The <M>n</M>-th order simple Newton-Cotes quadrature must give
@@ -75,9 +75,11 @@ while the second choice gives
 </D>
 Solving these two equations we get 
 <D>
-\alpha_0 = \alpha_1 = \frac h 2,
+\alpha_0 = \alpha_1 = [[b-a][2]]=[[h2]],
 </D>
-which gives the trapezium rule.
+where <M>h</M> is the common difference between
+the <M>x_i</M>'s. 
+This gives the trapezium rule (for a single trapezium).
 
 <COMMENT>
 Show that <M>\alpha_0+\cdots +\alpha_n = nh.</M>
@@ -100,8 +102,11 @@ The coefficient matrix is a Vandermonde matrix, and hence is
 nonsingular. It should not be difficult to check that the unique solution
 is given by 
 <D>
-\alpha_0 = h/3,~~~\alpha_1 = 4h/3,~~~\alpha_2 = h/3.
+\alpha_0 = h/3,~~~\alpha_1 = 4h/3,~~~\alpha_2 = h/3,
 </D> 
+where <M>h</M> is again the common difference between the <M>x_i</M>'s.
+<P/>
+
 Passing from simple to composite Newton-Cotes quadrature formulae
 is simple. If the coefficients are <M>\alpha_0,...,\alpha_n,</M>
 and we are using <M>3</M> subintervals, then the coefficients
@@ -112,8 +117,7 @@ will be
 Note the boxed terms, where two consecutive subintervals meet.
 
 <HEAD3>Error analysis for Newton-Cotes formulae</HEAD3>
-By construction the Newton-Cotes formula of degree <M>n</M> is exact ({\em
-i.e.,} involves no error) if
+By construction the Newton-Cotes formula of degree <M>n</M> is exact (i.e., involves no error) if
 <M>f(x)</M> is a polynomial of degree <M>\leq n.</M> In particular, the
 trapezium rule is exact if <M>f(x)</M> is linear. However, it may not be
 exact for higher degree polynomials.
@@ -164,26 +168,63 @@ This is actually a general phenomenon for Newton-Cotes formulae for
 degree <M>\leq n+1. </M> However, if <M>n</M> is odd then it is guaranteed
 to be exact only if <M>f(x)</M> is a polynomial of
 degree <M>\leq n.</M> To prove this let <M>f(x)</M> be a polynomial of
-degree <M>n+1.</M> Then it coincides with the (n+1)-th degree
-interpolating polynomial, and hence
+degree <M>n+1.</M> Then, by <B>Newton's fundamental formula</B>
+(see the <LINK to="interpol1.html#nff">interpolation (part 1)</LINK>
+page), we have
 <D>
-f(x) = f[x_0]+(x-x_0)f[x_0,x_1]+\cdots+f[x_0,...x_n](x-x_0)\cdots(x-x_n).
+f(x) = p_n(x) + R_n(x),
 </D>
-If we use <M>n</M>-point Newton-Cotes formula, then we integrate only the
-  first <M>n</M> terms. So we miss the last term, whose integral is
+where <M>p_n(x)</M> is the <M>\leq n</M>-th degree interpolating
+polynomial and <M>R_n(x)</M> is the remainder term, which is of
+the form 
 <D>
-f[x_0,...x_n] \int_{x_0}^{x_n} (x-x_0)\cdots(x-x_n)dx.
+R_n(x) = f[x,x_0,...x_n](x-x_0)\cdots(x-x_n).
+</D>
+By <LINK to="numint1.html#std">a standard property</LINK> of
+Newton's divided differences, we know 
+<D>
+f[x,x_0,...,x_n] = [[f^{(n+1)}(\xi)][(n+1)!]]
+</D>
+for some <M>\xi\in(a,b)</M>, where <M>a =
+\min\{x,x_0,...,x_n\}</M> and <M>b = \max\{x,x_0,...,x_n\}.</M>
+<P/>
+Now, <M>f(x)</M> being a <M>(n+1)</M> degree polynomial, this
+implies that <M>f[x,x_0,...,x_n]</M> is just the leading
+coefficient of <M>f(x).</M>
+<P/>
+
+If we use <M>n</M>-point Newton-Cotes formula, we are integrating
+only the
+  <M>p_n(x)</M> part, which produces exact result. So enough to show
+that <M>\int_{x_0}^{x_n} R_n(x)\, dx = 0.</M>
+
+<P/>
+For this it is again enough to show that
+<D>
+\int_{x_0}^{x_n} (x-x_0)\cdots(x-x_n)dx = 0.
 </D>
 Since the <M>x_i</M>'s are regularly spaced, the polynomial 
 <D>
 (x-x_0)\cdots(x-x_n)
 </D>
 has a graph like the following. 
+<COMMENT>
+x = seq(-0.1,4.1,by=0.05)
+f = function(x) x*(x-1)*(x-2)*(x-3)*(x-4)
+png('image/evennc.png')
+bareplot(x,f(x),ty='l')
+n = length(x)
+x1 = x[3:(n-2)]
+polygon(c(x1,rev(x1)), c(f(x1),rep(0,length(x1))),col='red')
+dev.off()
+</COMMENT>
+<CIMG web="evennc.png">The shaded areas cancel out for even <M>n</M></CIMG>
+
  For even <M>n</M> there are exactly <M>n/2</M> humps above and below
 the <M>x</M>-axis. So by symmetry (care!) the sum of the (signed)
  areas is zero.
 
-<CIMG web="evennc.png">The shaded areas cancel out for even <M>n</M></CIMG>
+<P/>
 
 Hence the result.
 

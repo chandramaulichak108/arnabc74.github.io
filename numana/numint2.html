@@ -67,7 +67,7 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
       }
     }
   });
-</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
 <link href="../tools/rgl.css" rel="stylesheet"></link>
 <script src="../tools/rglClass.src.js"></script>
 <script src="../tools/CanvasMatrix.src.js"></script>
@@ -114,7 +114,7 @@ $\newcommand{\ip}[1]{\langle #1 \rangle}$
 <tr>
 <td align="right"><i>Last
 updated on:
-FRI JAN 17 IST 2020</i></td>
+THU APR 16 IST 2020</i></td>
 </tr>
 </table>
 
@@ -160,7 +160,7 @@ same as Simpson's rule.
 name="Quick derivation">Quick derivation</a></h3>
 In practice there is a short cut method for finding the
 (simple) Newton-Cotes quadrature formula for any given $n,$
-that doe not require any interpolation.  It is based on the
+that does not require any interpolation.  It is based on the
 following two observations.
 <fieldset>
 <legend><b><i>Observation 1</i></b></legend>
@@ -198,9 +198,11 @@ $$
 $$
 Solving these two equations we get 
 $$
-\alpha_0 = \alpha_1 = \frac h 2,
+\alpha_0 = \alpha_1 = \frac{b-a}{2}=\frac h2,
 $$
-which gives the trapezium rule.
+where $h$ is the common difference between
+the $x_i$'s. 
+This gives the trapezium rule (for a single trapezium).
 
 
 
@@ -224,8 +226,11 @@ The coefficient matrix is a Vandermonde matrix, and hence is
 nonsingular. It should not be difficult to check that the unique solution
 is given by 
 $$
-\alpha_0 = h/3,~~~\alpha_1 = 4h/3,~~~\alpha_2 = h/3.
+\alpha_0 = h/3,~~~\alpha_1 = 4h/3,~~~\alpha_2 = h/3,
 $$ 
+where $h$ is again the common difference between the $x_i$'s.
+<p></p>
+
 Passing from simple to composite Newton-Cotes quadrature formulae
 is simple. If the coefficients are $\alpha_0,...,\alpha_n,$
 and we are using $3$ subintervals, then the coefficients
@@ -237,8 +242,7 @@ Note the boxed terms, where two consecutive subintervals meet.
 
 <h3><a
 name="Error analysis for Newton-Cotes formulae">Error analysis for Newton-Cotes formulae</a></h3>
-By construction the Newton-Cotes formula of degree $n$ is exact ({\em
-<i>i.e.</i>,} involves no error) if
+By construction the Newton-Cotes formula of degree $n$ is exact (<i>i.e.</i>, involves no error) if
 $f(x)$ is a polynomial of degree $\leq n.$ In particular, the
 trapezium rule is exact if $f(x)$ is linear. However, it may not be
 exact for higher degree polynomials.
@@ -302,24 +306,46 @@ This is actually a general phenomenon for Newton-Cotes formulae for
 degree $\leq n+1. $ However, if $n$ is odd then it is guaranteed
 to be exact only if $f(x)$ is a polynomial of
 degree $\leq n.$ To prove this let $f(x)$ be a polynomial of
-degree $n+1.$ Then it coincides with the (n+1)-th degree
-interpolating polynomial, and hence
+degree $n+1.$ Then, by <b>Newton's fundamental formula</b>
+(see the <a href="interpol1.html#nff">interpolation (part 1)</a>
+page), we have
 $$
-f(x) = f[x_0]+(x-x_0)f[x_0,x_1]+\cdots+f[x_0,...x_n](x-x_0)\cdots(x-x_n).
+f(x) = p_n(x) + R_n(x),
 $$
-If we use $n$-point Newton-Cotes formula, then we integrate only the
-  first $n$ terms. So we miss the last term, whose integral is
+where $p_n(x)$ is the $\leq n$-th degree interpolating
+polynomial and $R_n(x)$ is the remainder term, which is of
+the form 
 $$
-f[x_0,...x_n] \int_{x_0}^{x_n} (x-x_0)\cdots(x-x_n)dx.
+R_n(x) = f[x,x_0,...x_n](x-x_0)\cdots(x-x_n).
+$$
+By <a href="numint1.html#std">a standard property</a> of
+Newton's divided differences, we know 
+$$
+f[x,x_0,...,x_n] = \frac{f^{(n+1)}(\xi)}{(n+1)!}
+$$
+for some $\xi\in(a,b)$, where $a =
+\min\{x,x_0,...,x_n\}$ and $b = \max\{x,x_0,...,x_n\}.$
+<p></p>
+Now, $f(x)$ being a $(n+1)$ degree polynomial, this
+implies that $f[x,x_0,...,x_n]$ is just the leading
+coefficient of $f(x).$
+<p></p>
+
+If we use $n$-point Newton-Cotes formula, we are integrating
+only the
+  $p_n(x)$ part, which produces exact result. So enough to show
+that $\int_{x_0}^{x_n} R_n(x)\, dx = 0.$
+
+<p></p>
+For this it is again enough to show that
+$$
+\int_{x_0}^{x_n} (x-x_0)\cdots(x-x_n)dx = 0.
 $$
 Since the $x_i$'s are regularly spaced, the polynomial 
 $$
 (x-x_0)\cdots(x-x_n)
 $$
 has a graph like the following. 
- For even $n$ there are exactly $n/2$ humps above and below
-the $x$-axis. So by symmetry (care!) the sum of the (signed)
- areas is zero.
 
 <center>
 <table width="100%">
@@ -331,6 +357,12 @@ the $x$-axis. So by symmetry (care!) the sum of the (signed)
 </tr>
 </table>
 </center>
+
+ For even $n$ there are exactly $n/2$ humps above and below
+the $x$-axis. So by symmetry (care!) the sum of the (signed)
+ areas is zero.
+
+<p></p>
 
 Hence the result.
 

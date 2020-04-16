@@ -6,7 +6,7 @@
 \newcommand{\PP}{\mathbf P}
 \newcommand{\RR}{\mathbb R}</M>
 <TITLE>Polynomial Interpolation</TITLE>
-<UPDT>THU FEB 27 IST 2020</UPDT>
+<UPDT>THU APR 16 IST 2020</UPDT>
 
 <HEAD1>Polynomial interpolation</HEAD1>
 Here we shall work with <B>polynomial</B>s.  These are functions with  the
@@ -519,7 +519,7 @@ Let <M>\pi</M> be any permutation of <M>\{0,1,...,k\}.</M> Then show that
 </EXR>
 
 <EXR>
-Let <M>x_0,...,x_n</M> be distinct real numbers with <M>a =
+<DEST name="std">Let</DEST> <M>x_0,...,x_n</M> be distinct real numbers with <M>a =
 \min\{x_i\}</M> and <M>b = \max\{x_i\}.</M>
 Let <M>f:[a,b]\to\RR</M> be an function differentiable <M>n</M>
 times. Then 
@@ -538,7 +538,7 @@ for some <M>\xi\in(a,b).</M>
 The above equality can be generalized to the following theorem.
 
 <THM name="Newton's fundamental formula">
-Let <M>f:\RR\rightarrow\RR</M> be any function and let
+<DEST name="nff">Let</DEST> <M>f:\RR\rightarrow\RR</M> be any function and let
 <M>x_0,...,x_n</M> be distinct real numbers. Then for any <M>x\in\RR</M>
 <D>
 f(x) = p_n(x) + R_n(x),
