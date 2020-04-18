@@ -114,7 +114,7 @@ $\newcommand{\ip}[1]{\langle #1 \rangle}$
 <tr>
 <td align="right"><i>Last
 updated on:
-THU APR 16 IST 2020</i></td>
+SAT APR 18 IST 2020</i></td>
 </tr>
 </table>
 
@@ -369,140 +369,107 @@ Hence the result.
 
 <h2><a
 name="Gaussian quadrature">Gaussian quadrature</a></h2>
-So far we have been using $f(x)$ only via its values at some
-regularly spaced points $x_i$'s. In some cases, it may be impossible
-to know $f(x)$ at other points, <i>e.g.</i>, if $f(x)$ is
-not known analytically but only measured by some experiment. However, in
-many other cases, it may be possible to compute $f(x)$ at any value
-of $x$ of our choice. Then one may like to choose the values
-$x_i$'s carefully to improve the accuracy of the quadrature in stead
-of using regularly spaced $x_i$'s. This is the main idea behind
-<i>Gaussian quadrature.</i> Here we try to approximate the integral as
+
+Gauss used the above idea to extend Newton-Cotes quadrature to
+what has come to be known as <b>Gaussian quadrature</b>. 
+<p></p>
+To start the discussion, first notice that the main idea behind
+Newton-Cotes quadrature works even if $x_0,...,x_n$ are not
+regularly spaced. All that we need is that they are distinct
+numbers in $[a,b].$ Then we can obtain the unique
+interpolating polynomial of degree $\leq n,$ and use its
+integral as an approximation to $\int_a^b f(x)\,dx.$ The
+result will be of the form 
 $$
-\int_a^b f(x) dx \approx \alpha_0 f(x_0)+\cdots+\alpha_n f(x_n),
+c_0f(x_0)+\cdots+ c_n f(x_n),
 $$
-where <i>both</i> $\alpha_i$'s and  $x_i$'s are to be chosen to
-increase the accuracy of the approximation. Since we are choosing
-$2(n+1)$ numbers here, (as compared to only $(n+1)$ in
-Newton-Cotes) we would expect that Gaussian quadrature is more accurate
-(<i>i.e.</i>, exact for higher degree polynomials) than Newton-Cotes
-quadrature with the same $n.$ Indeed, it will be accurate
-for all polynomials of degree $\leq 2n+1.$ 
+for some constants $c_0,...,c_n$ depending only on
+the $x_i$'s. These $c_i$'s may be obtained by the
+Vandermonde system discussed above for Newton-Cotes quadrature.
+<p></p>
+In this note, we shall call this method (<i>i.e.</i>, Newton-Cotes
+quadrature with possibly unevenly spaced $x_i$'s) the <i>generalised
+Newton-Cotes</i> quadrature, and denote it by $GNC(x_0,...,x_n).$
+<p></p>
+
+By the
+very construction this method gives exact answer if $f$ is
+itself a polynomial of degree $\leq n.$ A natural question
+is: can we choose the $x_i$'s cleverly, so that $GNC(x_0,...,x_n)$
+ is  accurate for polynomials up to some higher degree? Gauss showed
+that the answer is: Yes, it is possible to
+choose $x_0,...,x_n$ in $[a,b]$ in a way so that the
+corresponding Newton-Cotes quadrature gives exact answer for all
+polynomials of degree $\leq 2n+1.$ This upper bound on the
+degree is natural since we are now choosing $2n+2$
+quantities (the $x_i$'s and the $c_i$'s), and a general
+polynomial of degree $\leq 2n+1$ needs $2n+2$ numbers
+to specify it. 
+<p></p>
+In general, the error for $GNC(x_0,...,x_n)$
+is 
+$$
+\int_a^b R_n(x)\,dx,
+$$
+where $R_n(x)$ is the error when we use the interpolating
+polynomial $p_n(x)$ in place of $f(x)$:
+$$
+R_n(x) = f(x)-p_n(x).
+$$
+Our experience with the even $n$ case of Newton-Cotes
+quadrature showed that $\int_a^b R_n(x)\, dx$ may
+be $0,$ even when $R_n(x)$ is a nonzero function.  This
+led Gauss to explore the possibility of
+choosing $x_0,...,x_n$ in some special way so that
+the $\int_a^b R_n(x)\, dx$ vanishes for  polynomials of
+higher degrees. We know that $R_n(x)$ has the form 
+$$
+R_n(x) = f[x,x_0,...,x_n](x-x_0)(x-x_1)\cdots(x-x_n).
+$$
+The following fact will come to our help here.
+
+<p>
+<b>EXERCISE:</b>&nbsp;
+Show that if $f(x)$ some polynomial of degree $m&gt;n$,
+then $f[x,x_0,...,x_n]$ must be a polynomial of degree $m-n.$
+<img src="../image/box.png"></p>
+
+This motivated Gauss to look  for $x_0,...,x_n\in[a,b]$ such that 
+$$
+\int_a^b p(x)(x-x_0)\cdots(x-x_n)\, dx = 0
+$$
+for all polynomials $p(x)$ of degree $\leq n.$
 
 <p></p>
-Gaussian quadrature depends on the following theorem.
+This immediately leads to the following theorem.
 
 <fieldset>
 <legend><b><i>Theorem</i></b></legend>
-Let $x_0,...,x_n$ be $n+1$ distinct numbers. Let $m\geq
-1$ be any integer. Then the following two statements are equivalent.
-<ol type="">
-
-<li>There are coefficients $\alpha_0,...,\alpha_n$ such that for any polynomial
-     $f(x)$ of degree $\leq 2n+1,$ 
-$$
-\int_a^b f(x) dx = \sum_{i=0}^n \alpha_i f(x_i).
-\hspace{1in} \mbox{(*)}$$ </li>
-
-<li>The polynomial 
-$
-p(x) = (x-x_0)(x-x_1)\cdots(x-x_n)
-$
-satisfies
-$$
-\int_a^b x^kp(x)dx = 0~~~\forall k=0,1,...,n.
-\hspace{1in} \mbox{(**)}$$</li>
-
-</ol>
-
+Let $x_0,...,x_n$ be $n+1$ distinct numbers. 
+Then 
+$GNC(x_0,...,x_n)$ is exact for all  polynomials
+     of degree $\leq 2n+1$ iff
+$\int_a^b x^k(x-x_0)\cdots (x-x_n)\,dx = 0$ for $k=0,1,...,n.$
 </fieldset>
-First notice why this theorem is useful: (*) involves
-both $x_i$'s and $\alpha_i$'s. But (**) involves only
-the $x_i$'s. Yet they are equivalent. Thus, this theorem
-allows us to find $x_i$'s first, without worrying about $\alpha_i$'s.
+
 <p>
-<b><i>Proof:</i></b>
-($1\Rightarrow2$): Let $\alpha_0,...,\alpha_n$
-satisfy (*) for all polynomials of degree $\leq
-    2n+1.$ To show (**) fix any 
-$k \leq n.$ 
-
-<p></p>
-
-Then the polynomial $x^kp(x)$ is of degree
-$\leq n+(n+1)=2n+1,$ 
-since degree of $p(x)$ is $n+1.$ 
-
-<p></p>
-
-Taking $f(x) = x^k p(x)$ in (*) we get
-$$
-\int_a^b x^kp(x)dx = \sum_{i=0}^n \alpha_i x_i^k p(x_i) = 0,
-$$
- since $p(x_i) = 0$ for all $i=0,...,n.$
-<p></p>
- So (**) holds.
-
-<p></p>
-
-($2\Rightarrow1$): We are given $x_0,...,x_n$ such that 
-(**) holds. We are to get $\alpha_0,...,\alpha_n$ such
-that (*) holds for any $f(x)$ of degree $\leq 2n+1.$
- 
-First observe that for any $k=0,...,n$
-$$
-\int_a^b x^k p(x)dx = \sum_{i=0}^n \alpha_i x^k p(x_i),
-$$
-since the l.h.s. vanishes by (**) and the
-r.h.s. vanishes by definition of $p(x).$ Thus, for the
-polynomials $x^kp(x)$ we get (*) without even
-worring about the $\alpha_i$'s! 
-
-<p></p>
-
-Also we need (*) to hold also for $f(x)=x^k$
-for $k=0,...,n.$ So as in the 
-Newton-Cotes approach we get then following Vandermonde system.
-$$
-\left[\begin{array}{ccccccccccc}1&amp; 1&amp; \cdots &amp;  1\\
-     x_0&amp; x_1&amp; \cdots&amp; x_n\\
-     x_0^2&amp; x_1^2&amp; \cdots&amp; x_n^2\\
-     \vdots &amp;  \vdots &amp;   &amp;  \vdots\\
-     x_0^n&amp; x_1^n&amp; \cdots&amp; x_n^n
-
-\end{array}\right]\left[\begin{array}{ccccccccccc}\alpha_0\\\alpha_1\\\alpha_2\\\vdots\\ \alpha_n
-\end{array}\right] = 
-\left[\begin{array}{ccccccccccc}c_0\\c_1\\c_2\\\vdots\\c_n
-\end{array}\right],
-$$
-where 
-$$
-c_k = \int_a^b x^k dx = (b^{k+1}-a^{k+1})/(k+1).
-$$
-The $x_i$'s being distinct, the coefficient matrix is nonsingular,
-and hence this system uniquely fixes the $\alpha_i$'s.
-
-<p></p>
-
-Thus, by construction, (*) holds for degrees $\leq
-  n,$ and also for the polynomials $x^k p(x)$ for $k=0,...,n.$ 
-
-<p></p>
-
-This immediately implies (how?) that (*) holds for all
-polynomials of degree $\leq 2n+1.$<b><i>[QED]</i></b>
+<b><i>Proof:</i></b>The above discussion.<b><i>[QED]</i></b>
 </p>
 
 
+This theorem is a useful one, but still it does not tell us if
+such $x_0,...,x_n$ indeed exist, and even if they do, how to
+find them. For this purpose we need the concept of orthogonal
+polynomials, a concept that has far-reaching consequences in
+mathematics. 
 
 
 
 <h3><a
 name="Orthogonal polynomials">Orthogonal polynomials</a></h3>
-The above theorem provides a useful approach to Gaussian
-quadrature. Consider the set of all polynomials $f(x)$ defined on
+Consider the set of all polynomials $f(x)$ defined on
 $[a,b].$
-Clearly, it is a vector space over ${\bf R}$ under usual addition and
+Clearly, it is a vector space over ${\mathbb R}$ under usual addition and
 scalar multiplication. Define the inner product 
 $$
 \langle f,g \rangle = \int_a^b f(x)g(x) dx.
@@ -522,26 +489,6 @@ $$
 \{p_0(x),p_1(x),p_2(x),...\}
 $$
 It is easy to see that each $p_k(x)$ has degree $k.$
-The following theorem is an important property of these orthogonal
-polynomials. 
-<fieldset>
-<legend><b><i>Theorem</i></b></legend>
-Each $p_k(x)$ has $k$ distinct, real zeros inside the open
-interval $(a,b).$ 
-</fieldset>
-
-<p>
-<b><i>Proof:</i></b>We shall not prove this in this course.<b><i>[QED]</i></b>
-</p>
-
-Let $z_{k,0},...,z_{k,k-1}$ be the zeros of $p_k(x).$ Then
-Gaussian quadrature with $n+1$ points uses the following approximation:
-$$
-\int_a^b f(x) dx \approx \sum_{i=0}^n \alpha_{n+1,i} f(z_{n+1,i}),
-$$
-where the $\alpha_{n+1,i}$'s are obtained from the Vandermonde system
-with $x_i = z_{n+1,i}.$
-This is exact if $f(x)$ is a polynomial of degree $\leq 2n.$
 
 <p>
 <b>EXAMPLE:</b>&nbsp;
@@ -606,13 +553,69 @@ p. p2
 </pre>
 </span>
 
+
+<fieldset>
+<legend><b>Definition: Gaussian quadrature</b></legend>
+Gaussian quadrature of
+degree $n$ is just  $GNC(x_0,...,x_n)$
+where $x_0,...,x_n$ are the zeroes of $p_{n+1}(x).$
+</fieldset>
+
+
+There is still a little catch here: we need $x_i$'s to be
+real, distinct and all lying inside $[a,b].$
+
+This is guaranteed by the following theorem.
+
+<fieldset>
+<legend><b><i>Theorem</i></b></legend>
+Each $p_n(x)$ has $n$ distinct, real zeros inside the open
+interval $(a,b).$ 
+</fieldset>
+
+<p>
+<b><i>Proof:</i></b>We are given the fact that for any polynomial $q(x)$ of
+degree $&lt;n$, we must have $\int_a^b q(x)p_n(x)\,dx = 0.$
+<p></p>
+Let $p_n(x)$ have exactly $m$ distinct real zeros of odd
+multiplicities inside $(a,b).$
+<p></p>
+Call them $\alpha_1,...,\alpha_m.$
+<p></p>
+Define a polynomial $q(x)$ as
+$$
+q(x) = (x-\alpha_1)\cdots(x-\alpha_m).
+$$
+Then $q(x)p(x)$ has all real zeros of even multiplicities,
+and hence does not change sign over $(a,b).$
+<p></p>
+So $\int_a^b q(x)p_n(x)\,dx \neq 0.$
+<p></p>
+By the constuction of $p_n(x)$ this forces $q(x)$ to
+have degree $\geq n.$ But $m\leq n,$ and hence $m = n.$
+<p></p>
+So $p(x)$ has exactly $n$ distinct roots (with odd
+multiplicities). Since $p_n(x)$ has degree $n,$ all the
+zeroes are real and distinct and inside $(a,b).$
+ <b><i>[QED]</i></b>
+</p>
+
+Let $z_{k,0},...,z_{k,k-1}$ be the zeros of $p_k(x).$ Then
+Gaussian quadrature with $n+1$ points uses the following approximation:
+$$
+\int_a^b f(x) dx \approx \sum_{i=0}^n \alpha_{n+1,i} f(z_{n+1,i}),
+$$
+where the $\alpha_{n+1,i}$'s are obtained from the Vandermonde system
+with $x_i = z_{n+1,i}.$
+This is exact if $f(x)$ is a polynomial of degree $\leq 2n.$
+
 <p>
 <b>EXAMPLE:</b>&nbsp;
-People have computed the zeros of $p_k(x)$'s and the corresponding
-$\alpha_i$'s and published the values as tables. Here are the values
-for $k=5.$ 
+People have computed the zeros of $p_n(x)$'s and the corresponding
+$c_i$'s to be used in $GNC$, and have published the values as tables. Here are the values
+for $n=5.$ 
 <pre>
-i   z_{5,i}   alpha_{5,i}
+i   x_i            c_i
 ---------------------------
 0   0.00000000   0.56888889
 1   0.53846931   0.47862867
@@ -623,7 +626,7 @@ i   z_{5,i}   alpha_{5,i}
 Thus, if we want to integrate $f(x)=1/(x+3),$ we shall compute as
 follows.
 <pre>
-i   f(z_{5,i})   alpha_{5,i} f(z_{5,i})
+i   f(x_i)         c_i * f(x_i)
 ---------------------------------------
 0   0.33333333   0.18962962
 1   0.28260808   0.13526433
@@ -642,6 +645,7 @@ $$
 
 <h3><a
 name="More general Gaussian quadrature">More general Gaussian quadrature</a></h3> 
+
 In fact, Gaussian quadrature is even more ambitious. It tries to choose
 $\alpha_i$'s and $x_i$'s in a way that the formula is exact for
 functions of the form 
