@@ -9,10 +9,11 @@
 \newcommand{\bxi}{{\bf \xi}}
 \newcommand{\bc}{{\bf c}}
 \newcommand{\zbar}{\overline{z}}
+\newcommand{\cald}{{\mathcal D}}
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>TUE APR 07 IST 2020</UPDT>
+<UPDT>FRI APR 24 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -982,7 +983,101 @@ are small. For Jacobi's algorithm we also know that the
 eigenvalues are real numbers. So we may replace the <M>D_k</M>'s
 with open intervals.  
 
+<HEAD3>Stronger version of Gerschghorin's theorem</HEAD3>
+In the version that we have given we can only claim that all the
+eigenvalues lie in the union of the disks (or, intervals, since
+the eigenvalues are known to be real). Thus, if our approximately
+diagonal matrix is
+<D>
+<MAT>
+1 & 10^{-13} &  10^{-13}\\
+10^{-13} &  2 & 10^{-13}\\
+10^{-13} &  10^{-13} &  3
+</MAT>,
+</D>
+then all that we can say is that the three eigenvalues will lie
+in 
+<D>
+(1-\epsilon, 1+\epsilon)\cup(2-\epsilon, 2+\epsilon)\cup(3-\epsilon, 3+\epsilon),
+</D>
+where <M>\epsilon = 2\times 10^{-13}.</M> In particular, we are
+allowing the possibility that all the three eigenvalues are
+in <M>(1-\epsilon,1+\epsilon),</M> while there are no eigenvalues
+in <M>(2-\epsilon,2+\epsilon)</M>
+and <M>(3-\epsilon,3+\epsilon).</M> So the theorem does not allow
+us to express the output in the desirable form:
+<Q>there are three eigenvalues that are approximately <M>1</M>,
+2 and <M>3.</M></Q>
 
+<P/>
+However, there is a stronger version of Gerschghorin's theorem,
+that indeed allows us to make this claim. It says that if for
+an <M>n\times n</M> case the union of the Gerschghorin disks
+have <M>k</M> connected components 
+<D>
+D_{n_0}\cup \cdots D_{n_1},~~...,~~D_{n_{k-1}+1}\cup \cdots D_{n_k},
+</D>
+where <M>1=n_0 < \cdots < n_k = n,</M> then each connected
+component must have exactly as many eigenvalues as there are
+disks in it. For example, if <M>n=5,</M> and the connected
+components are 
+<D>
+D_1\cup D_2,~~D_2\text{ and } D_3\cup D_4\cup D_5,
+</D>
+then the first component must contain exactly 2 eigenvalues, the
+second exactly one eigenvalue, and the third exactly threee
+eigenvalues. 
+<P/>
+In particular, if all the disks are disjoint (as should be the
+case for distinct diagonal entries if the off-diagonals are very
+small), then each disk contains excatly one eigenvalue.
+<P/>
+The proof the strong version of Gerschghorin's theorem is a
+simple conseqence of weak version once we use a result from
+complex analysis that ensures continuity of the zeroes of a
+polynomial as functions of the coefficients. Unfortunately, that
+result is rather complicated to state (let alone prove) at this
+stage. 
+
+<COMMENT>
+<P/>
+However, here is a simpler proof for a weaker result due to
+Mrinal Saini and Aniket Jain (B-I, 2020).
+
+<DEFN name="Almost diagonal">
+Call a matrix <M>A_{n\times n}</M> <B>almost diagonal</B> of
+order <M>\delta>0</M> if <M>\forall i\neq j~~|a_{ij}|<\delta.</M>
+We denote the set of all such matrices by <M>\cald(\delta).</M>
+</DEFN>
+
+<THM name="Saini, Jain">
+<D>
+\forall \epsilon >0~~ \exists \delta>0~~ \forall A\in
+\cald(\delta)~~\forall i\in\{1,...,n\}~~\exists
+\text{eigenvalue}\in  (a_{i i}-\epsilon, a_{i i}+\epsilon).
+</D>
+</THM>
+Notice that this result is slightly weaker than strong
+Gerschghorin's theorem, because it does not
+express <M>\delta</M> in terms of the off-diagonals. 
+
+<PF>
+We shall prove the result by contradiction. Let, if possible, the
+negation be true:
+<D>
+\exists \epsilon >0~~ \forall  \delta>0~~ \exists  A\in
+\cald(\delta)~~\exists  i\in\{1,...,n\}~~ \not \exists 
+\text{eigenvalue}\in  (a_{i i}-\epsilon, a_{i i}+\epsilon).
+</D>
+For any <M>\delta >0</M> we are promised
+an <M>A\in\cald(\delta).</M> Note that this may depend
+of <M>\delta.</M> Consider its characteristic
+polynomial, <M>det(\lambda I-A).</M> 
+<P/>
+If we expand it entrywise, we shall get <M>n!</M> terms exactly
+one of which will contain no off-diagonal entries.
+</PF>
+</COMMENT>
 <DISQUSE id="mat2" url="https://www.isical.ac.in/~arnabc/numana/mat2.html"/>
 @}
 </NOTE>

@@ -146,6 +146,9 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="#Gerschghorin's theorem">Gerschghorin's theorem</a>
 </li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#Stronger version of Gerschghorin's theorem">Stronger version of Gerschghorin's theorem</a>
+</li>
 </ul>
 <hr/>
 
@@ -158,6 +161,7 @@ $\newcommand{\bx}{{\bf x}}
 \newcommand{\bxi}{{\bf \xi}}
 \newcommand{\bc}{{\bf c}}
 \newcommand{\zbar}{\overline{z}}
+\newcommand{\cald}{{\mathcal D}}
 $
 
 <title>Matrix algorithms</title> 
@@ -166,7 +170,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-TUE APR 07 IST 2020</i></td>
+FRI APR 24 IST 2020</i></td>
 </tr>
 </table>
 
@@ -1302,6 +1306,65 @@ for an approximately diagonal matrix, the radius of $D_k$'s
 are small. For Jacobi's algorithm we also know that the
 eigenvalues are real numbers. So we may replace the $D_k$'s
 with open intervals.  
+
+<h3><a
+name="Stronger version of Gerschghorin's theorem">Stronger version of Gerschghorin's theorem</a></h3>
+In the version that we have given we can only claim that all the
+eigenvalues lie in the union of the disks (or, intervals, since
+the eigenvalues are known to be real). Thus, if our approximately
+diagonal matrix is
+$$
+\left[\begin{array}{ccccccccccc}
+1 &amp; 10^{-13} &amp;  10^{-13}\\
+10^{-13} &amp;  2 &amp; 10^{-13}\\
+10^{-13} &amp;  10^{-13} &amp;  3
+
+\end{array}\right],
+$$
+then all that we can say is that the three eigenvalues will lie
+in 
+$$
+(1-\epsilon, 1+\epsilon)\cup(2-\epsilon, 2+\epsilon)\cup(3-\epsilon, 3+\epsilon),
+$$
+where $\epsilon = 2\times 10^{-13}.$ In particular, we are
+allowing the possibility that all the three eigenvalues are
+in $(1-\epsilon,1+\epsilon),$ while there are no eigenvalues
+in $(2-\epsilon,2+\epsilon)$
+and $(3-\epsilon,3+\epsilon).$ So the theorem does not allow
+us to express the output in the desirable form:
+<blockquote>there are three eigenvalues that are approximately $1$,
+2 and $3.$</blockquote>
+
+
+<p></p>
+However, there is a stronger version of Gerschghorin's theorem,
+that indeed allows us to make this claim. It says that if for
+an $n\times n$ case the union of the Gerschghorin disks
+have $k$ connected components 
+$$
+D_{n_0}\cup \cdots D_{n_1},~~...,~~D_{n_{k-1}+1}\cup \cdots D_{n_k},
+$$
+where $1=n_0 &lt; \cdots &lt; n_k = n,$ then each connected
+component must have exactly as many eigenvalues as there are
+disks in it. For example, if $n=5,$ and the connected
+components are 
+$$
+D_1\cup D_2,~~D_2\text{ and } D_3\cup D_4\cup D_5,
+$$
+then the first component must contain exactly 2 eigenvalues, the
+second exactly one eigenvalue, and the third exactly threee
+eigenvalues. 
+<p></p>
+In particular, if all the disks are disjoint (as should be the
+case for distinct diagonal entries if the off-diagonals are very
+small), then each disk contains excatly one eigenvalue.
+<p></p>
+The proof the strong version of Gerschghorin's theorem is a
+simple conseqence of weak version once we use a result from
+complex analysis that ensures continuity of the zeroes of a
+polynomial as functions of the coefficients. Unfortunately, that
+result is rather complicated to state (let alone prove) at this
+stage. 
 
 
 <h3>Comments</h3>
