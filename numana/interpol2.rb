@@ -6,7 +6,7 @@
 \newcommand{\PP}{\mathbf P}
 \newcommand{\RR}{\mathbf R}</M>
 <TITLE>Interpolation</TITLE>
-<UPDT>FRI JAN 17 IST 2020</UPDT>
+<UPDT>SAT APR 25 IST 2020</UPDT>
 
 
 <HEAD1>Different representations of polynomials</HEAD1>
@@ -26,8 +26,8 @@ where <M>a</M> is the leading coefficient (<I> i.e.,</I> the coefficient of
 the highest power of <M>x</M>) and the <M>\alpha _i</M>'s are the roots of
 the polynomial. Other than these we shall learn about two more
 representations of polynomials: <OL>
-<LI/>Horner's form (or nested multiplication form)
-<LI/>Bernstein's form (or Bezier form)
+<LI>Horner's form (or nested multiplication form)</LI>
+<LI>Bernstein's form (or Bezier form)</LI>
 </OL>
 <HEAD2>Horner's form</HEAD2>
 Consider the polynomial
@@ -143,8 +143,8 @@ parametric cubic Bezier curves.
 <HEAD1>Splines</HEAD1>
 <DEFN>A <I><M>k</M>-degree spline curve</I> is a piecewise polynomial
 function where <OL>
-<LI/>each piece is of degree at most <M>k,</M>
-<LI/>the curve is <M>k-1</M> times continuously differentiable. 
+<LI>each piece is of degree at most <M>k,</M></LI>
+<LI>the curve is <M>k-1</M> times continuously differentiable.</LI>
 </OL>
 The most popular form of spline curve has degree 3. It is also called
 a <I>cubic spline.</I> 
@@ -220,7 +220,7 @@ D_{i+1} &  = &  \frac{b_i+2c_i+3d_i}{\delta},
 for <M>i=0,...,n-1.</M>
 Before we take a look at the third set of conditions, let us use the above
 equations to express <M>a_i,b_i,c_i</M> and <M>d_i</M> in terms of
-<M>y_i</M>'s and <M>D_i's:</M>
+<M>y_i</M>'s and <M>D_i</M>'s:
 <MULTILINE>
 a_i &  = &  y_i\\
 b_i &  = &  \delta D_i\\
