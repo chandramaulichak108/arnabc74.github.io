@@ -1055,7 +1055,7 @@ We denote the set of all such matrices by <M>BAD(M,\delta).</M>
 <D>
 \forall M > 0~~\forall \epsilon >0~~ \exists \delta>0~~ \forall A\in
 BAD(M,\delta)~~\forall i\in\{1,...,n\}~~\exists
-\text{eigenvalue}\in  (a_{i^* i^*}-\epsilon, a_{i^* i^*}+\epsilon).
+\text{eigenvalue}\in  (a_{i i}-\epsilon, a_{i i}+\epsilon).
 </D>
 </THM>
 Notice that this result is slightly weaker than strong
