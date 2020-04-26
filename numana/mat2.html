@@ -170,7 +170,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-FRI APR 24 IST 2020</i></td>
+SUN APR 26 IST 2020</i></td>
 </tr>
 </table>
 
@@ -1366,6 +1366,80 @@ polynomial as functions of the coefficients. Unfortunately, that
 result is rather complicated to state (let alone prove) at this
 stage. 
 
+
+<p></p>
+However, here is a simpler proof for a weaker result due to
+Mrinal Saini and Aniket Jain (B-I, 2020).
+
+<fieldset>
+<legend><b>Definition: Boundedly almost diagonal (BAD)</b></legend>
+Call a matrix $A_{n\times n}$ <b>boundedly almost diagonal (BAD)</b> of
+order $M, \delta&gt;0$ if $\forall i\neq
+j~~|a_{ij}|&lt;\delta$ and $\forall i~~|a_{ i i }| &lt; M.$
+We denote the set of all such matrices by $BAD(M,\delta).$
+</fieldset>
+
+
+<fieldset>
+<legend><b><i>Saini, Jain</i></b></legend>
+$$
+\forall M &gt; 0~~\forall \epsilon &gt;0~~ \exists \delta&gt;0~~ \forall A\in
+BAD(M,\delta)~~\forall i\in\{1,...,n\}~~\exists
+\text{eigenvalue}\in  (a_{i^* i^*}-\epsilon, a_{i^* i^*}+\epsilon).
+$$
+</fieldset>
+Notice that this result is slightly weaker than strong
+Gerschghorin's theorem, because it does not
+express $\delta$ in terms of the off-diagonals. Also, we
+need a boundedness condition on the diagonals.
+
+<p>
+<b><i>Proof:</i></b>
+We shall prove the result by contradiction. Let, if possible, the
+negation be true:
+$$
+\exists M&gt;0~~\exists \epsilon &gt;0~~ \forall  \delta&gt;0~~ \exists  A\in
+BAD(M,\delta)~~\exists  i^*\in\{1,...,n\}~~ \not \exists 
+\text{eigenvalue}\in  (a_{i^* i^*}-\epsilon, a_{i^* i^*}+\epsilon).
+$$
+For any $\delta &gt;0$ we are promised
+an $A\in BAD(M,\delta).$ Note that this may depend
+of $\delta.$ Consider its characteristic
+polynomial, $\chi_A(\lambda) = det(\lambda I-A).$ 
+<p></p>
+If we expand it entrywise, we shall get $n!$ terms exactly
+one of which will contain no off-diagonal entries. All the other
+terms must have at least one off-diagonal entry. 
+<p></p>
+So 
+$$
+\chi_A(\lambda) = \prod_{i=1}^n (\lambda-a_{i i}) + \delta
+\times \text{a bounded quantity}.
+$$
+Now we shall put $\lambda = a_{i^* i^*}.$
+<p></p>
+Then
+$$
+\chi_A(a_{i^* i^*}) = \delta
+\times \text{a bounded quantity}.
+$$ 
+Now, if the eigenvalues of $A$
+are $\lambda_1,...,\lambda_n,$ then the lhs
+is $\prod_{i=1}^n (a_{i^*i^*}-\lambda_i).$ Since all
+the $\lambda_i$'s are outside $(a_{i^* i^*}-\epsilon,
+a_{i^* i^*}+\epsilon),$ hence $|\chi_A(a_{i^* i^*})|\geq \epsilon^n.$
+<p></p>
+So we are getting $\exists \epsilon&gt;0~~\forall \delta&gt;0~~\epsilon^n\leq
+\delta\times$a bounded quantity, which is impossible.
+<b><i>[QED]</i></b>
+</p>
+
+To use it in the context of Jacobi's algorithm, observe that the
+total sum of squares of all entries in the matrix is preserved by
+the Jacobi steps. So, if $M&gt;0$ is the square root of the sum
+of squares of all entries of the origial matrix, then the final
+output of the algorithm is a $BAD(M,\delta)$ matrix,
+where $\delta&gt;0$ is the convergence criterion.
 
 <h3>Comments</h3>
 To post an anonymous comment, click on the "Name" field. This

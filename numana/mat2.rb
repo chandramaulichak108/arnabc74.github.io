@@ -13,7 +13,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE> 
-<UPDT>FRI APR 24 IST 2020</UPDT>
+<UPDT>SUN APR 26 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1> 
 
 
@@ -1039,45 +1039,76 @@ polynomial as functions of the coefficients. Unfortunately, that
 result is rather complicated to state (let alone prove) at this
 stage. 
 
-<COMMENT>
+
 <P/>
 However, here is a simpler proof for a weaker result due to
 Mrinal Saini and Aniket Jain (B-I, 2020).
 
-<DEFN name="Almost diagonal">
-Call a matrix <M>A_{n\times n}</M> <B>almost diagonal</B> of
-order <M>\delta>0</M> if <M>\forall i\neq j~~|a_{ij}|<\delta.</M>
-We denote the set of all such matrices by <M>\cald(\delta).</M>
+<DEFN name="Boundedly almost diagonal (BAD)">
+Call a matrix <M>A_{n\times n}</M> <B>boundedly almost diagonal (BAD)</B> of
+order <M>M, \delta>0</M> if <M>\forall i\neq
+j~~|a_{ij}|<\delta</M> and <M>\forall i~~|a_{ i i }| < M.</M>
+We denote the set of all such matrices by <M>BAD(M,\delta).</M>
 </DEFN>
 
 <THM name="Saini, Jain">
 <D>
-\forall \epsilon >0~~ \exists \delta>0~~ \forall A\in
-\cald(\delta)~~\forall i\in\{1,...,n\}~~\exists
-\text{eigenvalue}\in  (a_{i i}-\epsilon, a_{i i}+\epsilon).
+\forall M > 0~~\forall \epsilon >0~~ \exists \delta>0~~ \forall A\in
+BAD(M,\delta)~~\forall i\in\{1,...,n\}~~\exists
+\text{eigenvalue}\in  (a_{i^* i^*}-\epsilon, a_{i^* i^*}+\epsilon).
 </D>
 </THM>
 Notice that this result is slightly weaker than strong
 Gerschghorin's theorem, because it does not
-express <M>\delta</M> in terms of the off-diagonals. 
+express <M>\delta</M> in terms of the off-diagonals. Also, we
+need a boundedness condition on the diagonals.
 
 <PF>
 We shall prove the result by contradiction. Let, if possible, the
 negation be true:
 <D>
-\exists \epsilon >0~~ \forall  \delta>0~~ \exists  A\in
-\cald(\delta)~~\exists  i\in\{1,...,n\}~~ \not \exists 
-\text{eigenvalue}\in  (a_{i i}-\epsilon, a_{i i}+\epsilon).
+\exists M>0~~\exists \epsilon >0~~ \forall  \delta>0~~ \exists  A\in
+BAD(M,\delta)~~\exists  i^*\in\{1,...,n\}~~ \not \exists 
+\text{eigenvalue}\in  (a_{i^* i^*}-\epsilon, a_{i^* i^*}+\epsilon).
 </D>
 For any <M>\delta >0</M> we are promised
-an <M>A\in\cald(\delta).</M> Note that this may depend
+an <M>A\in BAD(M,\delta).</M> Note that this may depend
 of <M>\delta.</M> Consider its characteristic
-polynomial, <M>det(\lambda I-A).</M> 
+polynomial, <M>\chi_A(\lambda) = det(\lambda I-A).</M> 
 <P/>
 If we expand it entrywise, we shall get <M>n!</M> terms exactly
-one of which will contain no off-diagonal entries.
+one of which will contain no off-diagonal entries. All the other
+terms must have at least one off-diagonal entry. 
+<P/>
+So 
+<D>
+\chi_A(\lambda) = \prod_{i=1}^n (\lambda-a_{i i}) + \delta
+\times \text{a bounded quantity}.
+</D>
+Now we shall put <M>\lambda = a_{i^* i^*}.</M>
+<P/>
+Then
+<D>
+\chi_A(a_{i^* i^*}) = \delta
+\times \text{a bounded quantity}.
+</D> 
+Now, if the eigenvalues of <M>A</M>
+are <M>\lambda_1,...,\lambda_n,</M> then the lhs
+is <M>\prod_{i=1}^n (a_{i^*i^*}-\lambda_i).</M> Since all
+the <M>\lambda_i</M>'s are outside <M>(a_{i^* i^*}-\epsilon,
+a_{i^* i^*}+\epsilon),</M> hence <M>|\chi_A(a_{i^* i^*})|\geq \epsilon^n.</M>
+<P/>
+So we are getting <M>\exists \epsilon>0~~\forall \delta>0~~\epsilon^n\leq
+\delta\times</M>a bounded quantity, which is impossible.
 </PF>
-</COMMENT>
+
+To use it in the context of Jacobi's algorithm, observe that the
+total sum of squares of all entries in the matrix is preserved by
+the Jacobi steps. So, if <M>M>0</M> is the square root of the sum
+of squares of all entries of the origial matrix, then the final
+output of the algorithm is a <M>BAD(M,\delta)</M> matrix,
+where <M>\delta>0</M> is the convergence criterion.
+
 <DISQUSE id="mat2" url="https://www.isical.ac.in/~arnabc/numana/mat2.html"/>
 @}
 </NOTE>
