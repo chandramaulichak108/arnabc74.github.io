@@ -67,7 +67,7 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
       }
     }
   });
-</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
 <link href="../tools/rgl.css" rel="stylesheet"></link>
 <script src="../tools/rglClass.src.js"></script>
 <script src="../tools/CanvasMatrix.src.js"></script>
@@ -120,7 +120,7 @@ $\newcommand{\dig}{\underline{\quad}~~}$
 <tr>
 <td align="right"><i>Last
 updated on:
-SAT JAN 18 IST 2020</i></td>
+WED APR 29 IST 2020</i></td>
 </tr>
 </table>
 
@@ -189,7 +189,7 @@ Generally computers use two methods to store and process numbers: <i>fixed
 point</i> and <i>floating point.</i> In either method we have to first
 choose a <i>radix</i> or <i>base</i> with respect to which the numbers
 will be represented. In most computers (including IBM PCs and Sun) the
-radix is 2 ({\em <i>i.e.</i>,} binary), in some machines 4 or 8 or even 16 is
+radix is 2 (<i>i.e.</i>, binary), in some machines 4 or 8 or even 16 is
 used as the radix. There is a computer in Russia that uses 3 as its
 radix. Most calculators use 10 as their radix. In this note we shall
 mostly use 10 as the radix, because we, human beings, are more used to
@@ -205,10 +205,8 @@ $$
 \pm\dig\dig\bullet~~\dig\dig
 $$
 We write $-3.4$ as $-03.40$ in this system. The number $-345$ cannot
-be represented in this system, nor the number $0.0001.$ In the
-first case we have a <i>fixed overflow</i> and in the second a <i>fixed
-underflow.</i> Note that the prefixes over- and under- depend on the
-absolute value of the number, and not on its sign.
+be represented in this system, nor the number $0.0001.$ We
+call these cases  <i>fixed overflow</i>. 
 Clearly, we can represent exactly $2\times10^4-1 =
 19999$ distinct numbers in this way (why did we subtract 1?). Notice
 that these 19999 numbers are all equispaced in the number line at
@@ -216,10 +214,10 @@ intervals of $0.01.$
 
 <p></p>
 
-In fixed point arithmetic, we first try to perform the arithmetic as
+In a fixed point arithmetic operation, we first try to perform the operation as
 usual. If the answer can be represented in the fixed point system, then we
-output the result. Otherwise, we produce an overflow or underflow error,
-as appropriate. For instance, $02.30\times00.10 = 00.23,$ but 
+output the result. Otherwise, we produce an overflow  error.
+For instance, $02.30\times00.10 = 00.23,$ but 
 $02.30\times00.01$ produces fixed underflow.
 
 <p></p>
@@ -239,10 +237,22 @@ the computer chip inside mobile phones) use fixed point numbers where the
 point is somewhere in between. 
 
 <p></p>
-A fixed point system is characterised by 3 things: the radix, the number
-of digits and the location of the point.
+A fixed point system is characterised by 4 things: 
+<ul>
+
+<li>the radix,</li>
+
+<li> the number
+of digits before the point,</li>
+
+<li>the number of digits after the point,</li>
+
+<li>whether negative numbers are allowed or not.</li>
+
+</ul>
 
  
+
 <h2><a
 name="Floating point">Floating point</a></h2>
 Here we do not hold the point fixed in one place, rather we let it

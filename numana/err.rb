@@ -2,7 +2,7 @@
 @{
 <M>\newcommand{\dig}{\underline{\quad}~~}</M>
 <TITLE>Error analysis</TITLE>
-<UPDT>SAT JAN 18 IST 2020</UPDT>
+<UPDT>WED APR 29 IST 2020</UPDT>
 <HEAD1>Error analysis</HEAD1>
 This page is going to shake your belief in digital computers. 
 Let's start with a shocking example due to Hilbert.
@@ -55,7 +55,7 @@ Generally computers use two methods to store and process numbers: <I>fixed
 point</I> and <I>floating point.</I> In either method we have to first
 choose a <I>radix</I> or <I>base</I> with respect to which the numbers
 will be represented. In most computers (including IBM PCs and Sun) the
-radix is 2 ({\em i.e.,} binary), in some machines 4 or 8 or even 16 is
+radix is 2 (i.e., binary), in some machines 4 or 8 or even 16 is
 used as the radix. There is a computer in Russia that uses 3 as its
 radix. Most calculators use 10 as their radix. In this note we shall
 mostly use 10 as the radix, because we, human beings, are more used to
@@ -70,10 +70,8 @@ between the second and third digits, like this:
 \pm\dig\dig\bullet~~\dig\dig
 </D>
 We write <M>-3.4</M> as <M>-03.40</M> in this system. The number <M>-345</M> cannot
-be represented in this system, nor the number <M>0.0001.</M> In the
-first case we have a <I>fixed overflow</I> and in the second a <I>fixed
-underflow.</I> Note that the prefixes over- and under- depend on the
-absolute value of the number, and not on its sign.
+be represented in this system, nor the number <M>0.0001.</M> We
+call these cases  <I>fixed overflow</I>. 
 Clearly, we can represent exactly <M>2\times10^4-1 =
 19999</M> distinct numbers in this way (why did we subtract 1?). Notice
 that these 19999 numbers are all equispaced in the number line at
@@ -81,10 +79,10 @@ intervals of <M>0.01.</M>
 
 <P/>
 
-In fixed point arithmetic, we first try to perform the arithmetic as
+In a fixed point arithmetic operation, we first try to perform the operation as
 usual. If the answer can be represented in the fixed point system, then we
-output the result. Otherwise, we produce an overflow or underflow error,
-as appropriate. For instance, <M>02.30\times00.10 = 00.23,</M> but 
+output the result. Otherwise, we produce an overflow  error.
+For instance, <M>02.30\times00.10 = 00.23,</M> but 
 <M>02.30\times00.01</M> produces fixed underflow.
 
 <P/>
@@ -104,8 +102,14 @@ the computer chip inside mobile phones) use fixed point numbers where the
 point is somewhere in between. 
 
 <P/>
-A fixed point system is characterised by 3 things: the radix, the number
-of digits and the location of the point.
+A fixed point system is characterised by 4 things: 
+<UL>
+<LI>the radix,</LI>
+<LI> the number
+of digits before the point,</LI>
+<LI>the number of digits after the point,</LI>
+<LI>whether negative numbers are allowed or not.</LI>
+</UL>
 
  
 <HEAD2>Floating point</HEAD2>
