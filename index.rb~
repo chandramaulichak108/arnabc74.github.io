@@ -1,0 +1,19 @@
+<NOTE>
+@{
+<HEAD1>COVIDeo lectures</HEAD1>
+Here is a collection of all my video lectures.
+
+<HEAD2>For ISI, Tezpur students</HEAD2>
+<UL>
+<LI><LINK to="">Simulation</LINK></LI>
+<LI><LINK to="">PCA</LINK></LI>
+<LI><LINK to="">CART</LINK></LI>
+</UL>
+<HEAD2>For ISI, Kolkata students</HEAD2>
+<UL>
+<LI><LINK to="">CART</LINK></LI>
+</UL>
+<HEAD2>For Tezpur students</HEAD2>
+
+@}
+</NOTE>

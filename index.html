@@ -1,0 +1,192 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+<link rel="stylesheet" type="text/css" href="../tools/ctut.css"/>
+<link type="text/css" rel="stylesheet" href="../tools/style.css"/>
+<style type="text/css">@font-face {font-family: SHREE_BAN_OTF_0592;src: local("../tools/SHREE_BAN_OTF_0592"),url(../tools/SHREE0592.woff) format("opentype");</style>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script src="../tools/jquery-1.10.2.min.js"></script>
+
+<script>
+aha = function(code) {
+  window.open("https://rdrr.io/snippets/embed/?code="+code)
+}
+
+togglePhoto = function(photoId) {
+   var me = document.getElementById("pic_"+photoId)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+hideShow = function(lb) {
+   var me = document.getElementById(lb)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+grabData = function(data){
+  return "https://farm"+data.photo.farm+".staticflickr.com/"+data.photo.server+"/"+data.photo.id+"_"+
+            data.photo.secret+".jpg"
+}
+
+fromFlickr = function(photoId) {
+
+$.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=23a138c73bdbe1e68601aa7866924e62&user_id=109924623@N07&photo_id="+photoId+"&lang=en-us&format=json&jsoncallback=?",
+  function(data) {
+    imgURL = grabData(data)
+    var l = document.getElementById("lnk_"+photoId)
+    l.href = "https://www.flickr.com/photos/109924623@N07/"+photoId
+    var i = document.getElementById("pic_"+photoId)
+    i.src=imgURL
+    i.onload = function() {
+      document.getElementById("status_"+photoId).innerHTML="[Image loaded. Click to show/hide.]"
+    }
+  })
+}
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","color.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    TeX: {
+      Macros: {
+        h: ["{\\hat #1}",1],
+        b: ["{\\overline #1}", 1],
+        row: "{\\mathcal R}",
+        col: "{\\mathcal C}",
+        nul: "{\\mathcal N}"
+      }
+    }
+  });
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+<link href="../tools/rgl.css" rel="stylesheet"></link>
+<script src="../tools/rglClass.src.js"></script>
+<script src="../tools/CanvasMatrix.src.js"></script>
+<script src="../tools/rglWebGL.js"></script>
+</head>
+<body>
+<a href="http://www.isical.ac.in/~arnabc/">[Home]</a>
+<h3>Table of contents</h3>
+<ul>
+<li>
+<a href="#COVIDeo lectures">COVIDeo lectures</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#For ISI, Tezpur students">For ISI, Tezpur students</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#For ISI, Kolkata students">For ISI, Kolkata students</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#For general interest">For general interest</a>
+</li>
+</ul>
+<hr/>
+
+<h1><a
+name="COVIDeo lectures">COVIDeo lectures</a></h1>
+Here is a collection of all my video lectures.
+
+<h2><a
+name="For ISI, Tezpur students">For ISI, Tezpur students</a></h2>
+
+<ul>
+
+<li>
+<a href="https://drive.google.com/open?id=10zqWhG8QmW6HRp5D3KfkZOzhiEq2eyT1">Simulation</a>
+</li>
+
+<li>
+<a href="https://drive.google.com/open?id=13WI6Cb7XScFaTF2qn9i9o6jknUu7_H-r">PCA</a>
+</li>
+
+<li>
+<a href="https://drive.google.com/open?id=172Ymg4-kOZGtqj9HtvEAy2obqoyC8x1Z">CART</a>
+</li>
+
+</ul>
+
+<h2><a
+name="For ISI, Kolkata students">For ISI, Kolkata students</a></h2>
+
+<ul>
+
+<li>Nonlinear equations: [
+<a href="https://drive.google.com/open?id=12DFz3rbU5Uk57HNB9qphwkvGmCmoG1wt">1</a> | 
+<a href="https://drive.google.com/open?id=12EqfoU6aypE2VZeMU4Kl9OT2HLhd_2EH">2</a> | 
+<a href="https://drive.google.com/open?id=12IemezqLygftvnke7C8PYAY5ZljYkxWL">3</a> | 
+<a href="https://drive.google.com/open?id=1etRykt-PGboAhKQMVIwS0_ZEzvHXN-HL">4</a> |
+<a href="https://drive.google.com/open?id=16p5tNjAdITaqE9890Fo5BKkpO9s5N4o7">5</a> ]
+</li>
+
+<li>Matrix algorithms: [
+<a href="https://drive.google.com/open?id=19dYgN9aWKABSFtQ4vwVAcmDQwzFZz8I5">1</a> | 
+<a href="https://drive.google.com/open?id=1605Z140pk0noRfLX_RuNlaACTQRhTHuV">2</a> | 
+<a href="https://drive.google.com/open?id=1G9ZWfxTtZ7TXFxXbO0TopxxsClnhHvi3">3</a> | 
+<a href="https://drive.google.com/open?id=1fD0qj15vJgHI-Iha1gwYWmjXXHABsR1_">4</a> | 
+<a href="https://drive.google.com/open?id=1HvRfl1gY7zRFJXuED9TqwLYSypyV0GWg">5</a> ]
+</li>
+
+<li>Differential equations: [
+<a href="https://drive.google.com/open?id=1ar4hMYd45PqHAzeA4gh3vtM7HNmNiU67">1</a> | 
+<a href="https://drive.google.com/open?id=1l6Yx1c-JM4orRDxuPwk52Or7c4gWLWgQ">2</a> | 
+<a href="https://drive.google.com/open?id=1W1O3xzP3Ymezv6qpdA3Z1CYMtB5c0kWp">3</a> ]
+</li>
+
+<li>Numerical integration: [
+<a href="https://drive.google.com/open?id=1X-KfSGlER6bOSdz6liS2WBNxW9gZHkpu">1</a> | 
+<a href="https://drive.google.com/open?id=1eFZThFqUby-SEAlQaU93fJMh64IFIs2G">2</a> | 
+<a href="https://drive.google.com/open?id=1Egg0aq8VKPlv-nTzdu2-wGyIleIxQlMH">3</a> | 
+<a href="https://drive.google.com/open?id=1W1JQbFacalGqGif9BoF2tF-4arVRtfE5">4</a> ]
+</li>
+
+<li>Interpolation: [
+<a href="https://drive.google.com/open?id=1wd7SDwzsquTLUly-Mjs0iidRW4428LL7">1</a> ]
+</li>
+
+<li>Error analysis: [
+<a href="https://drive.google.com/open?id=1YFy_IpF4wpR-VgN0xz6t_P4pLKU3Ly3f">1</a> ]
+</li>
+
+</ul>
+
+<h2><a
+name="For general interest">For general interest</a></h2>
+
+<ul>
+
+<li>Probability distributions: [
+<a href="https://drive.google.com/open?id=1IBZlQpn8CVdMlN1ojYQxZPtRTb7X024X">1</a> ]
+</li>
+
+<li>Riemann integration: [
+<a href="https://drive.google.com/open?id=1o19wibyvrrQz0ysOIx-kIF-L20WLWJ7L">1</a> |
+<a href="https://drive.google.com/open?id=1cu0QTMgy7QJg6UC2aQIxffOKpafNMOqg">2</a> ]
+</li>
+
+<li>Multivariate calculus: [
+<a href="https://drive.google.com/open?id=130I4eeKH-CdukoQXGNvgOdPltAnecfl_">1</a> ]
+</li>
+
+
+</ul>
+
+<hr/>
+<table width="100%" border="0">
+<tr>
+<td align="left"/>
+<td align="right"/>
+</tr>
+</table>
+<hr/>
+</body>
+</html>
