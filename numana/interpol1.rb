@@ -6,7 +6,7 @@
 \newcommand{\PP}{\mathbf P}
 \newcommand{\RR}{\mathbb R}</M>
 <TITLE>Polynomial Interpolation</TITLE>
-<UPDT>THU APR 16 IST 2020</UPDT>
+<UPDT>MON MAY 04 IST 2020</UPDT>
 
 <HEAD1>Polynomial interpolation</HEAD1>
 Here we shall work with <B>polynomial</B>s.  These are functions with  the
@@ -527,6 +527,11 @@ times. Then
 f[x_0,...,x_n] = [[f^{(n)}(\xi)][n!]]
 </D>
 for some <M>\xi\in(a,b).</M>
+
+<P/>
+[<I>Hint:</I> Notice that <M>R_n(x) = f(x)-p_n(x)</M> vanishes at
+the <M>n+1</M> points <M>x_0,...x_n.</M> Apply Rolle's theorem
+repeatedly to argue that <M>R^{n}(x)</M> must vanish at some <M>\xi.</M>
 </EXR>
 
 <EXR>
