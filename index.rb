@@ -40,7 +40,8 @@ Here is a collection of all my video lectures.
 <LINK to="https://drive.google.com/open?id=1wd7SDwzsquTLUly-Mjs0iidRW4428LL7">1</LINK> ]
 </LI>
 <LI>Error analysis: [
-<LINK to="https://drive.google.com/open?id=1YFy_IpF4wpR-VgN0xz6t_P4pLKU3Ly3f">1</LINK> ]
+<LINK to="https://drive.google.com/open?id=1YFy_IpF4wpR-VgN0xz6t_P4pLKU3Ly3f">1</LINK> |
+<LINK to="https://drive.google.com/open?id=1KYJG8HZlSHDvMG4iK8SLx1b0WWARuMfT">2</LINK> ]
 </LI>
 </UL>
 <HEAD2>For general interest</HEAD2>
