@@ -1,7 +1,8 @@
 <NOTE>
 @{
 <HEAD1>COVIDeo lectures</HEAD1>
-Here is a collection of all my video lectures.
+Here is a collection of all my video lectures. All the videos are
+in English, except four, which are in Bengali (marked with (beng)).
 
 <HEAD2>For ISI, Tezpur students</HEAD2>
 <UL>
@@ -47,17 +48,24 @@ Here is a collection of all my video lectures.
 <HEAD2>For general interest</HEAD2>
 <UL>
 <LI>Probability distributions: [
-<LINK to="https://drive.google.com/open?id=1IBZlQpn8CVdMlN1ojYQxZPtRTb7X024X">1</LINK> |
-<LINK to="https://drive.google.com/open?id=1JIZflBKaHcLBw6m1-pdhN4RYzi9q_peP">2</LINK> ]
+<LINK to="https://drive.google.com/open?id=1IBZlQpn8CVdMlN1ojYQxZPtRTb7X024X">1 (beng)</LINK>
+|
+<LINK to="https://drive.google.com/open?id=1JIZflBKaHcLBw6m1-pdhN4RYzi9q_peP">2 (beng)</LINK>
+]
 </LI>
 <LI>Riemann integration: [
-<LINK to="https://drive.google.com/open?id=1o19wibyvrrQz0ysOIx-kIF-L20WLWJ7L">1</LINK> |
-<LINK to="https://drive.google.com/open?id=1cu0QTMgy7QJg6UC2aQIxffOKpafNMOqg">2</LINK> ]
+<LINK to="https://drive.google.com/open?id=1o19wibyvrrQz0ysOIx-kIF-L20WLWJ7L">1 (beng)</LINK>
+|
+<LINK to="https://drive.google.com/open?id=1cu0QTMgy7QJg6UC2aQIxffOKpafNMOqg">2 (beng)</LINK>
+]
 </LI>
 <LI>Multivariate calculus: [
-<LINK to="https://drive.google.com/open?id=130I4eeKH-CdukoQXGNvgOdPltAnecfl_">1</LINK> ]
+<LINK to="https://drive.google.com/open?id=130I4eeKH-CdukoQXGNvgOdPltAnecfl_">1</LINK>
+]
 </LI>
 
 </UL>
+All comments and queries regarding these videos may be sent to
+arnabc74 at gmail. 
 @}
 </NOTE>
