@@ -1,0 +1,237 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+<link rel="stylesheet" type="text/css" href="../tools/ctut.css"/>
+<link type="text/css" rel="stylesheet" href="../tools/style.css"/>
+<style type="text/css">@font-face {font-family: SHREE_BAN_OTF_0592;src: local("../tools/SHREE_BAN_OTF_0592"),url(../tools/SHREE0592.woff) format("opentype");</style>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script src="../tools/jquery-1.10.2.min.js"></script>
+
+<script>
+aha = function(code) {
+  window.open("https://rdrr.io/snippets/embed/?code="+code)
+}
+
+togglePhoto = function(photoId) {
+   var me = document.getElementById("pic_"+photoId)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+hideShow = function(lb) {
+   var me = document.getElementById(lb)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+grabData = function(data){
+  return "https://farm"+data.photo.farm+".staticflickr.com/"+data.photo.server+"/"+data.photo.id+"_"+
+            data.photo.secret+".jpg"
+}
+
+fromFlickr = function(photoId) {
+
+$.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=23a138c73bdbe1e68601aa7866924e62&user_id=109924623@N07&photo_id="+photoId+"&lang=en-us&format=json&jsoncallback=?",
+  function(data) {
+    imgURL = grabData(data)
+    var l = document.getElementById("lnk_"+photoId)
+    l.href = "https://www.flickr.com/photos/109924623@N07/"+photoId
+    var i = document.getElementById("pic_"+photoId)
+    i.src=imgURL
+    i.onload = function() {
+      document.getElementById("status_"+photoId).innerHTML="[Image loaded. Click to show/hide.]"
+    }
+  })
+}
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","color.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    TeX: {
+      Macros: {
+        h: ["{\\hat #1}",1],
+        b: ["{\\overline #1}", 1],
+        row: "{\\mathcal R}",
+        col: "{\\mathcal C}",
+        nul: "{\\mathcal N}"
+      }
+    }
+  });
+</script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+<link href="../tools/rgl.css" rel="stylesheet"></link>
+<script src="../tools/rglClass.src.js"></script>
+<script src="../tools/CanvasMatrix.src.js"></script>
+<script src="../tools/rglWebGL.js"></script>
+</head>
+<body>
+<a href="http://www.isical.ac.in/~arnabc/">[Home]</a>
+<h3>Table of contents</h3>
+<ul>
+<li>
+<a href="#Tangent plane">Tangent plane</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#ছবি দিয়ে বোঝা">ছবি দিয়ে বোঝা</a>
+</li>
+<li>&nbsp;&nbsp;&nbsp;
+<a href="#অংক দিয়ে প্রকাশ করা">অংক দিয়ে প্রকাশ করা</a>
+</li>
+</ul>
+<hr/>
+<h1><a
+name="Tangent plane">Tangent plane</a></h1>
+এইবার আমরা কোনো surface-এর কোনো বিন্দুতে তার tangent  plane  বার করা শিখব৷ প্রথমে 
+ছবি দিয়ে বুঝে নিই ধারণাটা কী৷  
+<h2><a
+name="ছবি দিয়ে বোঝা">ছবি দিয়ে বোঝা</a></h2>
+আমরা পৃথিবীর পিঠের উপর রয়েছি৷ ভূপৃষ্ঠটা মোটেই
+ সমতল নয়৷ অথচ আমাদের মনে হয় যেন সমতল৷ যেসব surface-এর বেলায় কোনো বিন্দুতে
+ এমন অনুভূতি হয়, সেই সমতলটাকে সেই বিন্দুতে সেই surface-এর tangent 
+ plane  বলে৷ যেমন $[-1,1]\times[-1,1]$-এর উপরে $f(x,y)=x^2+y^2$-এর surface-টার 
+tangent  plane  দেখিয়েছি $(0.5,0.5)$  বিন্দুতে৷ 
+<center>
+<table width="100%">
+<tr>
+<th><img width="" src="image/tan1.png"></th>
+</tr>
+<tr>
+<th></th>
+</tr>
+</table>
+</center>
+অনেকেরই একটা ভুল ধারণা থাকে যে, tangent plane  হল এমন একটা plane  যেটা সেই বিন্দুতে surface-টাকে 
+আলতো করে ছুঁয়ে থাকে মাত্র, ছেদ করতে পারে না৷ সেটা সঠিক ধারণা নয়৷ যেমন নীচের surface-টার বেলায়৷
+<center>
+<table width="100%">
+<tr>
+<th><img width="" src="image/tan2.png"></th>
+</tr>
+<tr>
+<th></th>
+</tr>
+</table>
+</center>
+চট্ করে বলতে হবে এই surface-টার equation  কী! 
+<h2><a
+name="অংক দিয়ে প্রকাশ করা">অংক দিয়ে প্রকাশ করা</a></h2>
+এটুকু নিশ্চয়ই আন্দাজ করা যাচ্ছে যে tangent plane-র ধারণাটা অংকের ভাষায় প্রকাশ করার জন্য differentiation  
+লাগবে৷ বস্তুতঃ একটা surface-কে  ''কোনো বিন্দুর ধারেকাছে দেখলে খালি একটা plane  বলে মনে হয়'' 
+এই ব্যাপারটা থেকেই তো ''function-টা ওই বিন্দুতে differentiable'' এই ধারণাটার জন্ম৷  যেমন নীচের 
+surface-টার বেলায় যে লাল বিন্দুতে কোনো tangent plane  সম্ভব নয়, সেটা বোঝাই যাচ্ছে৷ 
+<center>
+<table width="100%">
+<tr>
+<th><img width="" src="image/fold.png"></th>
+</tr>
+<tr>
+<th></th>
+</tr>
+</table>
+</center>
+এরকম ''বিচ্ছিরি'' কেস বাদ দিলে, সুন্দর সুন্দর কেসে কী হবে সেটা নিয়ে আমাদের কল্পনাটাকে ধাপে ধাপে বোঝালাম নীচে৷
+<script src="../tools/slideshow.js"></script><script>crv = new SlideShow("crv",
+                                               6);
+crv.pic = new
+Array("",
+"curve1.png",
+"curve2.png",
+"curve3.png",
+"curve4.png",
+"curve5.png",
+"curve6.png");
+
+crv.msg = new
+Array("",
+`আমরা জানি যে একটা surface-কে আমরা $(x(u,v), y(u,v), z(u,v))$  আকারে লিখতে পারি৷  যদি কোনো $(u_0, v_0)$  নিই, তবে
+ surface-টার উপরে একটা বিন্দু পাওয়া যাবে, $(x(u_0,v_0), y(u_0,v_0), z(u_0,v_0)).$`,
+`এবার $v$-কে $v_0$-এ স্থির রেখে খালি $u$-কে
+ নাড়ালে surface-টার উপরে একটা curve  পাওয়া যাবে, $u\\mapsto(x(u,v_0), y(u,v_0), z(u,v_0)).$`,
+`একইভাবে, $u=u_0$-কে স্থির রেখে $v$-কে নাড়ালে আরেকটা
+ curve  পাওয়া যাবে, $v\\mapsto(x(u_0,v), y(u_0,v), z(u_0,v)).$ আমাদের বিন্দুটা থাকবে এই দুই curve-এর ছেদ বিন্দুতে৷`,
+`যদি আমরা $u$ -curve-টার tangent  নিই, ওই
+ বিন্দুতে, তবে একটা vector  পাব, $\\frac{d}{du}(x(u,v_0), y(u,v_0), z(u,v_0)).$ 
+ যেহেতু এখানে $v$-টা স্থির, তাই এটাকে সাধারণতঃ partial derivative  আকারে লেখাটাই প্রথা৷`,
+`একইভাবে আরেকটা vector  পাব $v$-curve-টার
+ tangent  থেকে, $\\frac{d}{dv}(x(u_0,v), y(u_0,v), z(u_0,v)).$`,
+`এই দুই vector-এর মধ্য দিয়ে যে plane-টা সেটাই
+ tangent plane  হবে৷ এটাই স্বাভাবিক৷`);</script>
+<center>
+<fieldset>
+<legend>Slideshow</legend>
+<form>
+<table height="50%" width="50%" border="0">
+<tr>
+<td colspan="3">
+<div id="crvpics">Pictures here.</div>
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<div id="crvmsgs">Messages here.</div>
+</td>
+</tr>
+<tr>
+<td align="left"><input onclick="crv.goprev()" value="Prev" type="button"></td><td align="center">
+<div id="crvwhich"></div>
+</td><td align="right"><input onclick="crv.gonext()" value="Next" type="button"></td>
+</tr>
+</table>
+</form>
+</fieldset>
+</center>
+<script>crv.showIt();</script>
+কিন্তু সত্যিই স্বাভাবিক তো? নাকি কিছু গোলমাল হতে পারে? অবশ্যই, একটা গোলমাল হতে পারে এই যে, কোনো একটা partial derivative  
+না থাকতে পারে৷ কিন্তু তার মানে কোনো ভাঙা না খোঁচ আছে, সুতরাং সেরকম ক্ষেত্রে tangent plane  থাকবেই না, 
+অতএব ঝামেলা হওয়াটাই উচিত৷ কিন্তু এমন হতে পারে না তো যে, tangent plane  দিব্যি আছে কিন্তু এই কায়দাটা কাজ 
+করছে না? দুঃখের  কথা, সেটা সম্ভব৷ যদি দুটো vector  একই লাইন বরাবর হয়ে যায়৷ কারণ সেক্ষেত্রে ওদের মধ্যে 
+দিয়ে কোনো unique  plane  পাব না৷ এর মধ্যে একটা special case  হল যেখানে অন্ততঃ একটা 
+vector  আসলে zero vector.  খুব দুঃখজনক একটা উদাহরণ হল $(u^3,v^3,u^3+v^3)$  দিয়ে 
+তৈরী surface-টা৷ $(0,0)$-তে দুটো tangent  vector-ই zero vector.  
+কিন্তু তা বলে surface-টা কি সত্যিই বিচ্ছিরি কিছু? একটু ছবি আঁকার চেষ্টা করলে কী মনে হয়?
+
+
+<h3>মন্তব্য</h3>
+নীচে একটা মন্তব্য দেওয়ার জায়গা রয়েছে. দেখে মনে হবে যেন তার জন্য আগে log
+in করতে হবে. যদি তাতে আপত্তি থাকে, তবে ওই "Name"-এর জায়গায় একবার
+click করলেই "I'd rather post as a guest" বলে একটা option আসবে. 
+<p></p><!--
+begin disqus code --> <div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://www.isical.ac.in/~arnabc/dg/dg2.html"; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "dg2"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://txtbk.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript><!-- end disqus code --> 
+<hr/>
+<table width="100%" border="0">
+<tr>
+<td align="left"/>
+<td align="right"/>
+</tr>
+</table>
+<hr/>
+</body>
+</html>

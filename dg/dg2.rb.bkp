@@ -1,0 +1,49 @@
+ <NOTE>
+<HEAD1>@{<E>Tangent plane</E>@}</HEAD1>
+eibAr AmrA kono @{<E>surface</E>@}-er kono bindute tAr @{<E>tangent</E>@}  @{<E>plane</E>@}  bAr karA shikhba. prathame 
+chhabi diye bujhe nii dhAraNATA kI.  
+<HEAD2>chhabi diye bojhA</HEAD2>
+AmrA prrithibIr piTher upar rayechhi. bhUprriSThaTA moTei
+ samatal nay. athacha AmAder mane hay yena samatal. yesab @{<E>surface</E>@}-er belAy kono bindute
+ eman anubhUti hay, sei samatalTAke sei bindute sei @{<E>surface</E>@}-er @{<E>tangent</E>@} 
+ @{<E>plane</E>@}  bale. yeman @{<M>[-1,1]\times[-1,1]</M>@}-er upare @{<M>f(x,y)=x^2+y^2</M>@}-er @{<E>surface</E>@}-TAr 
+@{<E>tangent</E>@}  @{<E>plane</E>@}  dekhiyechhi @{<M>(0.5,0.5)</M>@}  bindute. 
+<CIMG web="tan1.png"/>
+anekerai ekTA bhul dhAraNA thAke ye, @{<E>tangent plane</E>@}  hala eman ekTA @{<E>plane</E>@}  yeTA sei bindute @{<E>surface</E>@}-TAke 
+Alto kare chh,nuye thAke mAtra, chhed karte pAre nA. seTA saThik dhAraNA nay. yeman nIcher @{<E>surface</E>@}-TAr belAy.
+<CIMG web="tan2.png"/>
+chaT.h kare balte habe ei @{<E>surface</E>@}-TAr @{<E>equation</E>@}  kI! 
+<HEAD2>a.nka diye prakAsh karA</HEAD2>
+eTuku nishchayai AndAj karA yAchchhe ye @{<E>tangent plane</E>@}-r dhAraNATA a.nker bhASAy prakAsh karAr janya @{<E>differentiation</E>@}  
+lAgbe. bas+tuta.H ekTA @{<E>surface</E>@}-ke  ``kono bindur dhArekAchhe dekhle khAli ekTA @{<E>plane</E>@}  bale mane hay'' 
+ei byApArTA thekei to ``@{<E>function</E>@}-TA oi bindute @{<E>differentiable</E>@}'' ei dhAraNATAr janma.  yeman nIcher 
+@{<E>surface</E>@}-TAr belAy ye lAl bindute kono @{<E>tangent plane</E>@}  sambhab nay, seTA bojhAi yAchchhe. 
+<CIMG web="fold.png"/>
+erakam ``bichchhiri'' kes bAd dile, sundar sundar kese kI habe seTA niye AmAder kalpanATAke dhApe dhApe bojhAlAm nIche.
+<SLIDES name="crv">
+<SLD pic="curve1.png">AmrA jAni ye ekTA @{<E>surface</E>@}-ke AmrA @{<M>(x(u,v), y(u,v), z(u,v))</M>@}  AkAre likhte pAri.  yadi kono @{<M>(u_0, v_0)</M>@}  nii, tabe
+ @{<E>surface</E>@}-TAr upare ekTA bindu pAoyA yAbe, @{<M>(x(u_0,v_0), y(u_0,v_0), z(u_0,v_0)).</M>@}</SLD>
+<SLD pic="curve2.png">ebAr @{<M>v</M>@}-ke @{<M>v_0</M>@}-e sthir rekhe khAli @{<M>u</M>@}-ke
+ nARAle @{<E>surface</E>@}-TAr upare ekTA @{<E>curve</E>@}  pAoyA yAbe, @{<M>u\\mapsto(x(u,v_0), y(u,v_0), z(u,v_0)).</M>@}</SLD>
+<SLD pic="curve3.png">ekaibhAbe, @{<M>u=u_0</M>@}-ke sthir rekhe @{<M>v</M>@}-ke nARAle ArekTA
+ @{<E>curve</E>@}  pAoyA yAbe, @{<M>v\\mapsto(x(u_0,v), y(u_0,v), z(u_0,v)).</M>@} AmAder binduTA thAkbe ei dui @{<E>curve</E>@}-er chhed bindute.</SLD>
+<SLD pic="curve4.png">yadi AmrA @{<M>u</M>@} @{<E>-curve</E>@}-TAr @{<E>tangent</E>@}  nii, oi
+ bindute, tabe eTA @{<E>vector</E>@}  pAba, @{<M>\\frac{d}{du}(x(u,v_0), y(u,v_0), z(u,v_0)).</M>@} 
+ yehetu ekhAne @{<M>v</M>@}-TA sthir, tAi eTAke sAdhAraNata.H @{<E>partial derivative</E>@}  AkAre lekhATAi prathA.</SLD>
+<SLD pic="curve5.png">ekaibhAbe ArekTA @{<E>vector</E>@}  pAba @{<M>v</M>@}-@{<E>curve</E>@}-TAr
+ @{<E>tangent</E>@}  theke, @{<M>\\frac{d}{dv}(x(u_0,v), y(u_0,v), z(u_0,v)).</M>@}</SLD>
+<SLD pic="curve6.png">ei dui @{<E>vector</E>@}-er madhya diye ye @{<E>plane</E>@}-TA seTAi
+ @{<E>tangent plane</E>@}  habe. eTAi swAbhAbik.</SLD>
+</SLIDES>
+kintu satyii swAbhAbik to? nAki kichhu gol~mAl hate pAre? abashyai, ekTA golmAl hate pAre ei ye, kono ekTA @{<E>partial derivative</E>@}  
+nA thAkte pAre. kintu tAr mAne kono bhA\ngA nA kh,noch Achhe, sutarA.n serakam xetre @{<E>tangent plane</E>@}  thAkbei nA, 
+ataeb jhAmelA haoyATAi uchit. kintu eman hate pAre nA to ye, @{<E>tangent plane</E>@}  dibyi Achhe kintu ei kAydATA kAj 
+karchhe nA? du.Hkher  kathA, seTA sambhab. yadi duTo @{<E>vector</E>@}  ekai lAin barAbar haye yAy. kAraN sexetre oder madhye 
+diye kono @{<E>unique</E>@}  @{<E>plane</E>@}  pAba nA. er madhye ekTA @{<E>special case</E>@}  hala yekhAne antata.H ekTA 
+@{<E>vector</E>@}  Asale @{<E>zero vector.</E>@}  khub du.Hkhajanak ekTA udAharaN hala @{<M>(u^3,v^3,u^3+v^3)</M>@}  diye 
+t\oirI @{<E>surface</E>@}-TA. @{<M>(0,0)</M>@}-te duTo @{<E>tangent</E>@}  @{<E>vector</E>@}-i @{<E>zero vector.</E>@}  
+kintu tA bale @{<E>surface</E>@}-TA ki satyii bichchhiri kichhu? ekTu chhabi A,nkAr cheSTA karle kI mane hay?
+
+
+<DISQUSB url="http://www.isical.ac.in/~arnabc/dg/dg2.html" id="dg2"/>
+</NOTE>

@@ -1,0 +1,3 @@
+x=.  50%~i:50
+f =. 4 : 'x, y, ^-(x*x)+y*y'
+((f s)~ x) fwrite 'gau.obj'

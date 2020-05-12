@@ -1,0 +1,165 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+<link rel="stylesheet" type="text/css" href="../tools/ctut.css"/>
+<link type="text/css" rel="stylesheet" href="../tools/style.css"/>
+<style type="text/css">@font-face {font-family: SHREE_BAN_OTF_0592;src: local("../tools/SHREE_BAN_OTF_0592"),url(../tools/SHREE0592.woff) format("opentype");</style>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script src="../tools/jquery-1.10.2.min.js"></script>
+
+<script>
+aha = function(code) {
+  window.open("https://rdrr.io/snippets/embed/?code="+code)
+}
+
+togglePhoto = function(photoId) {
+   var me = document.getElementById("pic_"+photoId)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+hideShow = function(lb) {
+   var me = document.getElementById(lb)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+grabData = function(data){
+  return "https://farm"+data.photo.farm+".staticflickr.com/"+data.photo.server+"/"+data.photo.id+"_"+
+            data.photo.secret+".jpg"
+}
+
+fromFlickr = function(photoId) {
+
+$.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=23a138c73bdbe1e68601aa7866924e62&user_id=109924623@N07&photo_id="+photoId+"&lang=en-us&format=json&jsoncallback=?",
+  function(data) {
+    imgURL = grabData(data)
+    var l = document.getElementById("lnk_"+photoId)
+    l.href = "https://www.flickr.com/photos/109924623@N07/"+photoId
+    var i = document.getElementById("pic_"+photoId)
+    i.src=imgURL
+    i.onload = function() {
+      document.getElementById("status_"+photoId).innerHTML="[Image loaded. Click to show/hide.]"
+    }
+  })
+}
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","color.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    TeX: {
+      Macros: {
+        h: ["{\\hat #1}",1],
+        b: ["{\\overline #1}", 1],
+        row: "{\\mathcal R}",
+        col: "{\\mathcal C}",
+        nul: "{\\mathcal N}"
+      }
+    }
+  });
+</script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+<link href="../tools/rgl.css" rel="stylesheet"></link>
+<script src="../tools/rglClass.src.js"></script>
+<script src="../tools/CanvasMatrix.src.js"></script>
+<script src="../tools/rglWebGL.js"></script>
+</head>
+<body>
+<a href="http://www.isical.ac.in/~arnabc/">[Home]</a>
+<h3>Table of contents</h3>
+<ul>
+<li>
+<a href="#Coordinate system">Coordinate system</a>
+</li>
+</ul>
+<hr/>
+$
+\newcommand{\paru}[1]{\frac{\partial #1}{\partial u}}
+\newcommand{\parv}[1]{\frac{\partial #1}{\partial v}}
+$
+<h1><a
+name="Coordinate system">Coordinate system</a></h1>
+একটা surface-এর বিভিন্ন বিন্দুতে বিভিন্ন tangent plane-এর কথা শিখেছি৷ এটাও দেখেছি অংকের 
+ভাষায় কী করে $(x(u,v), y(u,v), z(u,v))$  আকারে প্রকাশ করা surface-এর থেকে
+ $(\paru x, \paru y, \paru z)$  এবং  $(\parv x, \parv y, \parv z)$  এই দুই vector  দিয়ে এই 
+plane-টা তৈরী করা যায়৷ মনে রাখা দরকার যে, একটা surface-কে একাধিকভাবে $(x(u,v), y(u,v), z(u,v))$  
+আকারে লেখা যায়, যেমন origin-এর centre-ওয়ালা  unit sphere-কে এই
+ দুইভাবে লেখা যায় (আরো অনেকভাবেও যায়)--
+<ul>
+<li> $(\cos u\sin v, \cos u\cos v, \sin u)$  আকারে, যেখানে $(u,v)\in\left[ 0, \frac \pi2 \right]\times [ 0, \pi ].$</li>
+
+<li>$(\cos u,\sin u\sin v, \sin u\cos v, \sin u)$  আকারে, যেখানে $(u,v)\in\left[ 0, \frac \pi2 \right]\times [ 0, \pi ].$</li>
+</ul>
+যতক্ষণ না কোনো বিন্দুতে সেই ঝামেলাটা হচ্ছে (vector  দুটো একই লাইনে হয়ে যাওয়া),
+ ততক্ষণ যেভাবেই লিখি না কেন tangent plane-টা সেই একই আসবে৷ সেই অর্থে tangent
+ plane-টার একটা বাস্তব অস্তিত্ব আছে৷ ওখানে বাস করা মানুষের অনুভূতিটা ফর্মুলার  সামান্য ইতরবিশেষের উপর নির্ভর 
+করে না৷ কিন্তু কীভাবে ফর্মুলাটাকে লেখা হচ্ছে তার উপর ভিত্তি করে আরেকটা জিনিসও ঠিক করা
+ হয়, যেটা নিতান্তই বাইরে থেকে আরোপিত৷ সেটা হল সেই tangent plane-র উপর একটা coordinate system.  
+অর্থাৎ tangent plane-টাকে একটা গ্রাফ কাগজ বলে ভাবলে তার axis  দুটো কীরকম নেওয়া হবে৷ আমরা আগেই 
+বলেছি origin  থাকবে সেই বিন্দুটাতে৷ দুটো axis  নির্বাচনের জন্য তিনটে কাজ করতে হবে, দুটো লাইন 
+নিতে হবে, কোন্ দিকটা positive  নেব ঠিক করতে হবে, আর প্রতিটা axis  বরাবর একক দৈর্ঘ্য কী 
+নেব সেটাও ঠিক করতে হবে৷ মনে রাখা দরকার যে, axis  দুটোর পরস্পরের সঙ্গে right angle-এ থাকার 
+কোনো দরকার নেই৷ নীচের ছবিতে এরা সকলেই coordinate system--
+<center>
+<table width="100%">
+<tr>
+<th><img width="" src="image/coord1.png"></th>
+</tr>
+<tr>
+<th></th>
+</tr>
+</table>
+</center>
+এইরকম একটা coordinate system  নির্বাচনের কাজটা  আমরা $(x(u,v), y(u,v), z(u,v))$  আকার থেকে করে 
+থাকি৷ আমরা যে দুটো tangent vector  পেয়েছিলাম $(\paru x, \paru y, \paru z)$  আর $(\parv x, \parv y, \parv z),$  
+ওদের লাইন বরাবরই আমরা axis  দুটো নিই, প্রথমটা বরাবর $u$-axis,  আর দ্বিতীয়টা বরাবর 
+$v$-axis.  আর vector  দুটোর তো অভিমুখ আছেই, সেটা অনুযায়ীই
+ positive  দিকটা নিই৷ আর vector  দুটোর দৈর্ঘ্যকেই নিই সেই সেই axis  বরাবর একক দৈর্ঘ্য৷ 
+মনে রাখা দরকার যে এই coordinate system  গাণিতিকভাবে সুবিধাজনক হলেও, আসলে কিন্তু বাইরে থেকে আরোপিত, 
+tangent plane-র মত কোনো বাস্তব অনুভূতির জিনিস নয়৷ ঠিক যেমন পায়ের নীচের মাটির দিকে তাকিয়ে আমরা latitude  
+বা longitude  বুঝতে পারি না, সেইরকম আর কি! 
+<h3>মন্তব্য</h3>
+নীচে একটা মন্তব্য দেওয়ার জায়গা রয়েছে. দেখে মনে হবে যেন তার জন্য আগে log
+in করতে হবে. যদি তাতে আপত্তি থাকে, তবে ওই "Name"-এর জায়গায় একবার
+click করলেই "I'd rather post as a guest" বলে একটা option আসবে. 
+<p></p><!--
+begin disqus code --> <div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = "http://www.isical.ac.in/~arnabc/dg/dg4.html"; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "dg4"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://txtbk.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript><!-- end disqus code --> 
+
+<hr/>
+<table width="100%" border="0">
+<tr>
+<td align="left"/>
+<td align="right"/>
+</tr>
+</table>
+<hr/>
+</body>
+</html>

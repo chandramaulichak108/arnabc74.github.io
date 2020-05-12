@@ -1,0 +1,239 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+<link rel="stylesheet" type="text/css" href="../tools/ctut.css"/>
+<link type="text/css" rel="stylesheet" href="../tools/style.css"/>
+<style type="text/css">@font-face {font-family: SHREE_BAN_OTF_0592;src: local("../tools/SHREE_BAN_OTF_0592"),url(../tools/SHREE0592.woff) format("opentype");</style>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<script src="../tools/jquery-1.10.2.min.js"></script>
+
+<script>
+aha = function(code) {
+  window.open("https://rdrr.io/snippets/embed/?code="+code)
+}
+
+togglePhoto = function(photoId) {
+   var me = document.getElementById("pic_"+photoId)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+hideShow = function(lb) {
+   var me = document.getElementById(lb)
+   if(me.style.display=="block"){
+     me.style.display="none";
+   }
+   else if (me.style.display=="none"){
+     me.style.display="block";
+   }
+}
+
+grabData = function(data){
+  return "https://farm"+data.photo.farm+".staticflickr.com/"+data.photo.server+"/"+data.photo.id+"_"+
+            data.photo.secret+".jpg"
+}
+
+fromFlickr = function(photoId) {
+
+$.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=23a138c73bdbe1e68601aa7866924e62&user_id=109924623@N07&photo_id="+photoId+"&lang=en-us&format=json&jsoncallback=?",
+  function(data) {
+    imgURL = grabData(data)
+    var l = document.getElementById("lnk_"+photoId)
+    l.href = "https://www.flickr.com/photos/109924623@N07/"+photoId
+    var i = document.getElementById("pic_"+photoId)
+    i.src=imgURL
+    i.onload = function() {
+      document.getElementById("status_"+photoId).innerHTML="[Image loaded. Click to show/hide.]"
+    }
+  })
+}
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js","color.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+    TeX: {
+      Macros: {
+        h: ["{\\hat #1}",1],
+        b: ["{\\overline #1}", 1],
+        row: "{\\mathcal R}",
+        col: "{\\mathcal C}",
+        nul: "{\\mathcal N}"
+      }
+    }
+  });
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+<link href="../tools/rgl.css" rel="stylesheet"></link>
+<script src="../tools/rglClass.src.js"></script>
+<script src="../tools/CanvasMatrix.src.js"></script>
+<script src="../tools/rglWebGL.js"></script>
+</head>
+<body>
+<a href="http://www.isical.ac.in/~arnabc/">[Home]</a>
+<h3>Table of contents</h3>
+<ul>
+<li>
+<a href="#Alternating $k$-linear maps">Alternating $k$-linear maps</a>
+</li>
+</ul>
+<hr/>
+
+
+<h1><a
+name="Alternating $k$-linear maps">Alternating $k$-linear maps</a></h1>
+এবার আমরা একটা নতুন ধারণার অবতারণা করব৷ যদি বলি $f:{\mathbb R}^2\rightarrow{\mathbb R}$  একটা linear function,  তার মানে হল 
+$f(x) = Ax$  জাতীয় কিছু একটা, যেখানে $A$  হল $1\times 2.$  যেমন $x = \left[\begin{array}{ccccccccccc}x_1\\x_2
+\end{array}\right]$  
+হলে $f(x) = 2x_1+3x_2.$  এখানে $A = [2 \quad 3].$
+<p></p>
+ সাবধান, $f(x) = Ax+b$  হলে কিন্তু চলবে না
+ (যেখানে $b\neq 0$)৷ 
+কারণ linear  মানে ''গ্রাফটা সরলরেখা বা plane'' নয়, linear  মানে যেকোনো
+ $\alpha, \beta\in{\mathbb R}$  এবং যেকোনো $x,y\in{\mathbb R}^2$-এর 
+জন্যই $f(\alpha x+\beta y) = \alpha f(x) + \beta f(y)$  হতে হবে৷
+<p></p>
+ এইটুকু আমাদের অজানা নয়৷ এবার সেটাকে 
+generalise  করব৷
+<p></p>
+এবার আমাদের function-টা দুটো ইনপুট নেবে, $x$  আর $y.$  মানে $f(x,y)$  জাতীয় function  
+নিয়ে কাজ করব৷ গুছিয়ে বললে $f:{\mathbb R}^2\times{\mathbb R}^2\rightarrow{\mathbb R}.$  এক্ষেত্রে আর linear  চাই না, চাই $2$-linear,  
+অর্থাৎ যদি $x$  আর $y$-এর একটাকে স্থির রাখি, তবে অন্যজনের সাপেক্ষে
+ linear  হতে হবে৷ 
+
+<p>
+<b>EXERCISE:</b>&nbsp;যদি $x = \left[\begin{array}{ccccccccccc}x_1\\x_2
+\end{array}\right]$  আর $y = \left[\begin{array}{ccccccccccc}y_1\\y_2
+\end{array}\right]$  হয়, তবে
+ নীচের  $f(x,y)$-গুলোর মধ্যে কে বা কারা $2$-linear?
+<ol type="">
+
+<li>$f(x,y) = 2x_1+3x_2+4y_1-5y_2.$</li>
+
+<li>$f(x,y) = 2x_1y_1-5x_2y_2.$</li>
+
+<li>$f(x,y) = 2x_1x_2-5y_1y_2.$</li>
+
+<li>$f(x,y) \equiv0.$</li>
+
+</ol>
+ 
+<img src="../image/box.png"></p>
+এই অংকটা করলেই বোঝা যাবে যে, এরকম function-দের চেহারা হয় $f(x) =
+ ax_1y_1+bx_2y_2 $-এর মত৷  একবার চেহারাটা বঝে গেলে সেটা প্রমাণ করা কঠিন কিছু নয়৷ 
+<p></p>
+এখানে আমরা $x,y\in{\mathbb R}^2$  নিয়ে কাজ করছিলাম৷ চাইলে যেকোনো ${\mathbb R}^n$  নিয়েই করা যায়৷ সেক্ষেত্রে $2$-linear  
+function-দের চেহারা হবে $\sum_{i,j} a_{ij}x_i y_j$-র মত৷ 
+<p></p>
+ব্যাপারটাকে আরেক দিকেও generalise  করা যায়, $2$-linear-এর বদলে
+বা $k$-linear. ব্যাপারটা আর কিছুই না, $f(x_1,...,x_k)$  নিয়ে কাজ করা, যেখানে $x_i$-রা 
+সকলেই কোনো ${\mathbb R}^n$-এর সদস্য৷ শর্তটা একই, যদি খালি একটা $x_i$-কেই variable  রাখা 
+হয় (বাকিদেরকে স্থির রেখে) তবে function-টা যেন সেই $x_i$-এর সাপেক্ষে linear  হয়৷ 
+
+<p>
+<b>EXERCISE:</b>&nbsp;যদি $k=3$  আর $n=3$  নিই, তবে নীচের  $f(x,y,z)$-গুলোর মধ্যে কে
+ বা কারা $k$-linear  হবে? এখানে $x$-এর component-গুলোকে $x_i$  বলেছি, 
+ইত্যাদি৷ 
+<ol type="">
+
+<li>$f(x,y,z) = x_1y_2z_3.$</li>
+
+<li>$f(x,y,z) = x_1x_2x_3.$</li>
+
+<li>$f(x,y,z) = x_1y_2z_3 + 2x_1y_1z_1.$</li>
+
+<li>$f(x,y,z) \equiv 0.$</li>
+
+</ol>
+ 
+<img src="../image/box.png"></p>
+খানিকক্ষণ 
+গবেষণা করলেই চোখে পড়বে যে, এদের general  রূপটা হল একটা linear combination-এর মত৷ যাদের linear combination,
+তারা প্রত্যেকেই $k$-টা component-এর product, প্রতিটা vector-এর ঠিক একটা করে প্রতিনিধি 
+থাকতে হবে component-গুলোর মধ্যে৷ 
+<p></p>
+ব্যস্ এইটুকু বুঝলেই অর্ধেক কাজ শেষ৷ বাকি অর্ধেকের জন্য আমরা আরেকটা শর্ত চাপাব৷ সেটা হল alternating.  
+আমরা একটা $f(x,y)$-কে alternating  বলব যদি $f(y,x) = -f(x,y)$  হয়৷ চাইলে $f$-এর 
+ইনপুটের সংখ্যা আরো বেশীও হতে পারে, যেমন $f(x,y,z).$  কিন্তু শর্ত সেই একই, যেকোনো দুটো ইনপুটের স্থানবিনিময় 
+করলে function-টার চিহ্ন উল্টে যাবে, যেমন $f(x,z,y) = -f(x,y,z)$  হবে, আবার $f(y,x,z) = -f(x,y,z)$  
+হবে৷ সুতরাং বুঝতেই পারছ দুবার এরকম স্থানবিনিময় করলে ফের আগের চিহ্নটাই ফিরে আসবে, যেমন
+ $$f(z,x,y) = -f(x,z,y) = -(-f(x,y,z)) = f(x,y,z).$$  
+যদি ইনপুটের সংখ্যা খালি এক হয়, সেখানেও alternating-এর ধারণাটা কাজ করে৷ তবে সেটা vacuously,  
+কারণ স্থানই যেখানে মোটে একটা, সেখানে আর স্থানবিনিময় হয় কী করে?  তাই যেকোনো $f(x)$-ই alternating  
+হতে বাধ্য! 
+<p></p>
+আমরা কাজ করতে চাই alternating  $k$-linear  function-দের নিয়ে, মানে যারা একাধারে 
+$k$-linear-ও বটে আবার alternating-ও বটে৷ এদের set-টার নাম দেব $A_{k,n}.$
+<p></p>
+যদি $k=1$  হয়, তবে তো alternating  শর্তটা সব সময়েই খাটবে৷ অতএব $A_{1,n}$  হল 
+যাবতীয় ${\mathbb R}^n\rightarrow{\mathbb R}$  linear  function-দের set.  
+<p></p>
+যদি $k=n=2$  হয়? আমরা জানি যে, যাবতীয় $2$-linear  function-দের চেহহারা হয় 
+$ax_1y_1 + bx_1y_2 + cx_2y_1+dx_2y_2$-এর মত৷ Alternating  হবার জন্য $a,b,c,d$-এর উপরে 
+বাড়তি শর্ত চাই৷ যদি $x$  আর $y$-এর স্থানবিনিময় করা হয়, তবে $x_1y_2$  হয়ে যাবে $x_2y_1.$  
+ওদিকে $x_1y_1$  আর $x_2y_2$  যা ছিল তাই থাকবে৷ এ থেকে সিদ্ধান্ত করা যায়  যে, $a=d=0$  
+লাগবে এবং $b = -c$  হতে হবে৷ ভালো করে চিন্তা করে এটা হজম করে নাও৷ সুতরাং
+ $k=n=2$  হলে যেকোনো $k$-linear  alternating  function-এর চেহারা হল 
+$b(x_1y_2-x_2y_1)$-এর মত৷ এই চেহারাটা দেখে যদি determinant-এর কথা মনে পড়ে, তবে সেটা আশ্চর্য 
+নয়৷ সত্যিই determinant  একটা $k$-linear  alternating  function.  
+
+<p>
+<b>EXERCISE:</b>&nbsp;আচ্ছা, $n=2$  রেখে যদি $k=3$  করি? তবে যাবতীয়
+$A_{k,n}$-এর সদস্যদের চেহারা কীরকম হবে?
+ এই প্রশ্নের উত্তরটা হাস্যকররকমের সহজ৷ যদিও প্রথম দিকে মাথা গুলিয়ে যেতে পারে৷<img src="../image/box.png"></p>
+
+আমরা $k=n=2$  কেসটা আলোচনার সময়ে বলেছিলাম যে $x,y$  স্থানবিনিময় হলে $x_1y_1$  বদলায় 
+না, তাই $x_1y_1$-এর coefficient  হবে $0.$  এই যুক্তিটা যদি স্পষ্ট হয়ে থাকে, তবে একইভাবে 
+বলতে পারবে $k=3$-এর বেলায় $x_1y_1z_2$-এর coefficient-ও $0$  হতে বাধ্য৷ এবং $x_1y_2z_1$-এর 
+বেলাতেও তাই৷ তার মানে যখনই কোনো একটা subscript  একাধিকবার আসছে, অমনি সেই term-এর coefficient-টা 
+$0$  হয়ে যাচ্ছে৷ এই যুক্তির সঙ্গে একটু pigeon hole  মেলালেই নীচের অংকটা ধাঁ করে হয়ে যাবে৷
+
+<p>
+<b>EXERCISE:</b>&nbsp;
+প্রমাণ কর--যদি $k &gt; n$  হয় তবে $A_{k,n}$-এর খালি একজনই সদস্য, সেটা হল
+ $0$  function-টা৷
+<img src="../image/box.png"></p>
+
+আমরা $k=n=2$  কেসের আলোচনায় আরেকটা কথাও বলেছিলাম, যেহেতু $x,y$-এর
+ স্থানবিনিময় করলে $x_1y_2$-টা হয়ে যায় $x_2y_1,$  তাই ওদের coefficient  পরস্পরের negative  
+হবে৷ এই যুক্তি প্রয়োগ করলে $k=2$  হলে যেকোনো $n$-এর বেলাতেই $x_1y_2$  আর
+ $x_2y_1$-এর coefficient  পরস্পরের negative  হতে বাধ্য৷ 
+
+<p>
+<b>EXERCISE:</b>&nbsp;একই যুক্তিতে বলতে হবে $k=3$  আর $n=5$  হলে কোন কোন term-এর
+ coefficient  $x_1y_2z_3$-এর coefficient-এর negative 
+ হতে বাধ্য? আর কোন coefficient-গুলো এর সমান হতে বাধ্য?<img src="../image/box.png"></p>
+
+এই সব যুক্তিতর্ক মিলিয়ে একটা সুন্দর theorem  পাওয়া যায়৷ ধরো general  $k\leq n$  
+নিয়ে কাজ করছি৷ তবে $k$-linear  হবার জন্য দরকার $n^k$-টা
+ coefficient.   এরা সবাই arbitrary  ছিল৷ যেই alternating  
+শর্তটা চাপল, অমনি repeated subscript-ওয়ালারা মারা গেল, তাই পড়ে রইল খালি ${^nP_k}$  সংখ্যক 
+coefficient.  এদের মধ্যেও অনেকেই পরস্পরের সমান বা negative  হতে বাধ্য৷ তাই সকলেই arbitrary  
+নয়৷ কতগুলো arbitrary  রইল সেটা নিয়ে একটু তলিয়ে ভাবলেই এই theorem-টা পাওয়া যাবে৷
+
+<fieldset>
+<legend><b><i>Theorem</i></b></legend>
+যদি $n\geq k$  হয়, তবে $A_{k,n}$  একটা vector space,  যার dimension  হল ${^nC_k}.$
+</fieldset>
+
+<p>
+<b><i>Proof:</i></b>
+Vector space  যে হবে সেটা বলাই বাহুল্য, কারণ alternating-দের linear combination  আবার 
+alternating-ই হয়৷ একইভাবে $k$-linear-দের linear combination-ও ফের $k$-linear-ই 
+হতে বাধ্য৷ প্রমাণের সূক্ষ্ম জায়গাটা হল ওই dimension-টা নিয়ে৷ চেষ্টা করেই দ্যাখো! 
+<b><i>[QED]</i></b>
+</p>
+<hr/>
+<table width="100%" border="0">
+<tr>
+<td align="left"/>
+<td align="right"/>
+</tr>
+</table>
+<hr/>
+</body>
+</html>

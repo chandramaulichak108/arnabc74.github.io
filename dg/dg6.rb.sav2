@@ -1,0 +1,162 @@
+<NOTE>
+@{<M>
+\newcommand{\paru}[1]{\frac{\partial #1}{\partial u}}
+\newcommand{\parui}[1]{\frac{\partial #1}{\partial u_i}}
+\newcommand{\parv}[1]{\frac{\partial #1}{\partial v}}
+</M>@}
+
+@{<E><HEAD1>Differential</HEAD1></E>@}  
+AmrA @{<E>1-form</E>@}  niye mAthA ghAmAchchhi kena? kAraN @{<E>differential geometry</E>@}-te eder nAnA prayog. exuNi ekTA 
+prayog dekhte chalechhi AmrA. 
+<P/>
+AmrA skule thAkte yakhan @{<M>[[dy][dx]]</M>@}  likhi, takhan AmAder balA hay ye @{<M>dy</M>@}  Ar @{<M>dx</M>@}  
+bale AlAdA kare kichhu hay nA. yadio @{<M>y=x^2</M>@}  hale AmrA aneksamaye @{<M>dy = 2x dx</M>@}  likhe thAki, kintu seTA 
+nitAntai @{<E>symbolically.</E>@}  kintu @{<E>differential</E>@}  @{<E>geometry</E>@}-r jagate @{<M>dy,</M>@}  @{<M>dx</M>@}  
+ityAdider satyii AlAdA as+titwa Achhe, eba.n @{<M>dy = 2x dx</M>@}  byApArTA moTei Ar kathAr kathA thAke nA. ebAr seTAi 
+shikhba. tAr janya AmAder etaxaNer AlochanATAke khAnikTA @{<E>generalise</E>@}  karte habe. er fale a.nka kaSATA Asale sahaj 
+haye yAbe, kintu chhabi diye bhAbATA bandha haye yAbe. 
+<HEAD2>@{<E>Generalisation</E>@}</HEAD2>
+AmrA etaxaN @{<E>surface</E>@}  niye kAj karchhilAm, mAne duTo @{<E>variable</E>@}  
+thAkchhila, @{<M>u</M>@}  Ar @{<M>v,</M>@}  eba.n tAder theke tinTe @{<E>variable</E>@}  bAnAchchhilAm, @{<M>x,</M>@}  @{<M>y</M>@}  
+Ar @{<M>z.</M>@}  arthA.t byApArTA chhila @{<M>\rr^2\to\rr^3.</M>@}  sekhAne AmrA dhare niyechhilAm ye @{<M>x(u,v),</M>@}  
+@{<M>y(u,v)</M>@}  Ar @{<M>z(u,v)</M>@}  tin~janei @{<E>differentiable</E>@}  eba.n ei duTo @{<E>vector</E>@}  ekai lAine 
+nay--
+<Q>@{<M>(\paru x,\paru y,\paru z)</M>@}  eba.n @{<M>(\parv x,\parv y,\parv z).</M>@}</Q>
+ei byAArTAkei ebAr AmrA nakal karba @{<M>\rr^2</M>@} theke @{<M>\rr^2</M>@}-te. arthA.t ebAr kAj karba @{<M>x(u,v)</M>@}  
+Ar @{<M>y(u,v)</M>@}  niye.  sexetre sAb~dhAn thAkte habe yena ei duTo @{<E>vector</E>@}  ek lAine haye nA yAy--
+<Q>@{<M>(\paru x,\paru y)</M>@}  eba.n @{<M>(\parv x,\parv y).</M>@}</Q>
+eder madhya diye ye @{<E>plane</E>@}-TA habe seTAkei balba @{<E>tangent plane.</E>@}  ei byApArTA chhabi diye anubhab karA 
+anekTAi beshI kaThin. tAo ekTA cheSTA karA yAk. 
+@{<COMMENT>
+hi = seq(-3,3,len=101)
+lo = seq(-3,3,len=11)
+getX = function(x,y) {
+  theta= distort*sqrt(x*x+y*y)
+cos(theta)*x + sin(theta)*y
+}
+getY = function(x,y) {
+  theta= distort*sqrt(x*x+y*y)
+cos(theta)*y - sin(theta)*x
+}
+drawFloor = function() {
+bareplot(0,ty='n',xlim=c(-4,4),ylim=c(-4,4))
+for(i in 1:length(lo)) {
+   x = lo[i]; 
+newx = getX(x,hi)
+newy = getY(x,hi)
+lines(newx,newy)
+}
+for(i in 1:length(lo)) {
+   y = lo[i]; 
+newx = getX(hi,y)
+newy = getY(hi,y)
+lines(newx,newy)
+}
+}
+svg('image/grf%draw.svg')
+distort = 0; drawFloor();
+distort = 0.3; drawFloor();
+dev.off()
+</COMMENT>@}
+AmrA shuru karchhi @{<M>(u,v)</M>@}@{<E>-plane</E>@}  niye, yeTAke ekTA 
+grAf kAgaj bale bhAbA yAy--
+<CIMG web="grf1.png"/>
+eTA yena ekTA bARIr TAil basAno mejhe. ebAr haThA.t bhUmikampa hala. TAil~gulo dumRe muchRe haye gela erakam--
+<CIMG web="grf2.png"/>
+ebAr dharA yAk ekTA chhoT+To p,nipRe thAke oi lAl binduTAte. se to Ar puro mejheTA dekhte pAchchhe nA. tAr kAchhe mane hachchhe 
+yena TAil~gulo badle erakam haye gechhe--
+<CIMG web="grf3.png"/>
+eiTAi hala oi bindute @{<E>tangent plane.</E>@}  AbAr nIl bindur p,nipReTA bhAbchhe TAil~gulo ekhan erakam dekhte--
+<CIMG web="grf4.png"/>
+AmrA yakhan @{<E>surface</E>@}  niye AlochanA karechhilAm, takhanai balechhilAm ye @{<E>tangent plane</E>@}-guloke @{<M>\rr^3</M>@}-r 
+@{<E>subset</E>@}  bale kalpanA karA uchit nay, dui chURAr dui sannyAsIr udAharaNe tAhale duTo @{<E>tangent plane</E>@}  
+ekai haye yeta. sei kathATA eixetre Aro bisheSbhAbe mane rAkhte habe, kAraN ekhAne @{<M>\rr^2</M>@}-er @{<E>subset</E>@}  
+hisebe bhAble sabgulo p,nipRer @{<E>tangent plane</E>@}-i ekai. ArekTA pArthakyao Achhe. Age AmrA @{<E>tangent vector</E>@}  
+dichchhilAm @{<M>(p,q)</M>@}  AkAre, yekhAne @{<M>p,q\in\rr^3</M>@}-ke duTo shar+ta pAlan karte hachchhila--
+<UL><LI>ek, @{<M>p</M>@}-ke thAkte habe @{<E>surface</E>@}-TAr gAy,</LI>
+<LI>Ar dui, @{<M>q</M>@}-ke sei @{<M>p</M>@}  bindute @{<E>surface</E>@}-TAr sange @{<E>tangent</E>@}  hate habe.</LI></UL>
+yeman nIcher chhabite ye duTo tIr~chihna e,nkechhi tArA keui @{<E>tangent vector</E>@}  nay. 
+<CIMG web="notan.png"/>
+sabujTAr goRAtAi @{<E>surface</E>@}-er gAy nei. lAler goRATA @{<E>surface</E>@}-er gAy Achhe baTe, kintu oTA @{<E>tangent</E>@}  
+nay. 
+kintu @{<M>\rr^2\to\rr^2</M>@}-r belAy  ei duTo shar+taTA sar+badAi pAlita 
+habe. tAi yekono @{<M>p,q\in\rr^2</M>@}  nilei @{<M>(p,q)</M>@}  ekTA @{<E>tangent vector</E>@} 
+ habe! sei kAraNe a.nka karATA sahaj, 
+kintu @{<E>tangent</E>@}  baltei ye chitraTA mane bhese oThe tAr sAthe eke melAno kaThin. mane
+ hay yena, yadi yekono @{<M>p,q\in\rr^2</M>@}  
+nilei chale, tabe Ar khAmokhA ghaTA kare @{<E>tangent vector</E>@}  nAm deoyAr darkAr kI bApu! du.Hkher kathA, adhikA.nsha 
+baii @{<E>tangent vector</E>@}-r ei ``gANitikbhAbe sahaj'' sa.njnATA niyei shuru kare, fale chhAtrachhAtrIder bujhte khAnikTA 
+asubidhA hay. 
+<P/>
+chAile AmrA ekai byApAr @{<M>\rr^n\to\rr^n</M>@}-o karte pArtAm. sexetre @{<M>(u,v)</M>@}-er badale shuru kartAm @{<M>(u_1,...,u_n)</M>@}  
+niye Ar tAder @{<E>function</E>@}  hisebe likhtAm @{<M>(x_1,...,x_n)</M>@}-ke. AmAder shar+taTA takhan hata, ei @{<M>n</M>@}-khAnA 
+@{<E>vector</E>@}  yena @{<E>linearly independent</E>@}  hay--
+@{<D>(*(\parui {x_1},...,\parui {x_n})*).</D>@}
+
+<HEAD2>AbAr @{<E>1-form</E>@}</HEAD2>
+ebAr AmrA ekTA bisheS dharaNer @{<E>1-form</E>@}-er sa.njnA deba. AmrA kAj karba @{<M>\rr^2</M>@}  niye, yadio yekono 
+@{<M>\rr^n</M>@}  niyei ekai kAj karA yAy. yekono ekTA @{<M>f:\rr^2\to\rr</M>@}  nAo, yeTA
+ @{<E>differentiable.</E>@}  (sAb~dhAn, @{<E>codomain</E>@}-TA kintu @{<M>\rr,</M>@}  okhAne
+ @{<M>\rr^2</M>@}  nii ni). AmrA 
+@{<M>df</M>@}-er ekTA gANitik sa.njnA deba. chaT.h kare mane kare nii, skule thAkte erakam @{<E>differential</E>@}-der kI 
+g,nojA deoyA sa.njnA AmrA shikhi. gatibeger sa.njnAy yakhan @{<M>v = [[ds][dt]]</M>@}  balA hay, takhan tAr sAthe ekTA galpa 
+thAke eirakam--
+<Q> yadi @{<M>t</M>@}  theke khub alpa ekTu (khub khub alpa, eT+TukhAni!) parimAN @{<M>dt</M>@}  egoi, tabe 
+saraNer paribar+tanke balba @{<M>ds.</M>@}  Ar jAnoi to saraNer parimANke samayer parimAN diye bhAg karlei beg pAoyA yAy, 
+ataeb bujhe gele, Thik kinA? </Q>
+Thik keui bojhe nA, byApArTA kI hala, kintu mAthA neRe dey, eba.n @{<M>[[ds][dt]]</M>@}  byabahAr kare a.nka kare parIxAy 
+pAshao kare yAy. odike a.nker syAr (bA didimaNi) chokh pAkiye bujhiye den ye @{<M>ds</M>@}  bA
+ @{<M>dt</M>@}  bale AlAdA kare kichhu hay nA, oi @{<M>[[ds][dt]]</M>@}-TA ekTA
+ @{<E>notation</E>@}  mAtra. sab miliye mAthATA puroi keman guliye yAy. 
+<P/>
+ebAr AmrA erakam  @{<E>differential</E>@}-er  @{<E>rigourous</E>@}  sa.njnA shikhba.  tAte ei ``khub alpa ekTu paribar+tan''-er 
+dhAraNATAo bajAy thAkbe athacha dh,noyAshA dh,noyAshA byApArTAo thAkbe nA.
+<P/>
+AmrA kAj karchhi @{<M>f:\rr^2\to\rr</M>@}  niye. AmrA @{<M>df</M>@}-er sa.njnA dite chAichhi. mUl ye dhAraNATA a.nker 
+bhASAy b,nedhe felte chAichhi, seTA hala @{<M>(x,y)</M>@}  sAmAnya ekTu badlAle @{<M>f(x,y)</M>@}  kataTA badlAy. 
+prathamei jAnA darkAr kothA theke badlAnoTA shuru karchhi, mAne badlAnor Age @{<M>(x,y)</M>@}  kI chhila. dwitIya jinisTA 
+yeTA jAnA darkAr seTA hala badlAnoTA kon dike hayechhe, @{<M>x</M>@}-er dike, nAki @{<M>y</M>@}-er dike, nAki @{<M>x,y</M>@}  
+dujanei samAnbhAbe beRechhe (mAne grAf kAgaje uttar-pUrba dike sarechhe), nAki anya konobhAbe.   dharA yAk, badlAnor Age 
+chhilAm @{<M>(a,b)</M>@}-te, mAne @{<M>x=a</M>@}  Ar @{<M>y=b</M>@}  chhila. AmrA khub sAmAnya naRba, mAne oi bindute ye 
+p,nipReTA bAs kare tAr drriSTibhangIte dekhba byapArTA. ataeb ye dikei sari nA kena, seTAke ekTA
+ @{<E>tangent vector</E>@}  bale bhAbA yAy. dharA yAk erakam ekTA @{<E>tangent vector</E>@}  nilAm
+ @{<M>((a,b), (r,s)).</M>@}  p,nipReTA ebAr bhAbchhe ye, se @{<M>(a,b)</M>@}  theke
+ @{<M>(r,s)</M>@}  barAbar h,nATbe, @{<M>1</M>@}  ekak samay pare se @{<M>(r,s)</M>@}  tIr~chihnaTAr DagAy  p,n\ouchhabe, 
+@{<M>2</M>@}  ekak pare sei ekai dike tAr dwiguN dUratwa yAbe, eibhAbe. tAhale @{<M>t</M>@}  samay pare se thAkbe @{<M>(a,b)+t(r,s)</M>@}-e. 
+sekhAne @{<M>f</M>@}-er mAn habe @{<M>f(a+tr,b+ts).</M>@}  ekhAne @{<M>a,b,r,s</M>@}  sabAi sthir Achhe, khAli @{<M>t</M>@}-TAi 
+@{<E>variable.</E>@}  tAi eTAke @{<M>t</M>@}-er @{<E>function</E>@}  AkAre likhle habe @{<M>g(t)=f(a+tr,b+ts).</M>@}   
+p,nipReTA bhAbchhe eisab kathA. prashna hala yadi se satyii ebhAbe h,nATA shuru kare, tabe @{<M>g(t)</M>@}-TA kI hAre bARte
+shuru karbe?
+seTA hala @{<M>g'(0).</M>@}  ekTu kaSlei pAoyA yAbe @{<M>g'(0) = f_1(a,b)r + f_2(a,b)s,</M>@}  yekhAne @{<M>f_1</M>@}  Ar 
+@{<M>f_2</M>@}  hala @{<M>f</M>@}-er duTo @{<E>partial derivative.</E>@}  tA hale kI ei @{<M>f_1(a,b)r + f_2(a,b)s</M>@}-kei 
+@{<M>df</M>@}  balba. kintu er madhye to @{<M>a,b,r,s</M>@}  raye giyechhe! tAi AmrA ei farmulAr ``chehArA''-TAke balba @{<M>df.</M>@}  
+AmrA balba @{<M>df</M>@}  hala ekTA @{<E>1-form,</E>@}  yeTA yekono @{<M>(a,b)</M>@}-tei ekTA @{<E>linear transform</E>@}  
+dey @{<M>(r,s)\mapsto f_1(a,b)r + f_2(a,b)s.</M>@}  arthA.t @{<M>df</M>@}  hala ekTA @{<E>function</E>@}, yAr madhye @{<M>((a,b),(r,s))</M>@}  
+jAtIya kono @{<E>tangent vector</E>@}  DhokAle uttar pAbe @{<M>df((a,b),(r,s)) = f_1(a,b)r + f_2(a,b)s.</M>@}
+<P/>
+kayekTA udAharaN  nA dekhle Ar chalchhe nA! 
+<EXM>yadi @{<M>f(x,y)=\sin(xy)</M>@}  nii, tabe @{<M>df((1,2),(3,4))</M>@}  bAr karo. <SOLN/>
+sahaj bhASAy balle, @{<M>(1,2)</M>@}  theke @{<M>(3,4)</M>@}  barAbar chalA shuru karle @{<M>f(x,y)</M>@}  kI hAre bARbe? 
+ekhAne @{<M>f_1(x,y) = y\cos(xy)</M>@}  Ar @{<M>f_2(x,y) = x\cos(xy).</M>@}  sutarA.n uttar hala @{<M>df((1,2),(3,4)) = 2\cos(2)\times 3 + \cos(2)\times 4 = 10\cos 2.</M>@}
+</EXM>
+
+ebAr ArekTA udAharaN dekhA yAk. eTA Aro sahaj. 
+<EXR>@{<M>f(x,y)=x</M>@}  nichchhi ebAr. @{<M>df</M>@}  kI habe? mAne yekono
+ @{<M>((a,b),(r,s))</M>@}-er janya @{<M>df((a,b),(r,s))</M>@}-er farmulA dite habe.</EXR>
+
+<EXR>yadi @{<M>f(x,y)=y</M>@}  nitAm, tabe?</EXR>
+
+ebAr dharA yAk ekTA D,neyo p,nipRe tartariye @{<M>\rr^2</M>@}-r upar diye h,neTe beRAchchhe. eTA D,neyo p,nipRe, tAi ek 
+jAygAy base base @{<E>tangent plane</E>@}  niye santuSTa thAkAr pAtra nay. @{<M>t</M>@}  samaye tAr abasthAn hala @{<M>(x(t),y(t)).</M>@}  
+tabe sei muhUr+te @{<M>f</M>@}-er @{<E>value</E>@}  se dekhbe, @{<M>f(x(t),y(t)).</M>@}  erakam
+ xetre AmrA @{<E>chain rule</E>@}  theke jAni ye @{<M>[[df][dt]] = f_1(x(t),y(t)) [[dx][dt]]+f_2(x(t),y(t)) [[dy][dt]]</M>@}  
+hay. e theke anek samayei ``@{<M>dt</M>@}-TA keTe niye'' loke dh,nA kare likhe dey 
+@{<D>df = f_1(x(t),y(t)) dx+f_2(x(t),y(t)) dy.</D>@}
+abashyai sei sange bidhibaddha satar+kIkaraN  thAke-- eTAr Asale kono mAne hay nA, nitAntai @{<E>symbolically</E>@}  lekhA. 
+<P/>
+majAr kathA hala AmrA ekhan ye @{<M>df,</M>@}  @{<M>dx</M>@}  Ar @{<M>dy</M>@}-er sa.njnA shikhechhi, tAte kintu satyii 
+@{<M>df = f_1(x(t),y(t)) dx+f_2(x(t),y(t)) dy</M>@}  habe! Ar kono g,nojA nei er madhye! 
+
+<EXR>ekai kAydAy ekhan ki @{<M>y = x^2</M>@}  hala @{<M>dy = 2x dx</M>@}-er bhadra byAkhyA </EXR>
+
+</NOTE>

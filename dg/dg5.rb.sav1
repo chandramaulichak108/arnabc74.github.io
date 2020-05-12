@@ -1,0 +1,61 @@
+<NOTE>
+@{<M>
+\newcommand{\paru}[1]{\frac{\partial #1}{\partial u}}
+\newcommand{\parv}[1]{\frac{\partial #1}{\partial v}}
+</M>@}
+<HEAD1>@{<E>1-form</E>@}</HEAD1>
+dharA yAk ekTA @{<E>surface</E>@}  Achhe, tAr upar ekTA bindu nilAm, sekhAne @{<E>tangent plane</E>@}-r upare ekTA @{<E>tangent vector</E>@}  
+nilAm. tAhale sei @{<E>tangent plane</E>@}-er @{<E>coordinate system</E>@}-er sApexe eTAke @{<M>(a,b)</M>@}  AkAre lekhA 
+yAbe. ei jAygATAy mAthA guliye yAoyA swAbhAbik, tAi ekTA udAharaN niye egono yAk. 
+
+<EXM>AmAder @{<E>surface</E>@}-er farmulA hala @{<M>(\cos u,\sin u, v)</M>@}  yekhAne
+ @{<M>(u,v)\in[0,2\pi)\times[0,5].</M>@}  er upar @{<M>(u,v)=(0,2)</M>@}-r janya ye binduTA hay
+ seTA nilAm, mAne @{<M>(1,0,2).</M>@}  ekhAne ekTA @{<E>tangent vector</E>@}  dichchhi
+ @{<M>((1,0,2), (0,4,3)).</M>@}  ekhAne @{<M>(1,0,2)</M>@}  hala goRATA, Ar @{<M>(0,4,3)</M>@} 
+ hala tIr~chihna-TA. mAne DagATA thAkbe @{<M>(1,0,2)+(0,4,3) = (1,4,5)</M>@}-e. tAhale er janya
+ @{<M>(a,b)</M>@}  kI habe? absthATA nIcher chhabiTAr mata.
+<CIMG web="cyl1.png"/>
+<SOLN/>
+prathame @{<E>axis</E>@}  duTo bAr kare nii. @{<M>(\paru x, \paru y, \paru z) = (-\sin u,\cos u, 0) = (0,1,0)</M>@}  eba.n 
+@{<M>(\parv x, \parv y, \parv z) = (0,0, 1).</M>@}  tAr mAne kAjTA hala @{<M>(0,4,3)</M>@}-ke @{<M>a(0,1,0)+b(0,0,1)</M>@}  
+AkAre lekhA. laxaNIya, ekhAne tIr~chihna a.nshaTA niye kAj karchhi. bojhAi yAchchhe ye, @{<M>(a,b)=(4,3)</M>@}  habe. 
+</EXM>
+AmrA ekhAne yA karlAm seTA @{<E>surface</E>@}-TAr yekono @{<E>tangent vector</E>@}  deoyA thAklei 
+karA yeta. mAne yekono @{<E>tangent vector</E>@} deoyA thAklei AmrA @{<M>a</M>@}  Ar @{<M>b</M>@}  duTo @{<E>real number</E>@}  bAr karte pAri. 
+ataeb AmrA likhte pAri @{<M>a = \phi(t),</M>@}  eba.n @{<M>b = \xi(t),</M>@}  yekhAne @{<M>t</M>@}  hala  @{<E>surface</E>@}-TAr kono @{<E>tangent vector.</E>@}  
+ei @{<M>\phi(\cdot)</M>@}  Ar @{<M>\xi(\cdot)</M>@}-er ekTA b\oishiSTya hala ei ye, @{<E>surface</E>@}-TAr upar yekono bindutei
+erA hala sekhAnkAr @{<E>tangent plane</E>@}-TA  theke @{<M>\rr</M>@}-e ekTA @{<E>linear transform.</E>@}  
+ erakam @{<E>function</E>@}-der bale ei
+ @{<E>surface</E>@}-TAr janya ekTA @{<E>1-form.</E>@}  
+<P/>
+ei dhAraNATA bAr bArai kAje lAgbe. tAi guchhiye sa.njnATA likhe rAkhi.
+<P/>
+dharA yAk kono ekTA @{<E>surface</E>@}  Achhe. tAr yAbatIya @{<M>p</M>@}  bindute @{<E>tangent
+ plane</E>@}-TAr nAm dilAm @{<M>T_p,</M>@} (mAne sei bindute yAbtIya @{<E>tangent vector</E>@}-er @{<E>set</E>@}  
+eTA). tAhale  ekTA @{<E>1-form</E>@}  mAne hala ekTA @{<E>function</E>@}  @{<M>\phi:\cup_pT_p\to\rr,</M>@}  
+yeTA pratiTA @{<M>T_p</M>@}-r upare ekTA @{<E>linear transform</E>@}  hay. 
+
+@{<E><HEAD2>Differential</HEAD2></E>@}  
+AmrA skule thAkte yakhan @{<M>[[dy][dx]]</M>@}  likhi, takhan AmAder balA hay ye @{<M>dy</M>@}  Ar @{<M>dx</M>@}  
+bale AlAdA kare kichhu hay nA. yadio @{<M>y=x^2</M>@}  hale AmrA aneksamaye @{<M>dy = 2x dx</M>@}  likhe thAki, kintu seTA 
+nitAntai @{<E>symbolically.</E>@}  kintu @{<E>differential</E>@}  @{<E>geometry</E>@}-r jagate @{<M>dy,</M>@}  @{<M>dx</M>@}  
+ityAdider satyii AlAdA as+titwa Achhe, eba.n @{<M>dy = 2x dx</M>@}  byApArTA moTei Ar kathAr kathA thAke nA. ebAr seTAi 
+shikhba.
+<P/>
+AmrA Ager a.nke ye @{<M>\phi</M>@}  Ar @{<M>\xi</M>@}  niye kAj karlAm, oderkei bale  @{<M>du</M>@}  Ar  @{<M>dv.</M>@}  ei 
+@{<E>notation</E>@}  byabahAr kare @{<E>cylinder</E>@}-er a.nkaTAke eibhAbe prakAsh karA yeta--
+<Q>
+oi @{<E>surface</E>@}-TAr janya  @{<M>((1,0,2), (0,4,3))</M>@}-te @{<M>du</M>@}  eba.n @{<M>dv</M>@}  bAr karo.
+</Q>
+ uttar hala @{<M>3</M>@}  Ar @{<M>4.</M>@}
+<P/>
+eiTuku AlochanA thekei abashya bojhA yAchchhe nA kena @{<M>dy = 2x dx</M>@}  lekhA yAy. tAr janya AmAder etxaNer AlochanATAke 
+ekTu @{<E>generalise</E>@}  
+ebAr dharA yAk @{<M>f:\rr^3\to\rr</M>@}  deoyA Achhe. AmAder @{<E>surface</E>@}-TA rayechhe @{<M>\rr^3</M>@}-er upare. er 
+kono ekTA @{<E>tangent vector</E>@}  nAo @{<M>(p,v)</M>@}  (yeman chhabiTAy ekTA dekhiyechhi). ebAr @{<M>p</M>@}  theke 
+shuru kare @{<M>v</M>@}  barAbar chalte thAko, mAne @{<M>t</M>@}  samaye tumi thAkbe @{<M>p+tv</M>@}-te. seikhAne @{<M>f</M>@}-er 
+mAn habe @{<M>f(p+tv).</M>@}  eke yadi @{<M>g(t)</M>@}  bali tabe @{<M>g'(0)</M>@}-ke bale @{<M>p</M>@}  bindute @{<M>v</M>@}  
+barAbar @{<M>f</M>@}-er @{<E>directional derivative.</E>@}  eiTA ekTA @{<E>1-form,</E>@}  yAke AmrA @{<M>df</M>@}  nAm dii. 
+
+
+</NOTE>

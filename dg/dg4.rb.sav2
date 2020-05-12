@@ -1,0 +1,39 @@
+ <NOTE>
+@{<M>
+\newcommand{\paru}[1]{\frac{\partial #1}{\partial u}}
+\newcommand{\parv}[1]{\frac{\partial #1}{\partial v}}
+</M>@}
+<HEAD1>@{<E>Coordinate system</E>@}</HEAD1>
+ekTA @{<E>surface</E>@}-er bibhinna bindute bibhinna @{<E>tangent plane</E>@}-er kathA shikhechhi. eTAo dekhechhi a.nker 
+bhASAy kI kare @{<M>(x(u,v), y(u,v), z(u,v))</M>@}  AkAre prakAsh karA @{<E>surface</E>@}-er theke
+ @{<M>(\paru x, \paru y, \paru z)</M>@}  eba.n  @{<M>(\parv x, \parv y, \parv z)</M>@}  ei dui @{<E>vector</E>@}  diye ei 
+@{<E>plane</E>@}-TA t\oirI karA yAy. mane rAkhA darkAr ye, ekTA @{<E>surface</E>@}-ke ekAdhikbhAbe @{<M>(x(u,v), y(u,v), z(u,v))</M>@}  
+AkAre lekhA yAy, yeman @{<E>origin</E>@}-er @{<E>centre</E>@}-oyAlA  @{<E>unit sphere</E>@}-ke ei
+ duibhAbe lekhA yAy (Aro anekbhAbeo yAy)--
+<UL><LI> @{<M>(\cos u\sin v, \cos u\cos v, \sin u)</M>@}  AkAre, yekhAne @{<M>(u,v)\in[*[ 0, [[\pi2]] ]*]\times [ 0, \pi ].</M>@}</LI>
+<LI>@{<M>(\cos u,\sin u\sin v, \sin u\cos v, \sin u)</M>@}  AkAre, yekhAne @{<M>(u,v)\in[*[ 0, [[\pi2]] ]*]\times [ 0, \pi ].</M>@}</LI></UL>
+yataxaN nA kono bindute sei jhAmelATA hachchhe (@{<E>vector</E>@}  duTo ekai lAine haye yAoyA),
+ tataxaN yebhAbei liki nA kenA @{<E>tangent plane</E>@}-TA sei ekai Asbe. sei arthe @{<E>tangent
+ plane</E>@}-TAr ekTA bAs+tab as+titwa Achhe. okhAne bAs karA mAnuSer anubhUtiTA farmulAr  sAmAnya itarbisheSer upar nirbhar 
+kare nA. kintu kIbhAbe farmulATAke lekhA hachchhe tAr upar bhitti kare ArekTA jinisao Thik karA
+ hay, yeTA nitAntai bAire theke Aropita. seTA hala sei @{<E>tangent plane</E>@}-r upar ekTA @{<E>coordinate system.</E>@}  
+arthA.t @{<E>tangent plane</E>@}-TAke ekTA grAf kAgaj bale bhAble tAr @{<E>axis</E>@}  duTo kIrakam neoyA habe. AmrA Agei 
+balechhi @{<E>origin</E>@}  thAkbe sei binduTAte. duTo @{<E>axis</E>@}  nir+bAchaner janya tinTe kAj karte habe, duTo lAin 
+nite habe, kon.h dikTA @{<E>positive</E>@}  neba Thik karte habe, Ar pratiTA @{<E>axis</E>@}  barAbar ekak d\oirghya kI 
+neba seTAo Thik karte habe. mane rAkhA darkAr ye, @{<E>axis</E>@}  duTor parasparer sange @{<E>right angle</E>@}-e thAkAr 
+kono darkAr nei. nIcher chhabite erA sakalei @{<E>coordinate system</E>@}--
+<CIMG web="coord1.png"/>
+eirakam ekTA @{<E>coordinate system</E>@}  nir+bAchaner kAjTA  AmrA @{<M>(x(u,v), y(u,v), z(u,v))</M>@}  AkAr theke kare 
+thAki. AmrA ye duTo @{<E>tangent vector</E>@}  peyechhilAm @{<M>(\paru x, \paru y, \paru z)</M>@}  Ar @{<M>(\parv x, \parv y, \parv z),</M>@}  
+oder lAin barAbarai AmrA @{<E>axis</E>@}  duTo nii, prathamTA barAbar @{<M>u</M>@}@{<E>-axis,</E>@}  Ar dwitIyaTA barAbar 
+@{<M>v</M>@}@{<E>-axis.</E>@}  Ar @{<E>vector</E>@}  duTor to abhimukh Achhei, seTA anuYAyIi
+ @{<E>positive</E>@}  dikTA nii. Ar @{<E>vector</E>@}  duTor d\oirghyakei nii sei sei @{<E>axis</E>@}  barAbar ekak d\oirghya. 
+mane rAkhA darkAr ye ei @{<E>coordinate system</E>@}  gANitikbhAbe subidhAjanak haleo, Asale kintu bAire theke Aropita, 
+@{<E>tangent plane</E>@}-r mata kono bAs+tab anubhUtir jinis nay. Thik yeman pAyer nIcher mATir dike tAkiye AmrA @{<E>latitude</E>@}  
+bA @{<E>longitude</E>@}  bujhte pAri nA, 
+prathame chaT.h kare mane kare nii, @{<E>linear transformation</E>@}  kAke bale.  
+prrithibIr bibhinna jAygAy bibhinna lok d,nARiye Achhe. Ami sabAikei ballAm ``b,nAdike @{<M>90^\circ</M>@}  ghure yAo!'' 
+sabAi sei ekai hukum tAmil karla. ``b,nAdike @{<M>90^\circ</M>@}  ghure yAoyA'' abashyai ekTA @{<E>linear transformation.</E>@}  
+kintu tAr mAne ki ei ye, sakalei ekai @{<E>linear transformation</E>@}  karla? 
+
+</NOTE>
