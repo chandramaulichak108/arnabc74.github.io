@@ -103,7 +103,36 @@ generalise  করব৷
 এবার আমাদের function-টা দুটো ইনপুট নেবে, $x$  আর $y.$  মানে $f(x,y)$  জাতীয় function  
 নিয়ে কাজ করব৷ গুছিয়ে বললে $f:{\mathbb R}^2\times{\mathbb R}^2\rightarrow{\mathbb R}.$  এক্ষেত্রে আর linear  চাই না, চাই $2$-linear,  
 অর্থাৎ যদি $x$  আর $y$-এর একটাকে স্থির রাখি, তবে অন্যজনের সাপেক্ষে
- linear  হতে হবে৷ 
+ linear  হতে হবে৷ কিছু উদাহরণ দেখলে বুঝতে সুবিধা হবে৷ 
+
+<p>
+<b>EXAMPLE:</b>&nbsp;
+ধরো $f:{\mathbb R}^2\times{\mathbb R}^2\rightarrow{\mathbb R}$  যেখানে $f(x,y) = 2x_1 -x_2 + y_1+y_2.$  এটা কি $2$-linear?
+<p></p>
+<b>SOLUTION:</b>যদি $x$-কে কোনো value-তে স্থির রাখি, যেমন যদি $x = \left[\begin{array}{ccccccccccc}1.3\\2.3
+\end{array}\right]$  হয়, তবে 
+কেবলমাত্র $y$-এর function  হিসেবে এটা হবে $y\mapsto 0.3-y_1+y_2.$  এটা মোটেই linear  
+নয়, কারণ যদি $y$-কে দ্বিগুণ করি, তবে ওই $0.3$-টা $0.3$-ই থেকে যাবে, মোটেই দ্বিগুণ হবে না৷ 
+অতএব এই $f(x,y)$-টা $2$-linear  হল না৷ 
+<img src="../image/box.png"></p>
+
+
+<p>
+<b>EXAMPLE:</b>&nbsp;
+এবার $f(x,y) = x_1y_2-x_2y_1$  নিলাম৷ এবার কি $2$-linear  হবে?
+<p></p>
+<b>SOLUTION:</b>
+যদি $x$-কে স্থির রাখি, তবে কেবলমাত্র $y$-এর function  হিসেবে হবে $y\mapsto x_1y_2-x_2y_1.$  
+যেহেতু এটা 
+<blockquote>constant$\times y_1 + $constant$\times y_2$</blockquote>
+চেহারার, তাই অবশ্যই $y$-র সাপেক্ষে linear.  
+<p></p>
+আবার যদি $y$-কে স্থির রাখি, তবে কেবলমাত্র $x$-এর function  হিসেবে এটা হবে $x\mapsto x_1y_2-x_2y_1.$  
+এটা 
+<blockquote>constant$\times x_1 + $constant$\times x_2$</blockquote>
+চেহারার৷ তাই $x$-এর সাপেক্ষেও linear.  সুতরাং এই $f(x,y)$-টা $2$-linear  হচ্ছে৷
+<img src="../image/box.png"></p>
+
 
 <p>
 <b>EXERCISE:</b>&nbsp;যদি $x = \left[\begin{array}{ccccccccccc}x_1\\x_2

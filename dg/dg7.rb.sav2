@@ -18,7 +18,29 @@ janyai @{<M>f(\alpha x+\beta y) = \alpha f(x) + \beta f(y)</M>@}  hate habe.
 ebAr AmAder @{<E>function</E>@}-TA duTo inpuT nebe, @{<M>x</M>@}  Ar @{<M>y.</M>@}  mAne @{<M>f(x,y)</M>@}  jAtIya @{<E>function</E>@}  
 niye kAj karba. guchhiye balle @{<M>f:\rr^2\times\rr^2\to\rr.</M>@}  exetre Ar @{<E>linear</E>@}  chAi nA, chAi @{<M>2</M>@}-@{<E>linear,</E>@}  
 arthA.t yadi @{<M>x</M>@}  Ar @{<M>y</M>@}-er ekTAke sthir rAkhi, tabe anyajaner sApexe
- @{<E>linear</E>@}  hate habe. 
+ @{<E>linear</E>@}  hate habe. kichhu udAharaN dekhle bujhte subidhA habe. 
+
+<EXM>
+dharo @{<M>f:\rr^2\times\rr^2\to\rr</M>@}  yekhAne @{<M>f(x,y) = 2x_1 -x_2 + y_1+y_2.</M>@}  eTA ki @{<E><M>2</M>-linear</E>@}?
+<SOLN/>yadi @{<M>x</M>@}-ke kono @{<E>value</E>@}-te sthir rAkhi, yeman yadi @{<M>x = <MAT>1.3\\2.3</MAT></M>@}  hay, tabe 
+kebalmAtra @{<M>y</M>@}-er @{<E>function</E>@}  hisebe eTA habe @{<M>y\mapsto 0.3-y_1+y_2.</M>@}  eTA moTei @{<E>linear</E>@}  
+nay, kAraN yadi @{<M>y</M>@}-ke dwiguN kari, tabe oi @{<M>0.3</M>@}-TA @{<M>0.3</M>@}-i theke yAbe, moTei dwiguN habe nA. 
+ataeb ei @{<M>f(x,y)</M>@}-TA @{<E><M>2</M>-linear</E>@}  hala nA. 
+</EXM>
+
+<EXM>
+ebAr @{<M>f(x,y) = x_1y_2-x_2y_1</M>@}  nilAm. ebAr ki @{<E><M>2</M>-linear</E>@}  habe?
+<SOLN/>
+yadi @{<M>x</M>@}-ke sthir rAkhi, tabe kebalmAtra @{<M>y</M>@}-er @{<E>function</E>@}  hisebe habe @{<M>y\mapsto x_1y_2-x_2y_1.</M>@}  
+yehetu eTA 
+<Q>@{<E>constant</E>@}@{<M>\times y_1 + </M>@}@{<E>constant</E>@}@{<M>\times y_2</M>@}</Q>
+chehArAr, tAi abashyai @{<M>y</M>@}-r sApexe @{<E>linear.</E>@}  
+<P/>
+AbAr yadi @{<M>y</M>@}-ke sthir rAkhi, tabe kebalmAtra @{<M>x</M>@}-er @{<E>function</E>@}  hisebe eTA habe @{<M>x\mapsto x_1y_2-x_2y_1.</M>@}  
+eTA 
+<Q>@{<E>constant</E>@}@{<M>\times x_1 + </M>@}@{<E>constant</E>@}@{<M>\times x_2</M>@}</Q>
+chehArAr. tAi @{<M>x</M>@}-er sApexeo @{<E>linear.</E>@}  sutarA.n ei @{<M>f(x,y)</M>@}-TA @{<E><M>2</M>-linear</E>@}  
+</EXM>
 
 <EXR>yadi @{<M>x = <MAT>x_1\\x_2</MAT></M>@}  Ar @{<M>y = <MAT>y_1\\y_2</MAT></M>@}  hay, tabe
  nIcher  @{<M>f(x,y)</M>@}-gulor madhye ke bA kArA @{<M>2</M>@}-@{<E>linear?</E>@}
@@ -117,6 +139,6 @@ yadi @{<M>n\geq k</M>@}  hay, tabe @{<M>A_{k,n}</M>@}  ekTA @{<E>vector space,</
 <PF>
 @{<E>Vector space</E>@}  ye habe seTA balAi bAhulya, kAraN @{<E>alternating</E>@}-der @{<E>linear combination</E>@}  AbAr 
 @{<E>alternating</E>@}-i hay. ekaibhAbe @{<E><M>k</M>-linear</E>@}-der @{<E>linear combination</E>@}-o fer @{<E><M>k</M>-linear</E>@}-i 
-hate bAdhya. pramANer sUxma jAygATA hala oi @{<E>dimension</E>@}-TA niye. 
+hate bAdhya. pramANer sUxma jAygATA hala oi @{<E>dimension</E>@}-TA niye. cheSTA karei dyAkho! 
 </PF>
 </NOTE>
