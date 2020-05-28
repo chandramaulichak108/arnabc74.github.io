@@ -13,7 +13,7 @@
 </M>
 
 <TITLE>Matrix algorithms</TITLE>
-<UPDT>WED MAR 04 IST 2020</UPDT>
+<UPDT>THU MAY 28 IST 2020</UPDT>
 <HEAD1>Matrix algorithms</HEAD1>
 <HEAD2>Gauss-Jordan elimination</HEAD2>
 We shall start with a few concepts already familiar to you. 
@@ -964,7 +964,65 @@ least squares solution. Your program must never compute any
 Householder matrix explicitly.
 </PROJ>
 
+<HEAD3>What if <M>A</M> is not full column rank?</HEAD3>
+You'll detect this during computation of the <M>QR</M>
+decomposition: 
+<Q>If <M>A</M> is not full column rank, then for some <M>k</M>,
+the <M>k</M>-th column of <M>A</M> will be in the span of the
+preceding columns. At that point, the norm of <M>\bu</M> will be
+zero. 
+</Q>
+There are two things you can do if you detect such a
+situation. 
+<UL>
+<LI>One is to take <M>I</M> in place of the Householder
+matrix for that step. This is natural, because if the entries are
+already zero, then there is no need to "shave" them further!
+</LI>
+<LI>However, if you aim is to compute an ONB of column space
+of <M>A</M>, or to compute least squares solution, then you
+should proceed differently. You should "throw away" those columns
+of <M>A</M> that are in the spans of the preceding columns.</LI>
+</UL>
+The following example illustrates both these approaches. 
 
+<EXM>
+Let's take 
+<D>
+A=<MAT>3 & 6 & 1\\4 & 8 & 3\\0&0&4</MAT>.
+</D>
+Clearly, <M>r(A) = 2.</M> The first step of the <M>QR</M>
+algorithm will go smoothly, converting <M>A</M> to 
+<D>
+<MAT>
+5 & 10 & *\\
+0 & 0 & *\\
+0 & 0 & *
+</MAT>.
+</D>
+In the second step we run into trouble. We are supposed to
+"shave" the two entries under the 10. But they are already
+zeroes. So the first approach will simply move on to the third
+step, and finally produce a <M>3\times 3</M> upper
+triangular <M>R.</M> This <M>R</M> will not help you much to get
+any least squares solution of a system <M>A\bx = \bb.</M>
+<P/>
+In the second approach, we shall throw away the second column to
+get:
+<D>
+<MAT>
+5 &  *\\
+0 &  *\\
+0 &  *
+</MAT>.
+</D>
+Then it will proceed to perform the second step again on this new
+matrix, i.e., the lowest <M>*</M> will get shaved. The output of
+this version of the <M>QR</M> algorithm is an <M>R</M> matrix of
+size  <M>3\times 2</M>. The top <M>2\times 2</M> portion is
+a <I>nonsingular</I>  upper triangular matrix, which will allow
+you to compute a least squares solution. 
+</EXM>
 <HEAD2>Eigenanalysis: power method</HEAD2>
 Let us start with the definition of eigenvalues and eigenvectors:
 

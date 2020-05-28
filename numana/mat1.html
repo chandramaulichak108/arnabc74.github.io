@@ -67,7 +67,7 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
       }
     }
   });
-</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
+</script><script type="text/javascript" src="https://www.isical.ac.in/~arnabc/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="../MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="../tools/htmlwidgets.js"></script>
 <link href="../tools/rgl.css" rel="stylesheet"></link>
 <script src="../tools/rglClass.src.js"></script>
 <script src="../tools/CanvasMatrix.src.js"></script>
@@ -107,6 +107,9 @@ $.getJSON("https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&ap
 <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="#Application to least squares">Application to least squares</a>
 </li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#What if $A$ is not full column rank?">What if $A$ is not full column rank?</a>
+</li>
 <li>&nbsp;&nbsp;&nbsp;
 <a href="#Eigenanalysis: power method">Eigenanalysis: power method</a>
 </li>
@@ -134,7 +137,7 @@ $
 <tr>
 <td align="right"><i>Last
 updated on:
-WED MAR 04 IST 2020</i></td>
+THU MAY 28 IST 2020</i></td>
 </tr>
 </table>
 
@@ -1304,6 +1307,73 @@ Householder matrix explicitly.
 <img src="../image/box.png"></p>
 
 
+<h3><a
+name="What if $A$ is not full column rank?">What if $A$ is not full column rank?</a></h3>
+You'll detect this during computation of the $QR$
+decomposition: 
+<blockquote>If $A$ is not full column rank, then for some $k$,
+the $k$-th column of $A$ will be in the span of the
+preceding columns. At that point, the norm of $\bu$ will be
+zero. 
+</blockquote>
+There are two things you can do if you detect such a
+situation. 
+<ul>
+
+<li>One is to take $I$ in place of the Householder
+matrix for that step. This is natural, because if the entries are
+already zero, then there is no need to "shave" them further!
+</li>
+
+<li>However, if you aim is to compute an ONB of column space
+of $A$, or to compute least squares solution, then you
+should proceed differently. You should "throw away" those columns
+of $A$ that are in the spans of the preceding columns.</li>
+
+</ul>
+The following example illustrates both these approaches. 
+
+<p>
+<b>EXAMPLE:</b>&nbsp;
+Let's take 
+$$
+A=\left[\begin{array}{ccccccccccc}3 &amp; 6 &amp; 1\\4 &amp; 8 &amp; 3\\0&amp;0&amp;4
+\end{array}\right].
+$$
+Clearly, $r(A) = 2.$ The first step of the $QR$
+algorithm will go smoothly, converting $A$ to 
+$$
+\left[\begin{array}{ccccccccccc}
+5 &amp; 10 &amp; *\\
+0 &amp; 0 &amp; *\\
+0 &amp; 0 &amp; *
+
+\end{array}\right].
+$$
+In the second step we run into trouble. We are supposed to
+"shave" the two entries under the 10. But they are already
+zeroes. So the first approach will simply move on to the third
+step, and finally produce a $3\times 3$ upper
+triangular $R.$ This $R$ will not help you much to get
+any least squares solution of a system $A\bx = \bb.$
+<p></p>
+In the second approach, we shall throw away the second column to
+get:
+$$
+\left[\begin{array}{ccccccccccc}
+5 &amp;  *\\
+0 &amp;  *\\
+0 &amp;  *
+
+\end{array}\right].
+$$
+Then it will proceed to perform the second step again on this new
+matrix, <i>i.e.</i>, the lowest $*$ will get shaved. The output of
+this version of the $QR$ algorithm is an $R$ matrix of
+size  $3\times 2$. The top $2\times 2$ portion is
+a <i>nonsingular</i>  upper triangular matrix, which will allow
+you to compute a least squares solution. 
+<img src="../image/box.png"></p>
 
 <h2><a
 name="Eigenanalysis: power method">Eigenanalysis: power method</a></h2>
