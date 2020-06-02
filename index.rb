@@ -50,7 +50,9 @@ in English, except four, which are in Bengali (marked with (beng)).
 <LI>Probability distributions: [
 <LINK to="https://drive.google.com/open?id=1IBZlQpn8CVdMlN1ojYQxZPtRTb7X024X">1 (beng)</LINK>
 |
-<LINK to="https://drive.google.com/open?id=1JIZflBKaHcLBw6m1-pdhN4RYzi9q_peP">2 (beng)</LINK>
+<LINK to="https://drive.google.com/open?id=1JIZflBKaHcLBw6m1-pdhN4RYzi9q_peP">2(beng)</LINK> 
+|
+<LINK to="https://drive.google.com/file/d/1yVUmWaOT56BEmBsKmRXOJ3SlSa2FXq5F/view?usp=sharing">3 (beng)</LINK>
 ]
 </LI>
 <LI>Riemann integration: [
